@@ -1,0 +1,403 @@
+<html>
+<head>
+<title>網頁換膚</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link id="myCss" href="css1.css" rel="stylesheet">
+<script language="javascript">
+//寫入Cookie
+function writeCookie(csspath){
+var today = new Date();
+var expires = new Date();
+expires.setTime(today.getTime() + 1000*60*60*24*30);     //有效期為30天
+var str="cssPath="+csspath+";expires=" + expires.toGMTString()+";" ;
+document.cookie=str;
+}
+</script>
+<script language="javascript">
+//讀取Cookie
+function readCookie(cookieName){
+	var search = cookieName + "=";
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search);
+		if (offset != -1) {
+			offset += search.length;
+			end = document.cookie.indexOf(";", offset);
+			if (end == -1){
+				end = document.cookie.length;
+				return unescape(document.cookie.substring(offset, end));
+			}
+		}
+	}
+}
+</script>
+<script language="javascript">
+function ifCookie(){
+	if(readCookie("cssPath")==undefined){
+		writeCookie("css1.css");
+	}
+	document.getElementById("myCss").href=readCookie("cssPath");
+}
+</script>
+<script language="javascript">
+function change(myCss,csspath){
+	writeCookie(csspath);
+	document.getElementById(myCss).href=readCookie("cssPath");
+}
+</script>
+
+</head>
+<body leftmargin="0" topmargin="0" onLoad="ifCookie();"> 
+<div id=menuDiv style='Z-INDEX: 1000; VISIBILITY: hidden; WIDTH: 1px; POSITION: absolute; HEIGHT: 1px; BACKGROUND-COLOR: #ffffff'></div> 
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0" class="table-zuoyou"> 
+  <tr> 
+    <td height="70" align="right" bordercolor="#FFFFFF">
+      <div align="center"> 
+        <table width="490" border="0" cellpadding="0" cellspacing="0" class="table-zuoshang"> 
+          <tr align="center"> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">購物推車</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">我的帳戶</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">幫助中心</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">聯繫我們</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">匯款模式</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">登出登出</a></div></td> 
+            <td width="70" class="table-xiayou"><a href="#" >使用者反饋</a></td> 
+          </tr> 
+          <tr align="center"> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">商城首頁</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">關於我們</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">新品上架</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">特價商品</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">商品專題</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"> <div align="center"><a href="#">新聞中心</a></div></td> 
+            <td width="70" height="21" class="table-xiayou"><a href="#">客戶留言</a></td> 
+          </tr> 
+        </table> 
+    </div></td> 
+  </tr> 
+  <tr> 
+    <td height="3" colspan="2" bgcolor="#FFFFFF" bordercolor="#FFFFFF"></td> 
+  </tr> 
+</table> 
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0"  class="table-zuoyou"> 
+  <tr> 
+    <td valign="top" width="180">
+      <table width="100%" class="table-shangxia" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td height="23"  class="a1">　會員登錄</td> 
+        </tr> 
+      </table> 
+      <table width=100% border=0 align=center cellpadding=0 cellspacing=0> 
+        <tr> 
+          <td height=41 > <div align=center> 
+              <table width="95%" border="0" cellspacing="1" cellpadding="1" align="center"> 
+                <form name="userlogin" method="post" action=""> 
+                  <tr> 
+                    <td align="center" height="22"><font color="#999999">顧客您好，購買商品請先登入</font></td> 
+                  </tr> 
+                  <tr> 
+                    <td align="center"> <table align="center" cellpadding="0" cellspacing="2" border="0"> 
+                        <tr valign="middle"> 
+                          <td height="20" align="center">名&nbsp; 稱&nbsp; </td> 
+                          <td> <div align="left"> 
+                              <input name="username" type="text" class="wenbenkuang" id="username" size="12" maxlength="12"> 
+                            </div></td> 
+                        </tr> 
+                        <tr valign="middle"> 
+                          <td align="center">密&nbsp; 碼&nbsp; </td> 
+                          <td> <div align="left"> 
+                              <input name="userpassword" type="password" class="wenbenkuang" id="userpassword" size="12" maxlength="12"> 
+                            </div></td> 
+                        </tr> 
+                        <tr valign="middle"> 
+                          <td align="center">驗證碼&nbsp; </td> 
+                          <td> <input name="yz" type="password" class="wenbenkuang" id="yz" size="7" maxlength="5"> 
+                            <span style="background-color: #FFFFFF"><font color="#ff3333">5912</font></span> </td> 
+                        </tr> 
+                        <tr valign="middle"> 
+                          <td colspan="2" align="center"> <input name="Submit" type="submit"value="登入" class="button"> 
+                            <input name="Submit2" type="reset" value="登錄" class="button"> 
+                            <input name="Submit3" type="button" class="button" value="忘密"> </td> 
+                        </tr> 
+                      </table></td> 
+                  </tr> 
+                </form> 
+              </table> 
+            </div></td> 
+        </tr> 
+      </table> 
+      <table width="100%" class="table-shangxia" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td height="23"   class="a1">　商品分類別</td> 
+        </tr> 
+      </table> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td> <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0"> 
+              <tr> 
+                <td height="6"></td> 
+              </tr> 
+              <tr> 
+                <td height="20">
+                  <table width=100% cellspacing="0" cellpadding="0" border="0"> 
+                    <tr> 
+                      <td colspan=2 height="22"><font color="#990000">　</font>影視音樂</td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">港台影劇</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">韓國影劇</a></td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">日本影劇</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">歐美大片</a></td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">大陸影劇</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">外語原音</a></td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">武俠古裝</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">喜劇搞笑</a></td> 
+                    </tr> 
+                  </table> 
+                  </div> 
+                  <table width=100% cellspacing="0" cellpadding="0" border="0"> 
+                    <tr> 
+                      <td colspan=2 height="22"><font color="#990000">　</font>精品圖書</td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">電腦類別</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">英語外語</a></td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">教材教輔</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">經濟管理</a></td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">時尚文學</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">兒童讀物</a></td> 
+                    </tr> 
+                  </table> 
+                  </div> 
+                  <table width=100% cellspacing="0" cellpadding="0" border="0"> 
+                    <tr> 
+                      <td colspan=2 height="22"><font color="#990000">　</font>IT數碼</td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">數碼相機</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">電腦裝置</a></td> 
+                    </tr> 
+                  </table> 
+                  </div> 
+                  <table width=100% cellspacing="0" cellpadding="0" border="0"> 
+                    <tr> 
+                      <td colspan=2 height="22"><font color="#990000">　</font>禮品玩具</td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">瑞士刀</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">模擬模型</a></td> 
+                    </tr> 
+                    <tr> 
+                      <td align=right width=49% height="22" class="table-xia"><a href="#">奇趣玩具</a></td> 
+                      <td align=left width=51% height="22" class="table-xia">&nbsp;<font color="#666666">|</font>&nbsp;<a href="#">手機飾品</a></td> 
+                    </tr> 
+                  </table> 
+                  </div> </div>
+                </td>
+              </tr> 
+              <tr> 
+                <td></td> 
+              </tr> 
+              <tr> 
+                <td height="1"></td> 
+              </tr> 
+              <tr> 
+                <td height="1"></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table> 
+    </td>
+    <td width="400" valign="top" bordercolor="#FFFFFF" class="table-zuoyou"> 
+    <div align="center"> 
+    <table width="100%" class="table-shangxia" border="0" cellspacing="0" cellpadding="0"> 
+      <tr> 
+        <td height="23">　 自選風格：<a href="#" onClick="change('myCss','css1.css')">[秋葉飄香/經典]</a>
+		<a href="#" onClick="change('myCss','css.css')">[灰色暢想/舒暢]</a>
+		</td> 
+      </tr> 
+    </table> 
+    <table width="100%" class="table-shangxia" border="0" cellspacing="0" cellpadding="0"> 
+      <tr> 
+        <td height="23"  class="a1">　<b><font color="#FF9900">精品熱賣&gt;&gt;&gt;</font></b></td> 
+      </tr> 
+    </table> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"> </table> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="2" align="center"> 
+      <tr> 
+        <td rowspan="4" width="30%" class="table-xia"> <div align=center><img src="none.gif" width="100" height="120"></div></td> 
+        <td width="70%"><a href="#"><font color="#990000">英語資料一</font></a></td> 
+      </tr> <tr> 
+        <td width="70%">市場價：<s><font color=red>120</font></s>元 會員價：<font color=red>100</font>元 VIP價：<font color=red>90</font>元</td> 
+      </tr> 
+      <tr> 
+        <td width="70%">&nbsp;&nbsp;
+          <input name="Submit4" type="button" class="button" value="收藏">　
+          <input name="Submit5" type="button" class="button" value="購買"></td> 
+      </tr> 
+      <tr> 
+        <td width="70%" class="table-xia"> <font color="#999999">&nbsp; </font></td> 
+      </tr> 
+    </table> 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="2" align="center"> 
+      <tr> 
+        <td rowspan="4" width="30%" class="table-xia"> <div align="center"> 
+            <table width="99" border="0" cellspacing="0" cellpadding="0" height="99"> 
+              <tr> 
+                <td> <div align="center"><img src="none.gif" width="100" height="120"></div></td> 
+                </tr> 
+            </table> 
+          </div></td> 
+        <td width="70%"><a href="#"><font color="#990000">MP3－精選專輯（111首歌曲）</font></a></td> 
+      </tr> 
+      <tr> 
+        <td width="70%">市場價：<s><font color=red>28</font></s>元 會員價：<font color=red>20</font>元 VIP價：<font color=red>10</font>元</td> 
+      </tr> 
+      <tr> 
+        <td width="70%">&nbsp;&nbsp;
+          <input name="Submit42" type="button" class="button" value="收藏">
+          　
+          <input name="Submit52" type="button" class="button" value="購買"></td> 
+      </tr> 
+      <tr> 
+        <td width="70%" class="table-xia"> <font color="#999999"> 經典.... </font></td> 
+      </tr> 
+    </table> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="2" align="center"> 
+      <tr> 
+        <td rowspan="4" width="30%" class="table-xia"> <div align="center"> 
+            <table width="99" border="0" cellspacing="0" cellpadding="0" height="99"> 
+              <tr> 
+                <td> <div align="center"><a href="#"><img src="none.gif"  width=100 border=0 height="120"></a></div></td> 
+              </tr> 
+            </table> 
+          </div></td> 
+        <td width="70%"><a href="#"><font color="#990000">MP3流行寶典（最精彩作品）</font></a></td> 
+      </tr> 
+      <tr> 
+        <td width="70%">市場價：<s><font color=red>28</font></s>元 會員價：<font color=red>20</font>元 VIP價：<font color=red>11</font>元</td> 
+      </tr> 
+      <tr> 
+        <td width="70%">&nbsp;&nbsp;
+          <input name="Submit43" type="button" class="button" value="收藏">
+          　
+          <input name="Submit53" type="button" class="button" value="購買">
+        </td> 
+      </tr> 
+      <tr> 
+        <td width="70%" class="table-xia"> <font color="#999999"> 她把想說的話都放在了歌裡面.... </font></td> 
+      </tr> 
+    </table> 
+    </div>    </td> 
+    <td width="180" valign="top"> <table width="100%" class="table-shangxia" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td height="23"  class="a1">商城動態...</td> 
+        </tr> 
+      </table> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" height="56"> 
+        <tr> 
+          <td> <table width="100%" border="0" cellspacing="0" cellpadding="0" height="22"> 
+              <tr> 
+                <td width="6%" height="22" class="table-xia">&nbsp;</td> 
+                <td width="94%" height="22">・ <a href="#">購物程式新增功能說明</a><br> 
+                </font></td> 
+              </tr> 
+              <tr> 
+                <td width="6%" height="22" class="table-xia">&nbsp;</td> 
+                <td width="94%" height="22">・ <a href="#">購買匯款與聯繫模式</a><br> 
+                </font></td> 
+              </tr> 
+              <tr> 
+                <td width="6%" height="22" class="table-xia">&nbsp;</td> 
+                <td width="94%" height="22">・ <a href="#">商業購物程式套餐專案</a><br> 
+                </font></td> 
+              </tr> 
+              <tr> 
+                <td width="6%" height="22" class="table-xia">&nbsp;</td> 
+                <td width="94%" height="22">・ <a href="#">購物系統價格套餐</a><br> 
+                </font></td> 
+              </tr> 
+              <tr> 
+                <td width="6%" height="22" class="table-xia">&nbsp;</td> 
+                <td width="94%" height="22">・ <a href="#">本站定制各類別程式系統</a><br> 
+                </font></td> 
+              </tr> 
+              <tr> 
+                <td width="6%" height="22" class="table-xia">&nbsp;</td> 
+                <td width="94%" height="22">・<a href="#">豪華商業版本購物程....</a><br> 
+            </table></td> 
+        </tr> 
+      </table> 
+      <table width="100%" class="table-shangxia" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td height="23"  class="a1">　銷售排行...</td> 
+        </tr> 
+      </table> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td> <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0"> 
+              <tr> 
+                <td height="2"></td> 
+              </tr> 
+              <tr> 
+                <td height="10"> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia"> ・ <a href=# title=此商品已成功銷售56次>絕地*****...</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia"> ・ <a href=# title=此商品已成功銷售56次>英語資料一</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia"> ・ <a href=# title=此商品已成功銷售35次>MP3－精選專輯...</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia"> ・ <a href=# title=此商品已成功銷售17次>最新專輯:《不...</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia"> ・ <a href=# title=此商品已成功銷售16次>動感購物系統　（豪華...</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia"> ・ <a href=# title=此商品已成功銷售7次>MP3流行寶典－林...</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia"> ・ <a href=# title=此商品已成功銷售3次>專輯《Ja...</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia">・ <a href=# title=此商品已成功銷售3次>大區塊頭有大智慧DVD...</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="22" class="table-xia">・ <a href=# title=此商品已成功銷售2次>高飛***（CD）</a> </td> 
+              </tr> 
+              <tr> 
+                <td height="1" ></td> 
+              </tr> 
+            </table> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" height="10"> 
+              <tr> 
+                <td></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table> 
+    </td>
+  </tr> 
+</table> 
+<table width="752" border="0" align="center" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td width="745"><div align="center">客戶服務中心信箱：<a href=#>mingrisoft@mingrisoft.com</a>&nbsp;&nbsp;&nbsp;客戶服務中心熱線直撥：0000000000&nbsp;&nbsp;&nbsp;<br> 
+        公司位址：吉林省明日科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;郵政解碼：130000&nbsp;&nbsp;&nbsp;</td> 
+  </tr> 
+</table> 
+</body>
+</html>

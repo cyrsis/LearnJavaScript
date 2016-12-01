@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>狀態列中的文字依次出現</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<script language="JavaScript">
+	var text  = "  歡迎來到明日科技主頁，  請您提出寶貴意見！    " ;
+	var Timer = 200;
+	var getlen=0;
+	function Scroll() 
+	{
+	window.status = "";
+	var len = text.length;
+	window.status = text.substring(0, getlen+1);
+	getlen++;
+	if ( getlen >= len ) 
+	{ 
+	getlen = 0; 
+	window.status = '';
+	window.setTimeout("Scroll();", Timer );
+	}
+	else
+	window.setTimeout("Scroll();", Timer );
+	} 
+	Scroll();
+</script>
+<body >
+<center>
+<table width="805" height="512" border="0">
+  <tr>
+    <td width="799" height="508" background="Images/backgroup.jpg">&nbsp;</td>
+  </tr>
+</table>
+</center>
+</body>
+</html>

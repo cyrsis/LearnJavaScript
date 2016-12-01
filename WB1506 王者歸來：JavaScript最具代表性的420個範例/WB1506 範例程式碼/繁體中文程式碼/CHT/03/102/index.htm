@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>將RGB格式的彩色值轉為十六進位格式</title>
+<link href="style.css" rel="stylesheet">
+</head>
+<script language="javascript">
+function deal(){
+	form1.lastStr.value=convert(form1.str1.value,form1.str2.value,form1.str3.value);
+}
+</script>
+<script language="javascript">
+function formatNO(str,len){     //將數字字串格式化為指定長度
+	var strLen=str.length;
+	for(i=0;i<len-strLen;i++){
+		str="0"+str;
+	}
+	return str;
+}
+</script>
+<script language="javascript">
+function convert(r,g,b){
+	if(isNaN(r)|| 255-r<0 ){
+		r=0;
+	}
+	if(isNaN(g)|| 255-g<0 ){
+		g=0;
+	}	
+	if(isNaN(b)|| 255-b<0 ){
+		b=0;
+	}	
+	var hr=formatNO(parseInt(r).toString(16),2);
+	var hg=formatNO(parseInt(g).toString(16),2);
+	var hb=formatNO(parseInt(b).toString(16),2);
+	var result="#"+hr+hg+hb;
+	return result;
+}
+</script>
+<script language="javascript">
+function check(obj){
+	var Expression=/^[0-9]+(\d*$)/; 	
+	var objExp=new RegExp(Expression);
+	if(objExp.test(obj.value)==false || 255-obj.value<0 ){
+		alert('要求輸入0-255之間的整數!');
+		obj.focus();
+	}
+}
+</script>
+<body>
+<form action="" name="form1" method="post">
+<table width="461" height="216" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="513" background="images/bg.gif"><table width="340" height="182" border="0" align="right" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="29">&nbsp;</td>
+        <td >請輸入要轉換的RGB彩色值：</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td valign="middle">R：
+          <input name="str1" type="text" value="0" size="4" maxlength="3" onBlur="check(this)">
+          G：
+          <input name="str2" type="text" value="0" size="4" maxlength="3" onBlur="check(this)">
+B：
+          <input name="str3" type="text" value="0" size="4" maxlength="3" onBlur="check(this)"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td >格式化後的十六進位的彩色值：<br>
+          <br>
+          <input name="lastStr" type="text" readonly="yes" value=""></td>
+      </tr>
+      <tr>
+        <td width="50">&nbsp;</td>
+        <td width="319"><input name="Submit" type="button" class="btn_grey" onClick="deal();" value="轉換">
+          &nbsp;
+          <input name="Submit2" type="button" class="btn_grey" onClick="window.location.reload()" value="更新"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

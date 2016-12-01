@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>文字伸縮</title>
+</head>
+
+<body onLoad="magnify()">
+<script language="javaScript">
+var size=0;
+var step=1;
+var maxsize=50;
+var str="明日科技圖書";
+function magnify() {	
+	if (parseInt(Tdiv.style.fontSize)<0) {step=1; size=0}		
+	if (parseInt(Tdiv.style.fontSize) < maxsize) {
+		Tdiv.innerHTML=str;
+		step++;
+		Tdiv.style.fontSize=parseInt(Tdiv.style.fontSize)+step;
+		var timer=setTimeout("magnify()",50);
+	}
+	else {
+		clearTimeout(timer);
+		var intermezzo=setTimeout("reduce()",1000);
+	}
+}
+function reduce() {	
+	if (parseInt(Tdiv.style.fontSize) > -0) {
+		Tdiv.innerHTML=str;
+		if (step >= 2) {step=step-1} else{step=1}
+		Tdiv.style.fontSize=parseInt(Tdiv.style.fontSize)-step;
+		setTimeout("reduce()",50);
+	}
+	else setTimeout("magnify()",1000);
+}
+</script>
+<span id="Tdiv" style='font-family:宋體; position:absolute; font-size:1px;color:#003399'></span>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>隨機顯示文字</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<div id="div1"></div>
+<script language="javascript">
+var arr=new Array("今日新聞:<BR>明日科技又出新書了.","今日新聞:<BR>明日科技網站為:www.mingrisoft.com","今日新聞:<BR>明日科技歡迎您.","今日新聞:<BR>明日科技圖書是您研讀的好幫手."); 
+div1.style.backgroundColor="#CCFF00";
+div1.style.width="200px";
+div1.style.height="130px";
+div1.style.visibility="hidden";
+div1.style.position="absolute"
+function text(){
+	var n=Math.floor(Math.random()*3);
+	div1.style.visibility="visible";
+	div1.innerHTML="<BR>"+arr[n];
+	div1.style.width="200px";
+	div1.style.height="130px";
+}
+setInterval("text()",2000);
+</script>
+</body>
+</html>

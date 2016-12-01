@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>主頁面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<script language="javascript">
+function pp(){
+	var obj;
+	var name=window.showModalDialog("bury.htm","下載頁面","dialogHeight:5px;dialogWidth:430px;dialogLeft:"+Math.floor((window.screen.availWidth)*0.5)+"px;dialogTop:"+Math.floor((window.screen.availHeight)*0.8)+"px;center:no;help:no;status:no;scroll:no");
+	if (name=="t"){window.status="下載成功"}
+	else{window.status="下載失敗"}
+}
+</script> 
+<font id="a1" onclick="pp()" onMouseMove="a1.style.color='#AA66CC'" onMouseOut="a1.style.color='#000000'"><u>下載</u></font>
+</body>
+</html>

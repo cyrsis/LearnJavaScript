@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>在下拉清單中進行多選移除</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+.wenbenkuang {
+	font-family: "宋體";
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+}
+</style>
+</head>
+<body style="font-size:12px">
+<form name="form1" method="post" action="">
+<table width="380" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="150"><table width="150" border="0" cellpadding="1" cellspacing="1" bgcolor="#CAFAFC">
+      <tr>
+        <td height="25" background="images/bg.jpg" bgcolor="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作地區1</td>
+      </tr>
+      <tr>
+        <td align="center" bgcolor="#FFFFFF"><select name="sel_place1" size="6" multiple class="wenbenkuang" id="sel_place1" style="width:100px " >
+          <option value="sel1">甘肅省</option>
+          <option value="sel2">遼寧省</option>
+          <option value="sel3">黑龍江省</option>
+          <option value="sel4">吉林省</option>
+          <option value="sel5">浙江省</option>
+        </select></td>
+      </tr>
+    </table></td>
+    <td width="80" align="center" valign="bottom"><input name="sure1" type="button" id="sure1"
+  onClick="allsel(document.form1.sel_place2,document.form1.sel_place1);" value="<<">
+  &nbsp;
+  <input name="sure2" type="button" id="sure2"
+  onClick="allsel(document.form1.sel_place1,document.form1.sel_place2);" value=">>" align="center" height="2"></td>
+    <td width="150"><table width="150" border="0" cellpadding="1" cellspacing="1" bgcolor="#CAFAFC">
+      <tr>
+        <td height="25" background="images/bg.jpg" bgcolor="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作地區2</td>
+      </tr>
+      <tr>
+        <td align="center" bgcolor="#FFFFFF"><select name="sel_place2" size="6" multiple class="wenbenkuang" id="sel_place2" style="width:100px ">
+            </select></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+<script language="javascript">
+function allsel(n1,n2)
+{
+  while(n1.selectedIndex!=-1)
+  {
+  	var indx=n1.selectedIndex;
+  	var t=n1.options[indx].text;
+  	n2.options.add(new Option(t));
+  	n1.remove(indx);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<table id="table1" width="200" border="0" cellpadding="1" cellspacing="1" bordercolor="#000000" bgcolor="#000000">
+  <tr bgcolor="#FFFFFF">
+    <td>&nbsp;</td>
+    <td>產品名稱</td>
+    <td>進出口</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td>2000年</td>
+    <td>葡萄</td>
+    <td>出口</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td>2002年</td>
+    <td>山查</td>
+    <td>出口</td>
+  </tr>
+</table>
+<script language="javascript">
+var lastSelection = null;
+function select(element) {
+	var e, r, c;
+	if (element == null){e = event.srcElement;}		//取得body元素的原始記錄
+	else {  e = element;  }
+	if (e.tagName == "TD"){
+		c = findCell(e);
+		if (c != null) {
+			if (lastSelection != null) {deselectRowOrCell(window.lastSelection);}
+			selectRowOrCell(c); 
+			lastSelection = c;
+		} 
+	}
+	window.event.cancelBubble = true;	//取消反昇敘述,用於防止向下一個外層物件反昇
+} 
+table1.onclick=select;
+function findCell(e) {
+	if (e.tagName == "TD") {return e;}
+	else if (e.tagName == "BODY") {return null;} 
+		else{return findCell(e.parentElement);}  
+}
+function selectRowOrCell(r) {
+	r.runtimeStyle.backgroundColor="darkblue";
+	r.runtimeStyle.color="white";
+}
+function deselectRowOrCell(r) { 
+	r.runtimeStyle.backgroundColor = "";
+	r.runtimeStyle.color = "";
+}
+</script>
+</body>
+</html>

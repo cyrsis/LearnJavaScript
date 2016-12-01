@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>使用XML DOM物件讀取XML檔案</title>
+<script language="javascript">
+function readXML() {
+	var url = "goodss.xml";
+	if(window.ActiveXObject) {      //IE
+		var xmldoc = new ActiveXObject("Microsoft.XMLDOM");
+		xmldoc.onreadystatechange = function() {
+			if(xmldoc.readyState == 4) createTable(xmldoc);
+		}
+		xmldoc.load(url);
+	}
+	else if(document.implementation&&document.implementation.createDocument) {   // Mozilla......
+		var xmldoc = document.implementation.createDocument("", "", null);
+			xmldoc.onload=function(){
+			xmldoc.onload =  createTable(xmldoc);
+		}
+		xmldoc.load(url);
+	}
+}
+</script>
+<script language="javascript">
+function createTable(xmldoc) {
+	var table = document.createElement("table");
+	table.setAttribute("width","100%");
+	table.setAttribute("border","1");
+	table.borderColor="#FFFFFF";
+	table.cellSpacing="0";	
+	table.cellpadding="0";		
+	table.borderColorDark="#FFFFFF";
+	table.borderColorLight="#AAAAAA";	
+	parentTd.appendChild(table);     //在指定位置建立表格
+	var header = table.createTHead();
+	header.bgColor="#EEEEEE";  //設定標頭背景
+	var headerrow = header.insertRow(0);
+	headerrow.height="27";  //設定標頭高度
+	headerrow.insertCell(0).appendChild(document.createTextNode("商品名稱"));
+	headerrow.insertCell(1).appendChild(document.createTextNode("類別別"));
+	headerrow.insertCell(2).appendChild(document.createTextNode("單位"));
+	headerrow.insertCell(3).appendChild(document.createTextNode("單價"));
+	var goodss = xmldoc.getElementsByTagName("goods");
+	for(var i=0;i<goodss.length;i++) {
+		var g = goodss[i];
+		var name = g.getAttribute("name");
+		var type = g.getElementsByTagName("type")[0].firstChild.data;
+		var goodsunit = g.getElementsByTagName("goodsunit")[0].firstChild.data;
+		var price = g.getElementsByTagName("price")[0].firstChild.data;
+		var row = table.insertRow(i+1);
+		row.height="27";     //設定行高
+		row.insertCell(0).appendChild(document.createTextNode(name));
+		row.insertCell(1).appendChild(document.createTextNode(type));
+		row.insertCell(2).appendChild(document.createTextNode(goodsunit));
+		row.insertCell(3).appendChild(document.createTextNode(price));
+	}
+}
+</script>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onLoad="readXML()">
+<table width="777" height="482"  border="0" align="center" cellpadding="0" cellspacing="0" background="Images/bg.jpg">
+  <tr>
+    <td width="204" height="229" valign="top">&nbsp;</td>
+    <td width="551" height="229" valign="top">&nbsp;</td>
+    <td width="22" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="204" height="253" valign="top">&nbsp;</td>
+    <td valign="top" id="parentTd">&nbsp;</td>
+    <td width="22" valign="top">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

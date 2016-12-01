@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>將IP位址轉為對應的數值</title>
+<link href="style.css" rel="stylesheet">
+</head>
+<script language="javaScript">
+function deal(myform){
+	var ip=form1.ip.value;
+	objExp=/(\d+).(\d+).(\d+).(\d+)/;
+	if(ip==""){
+		alert("請輸入IP位址!");form1.ip.focus();return;
+	}
+	if(objExp.test(ip)){
+		myform.ipNum.value=convert(ip);
+	}else{
+		alert("您輸入的IP位址非法!");form1.ip.focus();return;
+	}
+}
+</script>
+<script language="javaScript">
+function convert(ip){
+	ip=ip.split(".");
+	vip=ip[0]*255*255*255+ip[1]*255*255+ip[2]*255+ip[3]*1;
+	return vip;
+}
+</script>
+
+<body>
+<form action="" name="form1" method="post">
+<table width="461" height="216" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="513" background="images/bg.gif"><table width="340" height="202" border="0" align="right" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="70">&nbsp;</td>
+        <td>請輸入IP位址：<br>
+          <br>
+          <input name="ip" type="text" id="ip" size="17" maxlength="15" />
+          (格式為：XXX.XXX.XXX.XXX)</td>
+      </tr>
+      <tr>
+        <td height="70">&nbsp;</td>
+        <td valign="middle">對應的數值：<br>        
+          <br>
+          <input name="ipNum" type="text" id="ipNum" size="42" maxlength="15" readonly="yes" /></td>
+      </tr>
+      
+      <tr>
+        <td width="50">&nbsp;</td>
+        <td width="319"><input name="Button" type="button" class="btn_grey" onClick="deal(form1)" value="轉換" />          </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

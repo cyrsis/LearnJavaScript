@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>文字的展開與收縮</title>
+</head>
+
+<body>
+<center>
+<table width="783" height="508" border="0">
+  <tr>
+    <td width="777" height="504" background="Images/backgroup.jpg">&nbsp;</td>
+  </tr>
+</table>
+</center>
+<Script language=JavaScript> 
+var text1="歡迎存取明日科技主頁：www.mingrisoft.com";
+comeback=0; 
+cometo=0; 
+function dis(){ 
+window.status=text1.substring(0,cometo); 
+if(comeback==1){ 
+	cometo--; 
+	if(cometo==0){comeback=0} 
+}
+else {cometo++;if(cometo==text1.length){comeback=1}} 
+window.status=text1.substring(0,cometo)+"(^O^)";
+if(cometo==text1.length){window.setTimeout("dis()",1000)}
+else {window.setTimeout("dis()",50)} 
+} 
+dis(); 
+</Script>
+
+</body>
+</html>

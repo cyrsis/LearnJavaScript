@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>在清單中選取圖片</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<script language="javascript">
+function showico()
+{
+	document.form1.img.src = "Images/"+document.form1.selectICO.selectedIndex+".gif";
+}
+</script>
+<body background="temp.JPG">
+<form name="form1" method="post" action="">
+  <p align="center">
+  <table width="289" height="357" border="1" align="center" cellpadding="4" cellspacing="2" bordercolor="#FF00FF">
+    <tr>
+      <td width="88">姓名：</td>
+      <td width="191"><div align="left">
+        <input type="text" name="textfield">
+      </div></td>
+    </tr>
+    <tr>
+      <td>性別：</td>
+      <td>
+        <div align="left">
+          <input name="radiobutton" type="radio" value="radiobutton">
+        男
+          <input name="radiobutton" type="radio" value="radiobutton">
+        女</div></td>
+    </tr>
+    <tr>
+      <td>使用者暱稱：</td>
+      <td><div align="left">
+        <input name="textfield2" type="text" id="textfield2">
+      </div></td>
+    </tr>
+    <tr>
+      <td>QQ號碼：</td>
+      <td><div align="left">
+        <input name="textfield3" type="text" id="textfield3">
+      </div></td>
+    </tr>
+    <tr>
+      <td height="32">E_Mail：</td>
+      <td><div align="left">
+        <input name="textfield4" type="text" id="textfield4">
+      </div></td>
+    </tr>
+    <tr>
+      <td height="26" colspan="2"><table width="99%" height="135"  border="1" align="center" cellpadding="4" cellspacing="2" bordercolor="#6633FF" bgcolor="#FFFFFF">
+        <tr>
+          <td><img src="Images/1.gif" name="img" width="60" height="60" border="1"></td>
+        </tr>
+        <tr>
+          <td>請選取顯示圖示：
+              <select name="selectICO" size="1" id="selectICO" onChange="showico();">
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+            </select></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td height="26" colspan="2"><input type="button" name="Button" value="傳送" onClick="javascrtipt:alert('傳送成功！');">
+      <input type="button" name="Submit2" value="取消"></td>
+    </tr>
+  </table>
+  <p align="center">&nbsp;    </p>
+</form>
+</body>
+</html>

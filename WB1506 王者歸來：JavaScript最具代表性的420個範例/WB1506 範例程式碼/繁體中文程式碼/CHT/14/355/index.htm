@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>用JavaScript控制XML文件的分頁顯示</title>
+<style>
+td{ font-size:12px;}
+a:hover {
+	font-size: 9pt;	color: #FF0000;
+}
+a {
+	font-size: 9pt;	text-decoration: none;	color: #3C404D;
+}
+</style>
+<script type="text/javascript">
+function moveNext(){
+	x=d.recordset
+	if (x.absoluteposition < x.recordcount){
+		x.movenext()
+	}
+}
+function movePrevious(){
+	x=d.recordset
+	if (x.absoluteposition > 1){
+		x.moveprevious()
+	}
+}
+</script>
+</head>
+
+<body>
+
+<table width="766" height="454" border="0" align="center" cellpadding="0" cellspacing="0" background="images/bg.jpg">
+  <tr>
+    <td width="65" height="220" valign="top">&nbsp;</td>
+    <td width="648" valign="top">&nbsp;</td>
+    <td width="53" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="109" valign="top">&nbsp;</td>
+    <td valign="top">
+    <xml id="d" src="doc.xml" async="false"></xml>	
+	<table width="90%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF"
+	 bordercolordark="#FFFFFF" bordercolorlight="#999999">
+      <tr>
+        <td height="25" colspan="2">部落格ID號：<span datasrc="#d" datafld="id"></span></td>
+        <td width="35%">作者：<span datasrc="#d" datafld="author"></span></td>
+        <td width="43%">發表日期：<span datasrc="#d" datafld="datetime"></span></td>
+      </tr>
+      <tr>
+        <td height="25" colspan="4">部落格主旨：<span datasrc="#d" datafld="topic"></span></td>
+      </tr>
+  	  <tr>
+        <td width="11%" height="25">文章內容</td>
+        <td height="25" colspan="3"><span datasrc="#d" datafld="content"></span></td>
+      </tr>
+	</table>
+</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="33" valign="top">&nbsp;</td>
+    <td align="right" valign="bottom"><a href="#" onClick="movePrevious()">上一篇</a>&nbsp;<a href="#" onClick="moveNext()">下一篇</a></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

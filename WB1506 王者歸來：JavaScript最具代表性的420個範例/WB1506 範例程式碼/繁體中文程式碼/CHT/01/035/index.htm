@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>動態標題欄</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<img src="1.jpg" width="779" height="502">
+<script language="JavaScript">
+var n=0;
+function title(){
+	n++;
+    if (n==3) {n=1}
+    if (n==1) {document.title='☆★動態標題欄★☆'}
+    if (n==2) {document.title='★☆明日科技軟體☆★'}
+    setTimeout("title()",350);
+}
+title();
+</script>
+</body>
+</html>

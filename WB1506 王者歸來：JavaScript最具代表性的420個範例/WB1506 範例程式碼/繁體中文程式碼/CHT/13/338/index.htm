@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>文字的閃爍效果</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.glow1 { 
+	position:absolute; width:296px; height:42px; z-index:1;
+	filter:glow(color=#FF0000,strengh=2)
+}
+.inside  {
+	position:relative;top:10px;
+}	 
+</style> 
+
+</head>
+
+<body onload="init()">
+<div id="div1" align="center" class="glow1" onmouseover="stopflash(this)" onmouseout="init()"><div class="inside">文字的閃爍效果</div></font></div>
+<script language="javascript">
+function init(){ // 光昏開始閃爍 
+	makeflash(div1); 
+} 
+function makeflash(obj){  // 這裡的“1000”是閃爍的時間，以毫秒計，在本例中是設定了1000毫秒（即1秒），可以根據需要修改。 
+	obj.flashTimer=setInterval("div1.filters.glow.enabled= !div1.filters.glow.enabled",1000); 
+}
+function stopflash(obj){ // 光昏停止閃爍 
+	clearInterval(obj.flashTimer) 
+} 
+</script>
+
+</body>
+</html>

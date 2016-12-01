@@ -1,0 +1,245 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用XML技術實現加入、移除留言訊息</title>
+<link rel="stylesheet" href="Css/style.css" />
+<script language="javascript">
+function check(myform){
+	if(myform.email.value==""){
+		alert("請輸入Email位址!");myform.email.focus();return;
+	}
+	if(!checkemail(myform.email.value)){
+		alert("您輸入Email位址不正確!");myform.email.focus();return;
+	}
+	myform.submit();
+}
+</script>
+</head>
+
+<body>
+<table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="22" background="images/bg_left.gif">&nbsp;</td>
+    <td width="760">
+<table width="760" height="547" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="126" align="center"><img src="images/bg_top.gif" width="761" height="126"></td>
+  </tr>
+  <tr>
+    <td height="326" valign="top">
+    <table width="100%" height="164" border="0" cellpadding="0" cellspacing="0" class="tableBorder_LRB">
+      <tr>
+        <td height="49" colspan="6" background="images/reply_navigate.gif">&nbsp;</td>
+        </tr>
+      <tr>
+        <td width="5%" height="143">&nbsp;</td>
+        <td colspan="4" align="center" valign="top">
+<xml id="board" src="board.xml"></xml>
+<table width="100%" border="1" cellpadding="0" cellspacing="0" datasrc="#board" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" bordercolorlight="#96E2FA">
+<thead>
+      <tr>
+            <th width="10%" height="27" bgcolor="#6AC7EC">留言人</th>
+            <th width="8%" bgcolor="#6AC7EC">表情</th>
+            <th width="12%" bgcolor="#6AC7EC">電話</th>
+            <th width="64%" bgcolor="#6AC7EC">留言內容</th>
+            <th width="6%" bgcolor="#6AC7EC">&nbsp;</th>
+      </tr>
+</thead>
+      <tr>
+            <td height="27"><span datafld="person"></span></td> 
+            <td><span datafld="humor"></span></td> 
+            <td><span datafld="tel"></span></td> 
+            <td><span datafld="message"></span></td> 
+            <td align="center"><a href="#" onClick="deleteLastElement(0);">移除</a></td>
+      </tr>
+</table>
+<script language="javascript"> 
+<!--
+var doc = new ActiveXObject("Msxml2.DOMDocument"); //ie5.5+,CreateObject("Microsoft.XMLDOM")
+ //載入文件 //
+doc.load("board.xml");
+ //建立檔案頭
+//var p = doc.createProcessingInstruction ("xml","version='1.0' encoding='utf-8'"); //加入檔案頭
+//doc.appendChild(p); //用於直接載入時獲得根節點 //
+//var root = doc.documentElement; //兩種模式建立根節點 
+var root = doc.createElement("board"); 
+
+var root = doc.createNode(1,"person",""); //建立子節點
+
+ var n = doc.createNode(1,"person",""); //指定子節點文字 //
+
+n.text = " this is a test"; //建立孫節點
+ var o = doc.createElement("humor");
+  o.text = "wgh"; //指定其文字
+ 
+ //建立屬性
+// var r = doc.createAttribute("tel"); 
+//r.value="4972266"; 
+//加入屬性
+// n.setAttributeNode(r); 
+ //建立第二個屬性 
+//var r1 = doc.createAttribute("board");
+// r1.value="person"; //加入屬性
+// n.setAttributeNode(r1); 
+//移除第二個屬性
+// n.removeAttribute("board"); 
+//加入孫節點
+ //n.appendChild(o); //加入文字節點
+// n.appendChild(doc.createTextNode ("this is a text node.")); 
+//加入注解
+// n.appendChild(doc.createComment ("this is a comment\n")); 
+//加入子節點 
+root.appendChild(n); 
+
+//複製節點 var m = n.cloneNode(true); 
+// root.appendChild(m); 
+//移除接點 root.removeChild(root.childNodes(0)); 
+//建立資料段
+// var c = doc.createCDATASection ("this is a cdata");
+// c.text = "hi,cdata"; 
+//加入資料段 
+//root.appendChild(c);
+ //加入根節點
+// doc.appendChild(root);
+ //查詢節點 
+//var a = doc.getElementsByTagName("person");
+ //alert(a); 
+ //
+// var a = doc.selectNodes("//board"); 
+// alert(a); 
+////顯示改接點的屬性 
+//for(var i= 0;i<a.length;i++) {
+// alert(a[i].xml);
+// for(var j=0;j<a[i].attributes.length;j++) { 
+//alert(a[i].attributes[j].name); } } //XML儲存（需要在服務端，用戶端用FSO）//
+alert("未儲存");
+doc.save("D:\ss\aa.xml"); 
+alert("成功");
+//檢視根接點XML
+ //if(n) { alert(n.ownerDocument.xml); } 
+//--> </script>
+
+
+
+
+
+<script type="text/jscript">
+/*//在資料島中關聯XML文件
+xmldoc = board;
+var doc = new ActiveXObject("Msxml2.DOMDocument"); 
+doc.load("board.xml");
+
+function deleteLastElement(id){
+  //查詢根元素，並移除其最後一個子節點
+  var rootElement = xmldoc.documentElement;
+  if (rootElement.hasChildNodes())
+      //rootElement.removeChild(rootElement.lastChild);
+	  // rootElement.removeChild(root.childNodes.item(0))  //移除第1個節點 
+	   rootElement.removeChild(rootElement.childNodes.item(id));
+}
+
+ //修改屬性
+//  var   xmlDoc   =   new   ActiveXObject("Msxml2.DOMDocument");   
+//  var   root;   
+//  var   newNode;   
+//  xmlDoc.async   =   false;   
+//  xmlDoc.resolveExternals   =   false;     
+//  xmlDoc.load("bao.xml");   
+//  root   =   xmlDoc.documentElement;   
+//  alert(root.xml);   
+//  //選取節點為student,其No屬性為'00000'的節點,傳回的是陣列.   
+//  firstNodeName   =   root.selectNodes("//student[@No='00000']");   
+//  firstNodeName[0].setAttribute("No","10000")   
+//  alert(root.xml);   
+
+function addElement() {
+   var rootElement = xmldoc.documentElement;
+   //建立留言元素
+   var newBoard = xmldoc.createElement('board');
+   //加入留言人子元素
+    var person = xmldoc.createElement('person');
+    var personF = xmldoc.createTextNode(document.myform.person.value);
+	person.appendChild(personF);
+    newBoard.appendChild(person);
+    //加入表情子元素	
+    var humor = xmldoc.createElement('humor');
+    var humorF = xmldoc.createTextNode(document.myform.humor.value);
+    humor.appendChild(humorF);
+    newBoard.appendChild(humor);
+	//加入電話子元素
+    var tel = xmldoc.createElement('tel');
+    var telF = xmldoc.createTextNode(document.myform.tel.value);
+    tel.appendChild(telF);
+    newBoard.appendChild(tel);
+	//加入留言訊息子元素	
+    var message = xmldoc.createElement('message');
+    var messageF = xmldoc.createTextNode(document.myform.message.value);
+    message.appendChild(messageF);
+    newBoard.appendChild(message);
+    //向文件中追加一條留言訊息 
+    rootElement.appendChild(newBoard);
+	xmldoc.sava();
+  }
+  */
+</script>
+<form action="#" method="get" id="myform" name="myform">
+<table width="70%" height="131" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="24%" height="27" align="center">留&nbsp;言&nbsp;人：</td>
+    <td width="76%"><input type="text" name="person" id="person" size="50" /></td>
+  </tr>
+  <tr>
+    <td height="27" align="center">表&nbsp;&nbsp;&nbsp;&nbsp;情：</td>
+    <td><input type="text" name="humor" id="humor" size="30" /></td>
+  </tr>
+  <tr>
+    <td height="27" align="center">電&nbsp;&nbsp;&nbsp;&nbsp;話：</td>
+    <td><input type="text" name="tel" id="tel" size="20" /></td>
+  </tr>
+  <tr>
+    <td align="center">留言內容：</td>
+    <td><textarea name="message" cols="50" rows="5" id="message"></textarea></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="button" type="button" class="btn_grey" onClick="addElement();" value="加入留言" />
+      &nbsp;
+      <input name="button2" type="button" class="btn_grey" onClick="deleteLastElement();" value="移除最後一條留言" /></td>
+  </tr>
+</table>
+<!--透過onclick呼叫addElement()函數加入新元素--><!--透過onclick呼叫deleteLastElement() 函數移除最後元素-->
+</form>		
+		</td>
+        <td width="3%">&nbsp;</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" class="tableBorder_LR"><table width="99%" height="72"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+      <tr>
+        <td height="2" colspan="4"></td>
+        </tr>
+      <tr>
+        <td width="124" height="23">&nbsp;</td>
+        <td valign="bottom" align="center"> CopyRight &copy; 2007 www.mingrisoft.com 吉林省明日科技有限公司</td>
+        <td width="141">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="28">&nbsp;</td>
+        <td align="center">本站請使用IE6.0或以上版本 1024*768為最佳顯示效果</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="8"></td>
+        <td height="8"></td>
+        <td height="8"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+    <td width="19" background="images/bg_right.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>圖片的探照燈效果</title>
+</head>
+<body>
+<STYLE type=text/css>
+#imagelight {
+	FILTER: light
+}
+</STYLE>
+<center>
+<IMG id="imagelight" src="test.jpg" speed="20">
+</center>
+
+<script language="javascript">
+if (document.all && window.imagelight){
+	var x=new Array();
+	var heading=new Array();
+	var y=new Array();
+	if (imagelight.length==null){
+		imagelight[0]=document.all.imagelight;
+		x[0]=0;
+		heading[0]="right";
+		y[0]=imagelight[0].height;
+		imagelight[0].filters.light.addPoint(100,50,100,255,255,255,90);
+	}
+	else
+		for (i=0;i<imagelight.length;i++){
+		x[i]=0;
+		heading[i]="right";
+		y[i]=imagelight[i].height;
+		imagelight[i].filters.light.addPoint(100,50,100,255,255,255,90);
+	}
+}
+
+function slidelight(cur){
+	imagelight[cur].filters.light.MoveLight(0,x[cur],y[cur],200,-1);
+	if (x[cur]<imagelight[cur].width+200&&heading[cur]=="right")
+		x[cur]+=10;
+	else if (x[cur]>imagelight[cur].width+200){
+		heading[cur]="left";
+		x[cur]-=10;
+	}
+	else if (x[cur]>-200&&x[cur]<-185){
+		heading[cur]="right";
+		x[cur]+=10;
+	}
+	else{
+		x[cur]-=10;
+		heading[cur]="left";
+	}
+}
+
+if (document.all&&window.imagelight){
+	if (imagelight.length==null)
+		setInterval("slidelight(0)",imagelight[0].speed);
+	else
+		for (t=0;t<imagelight.length;t++){
+		var temp='setInterval("slidelight('+t+')",'+imagelight[t].speed+')';
+		eval(temp);
+		}
+}
+</SCRIPT>
+
+</body>
+</html>

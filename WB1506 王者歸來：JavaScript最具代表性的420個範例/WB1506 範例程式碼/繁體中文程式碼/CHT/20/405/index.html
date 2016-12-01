@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("a.main").mouseover(function(){		//綁定滑鼠移到超級連結事件
+		window.status="http://www.mrbccd.com";return true;	//設定狀態列文字
+	}).mouseout(function(){					//綁定滑鼠移出超級連結事件
+		window.status="完成";return true;	//設定狀態列文字
+	});
+});
+</script>
+<title>隱藏超級連結位址</title>
+<style type="text/css">
+body{
+	margin:0px; 			/*設定外邊距*/
+	padding:0px; 		/*設定內邊距*/
+	font-size: 9pt; 		/*設定字型大小*/
+}
+a:hover {
+	font-size: 9pt;
+	color: #FF4400;
+}
+a {
+	font-size: 9pt;
+	text-decoration: none;	/*不顯示下劃線*/
+	color: #3C404D;
+}
+#bottom{
+	background-image:url(images/bottom.jpg);
+	height:59px;
+	width:800px;
+	clear: both;
+	text-align:center;
+	padding-top:10px;
+}
+#top{					/*設定頁面頁首的DIV型態*/
+	background-image:url(images/bg_top.jpg);
+	width:800px;
+	height:176px;
+}
+#navigation{			/*設定導覽條的型態*/
+	background-image:url(images/navigation_bg.jpg);
+	width:790px;
+	height:26px;
+	padding:5px 5px 0px 5px;
+	margin: 0px;
+}
+</style>
+</head>
+<body  bgcolor="#F0F0F0">
+<div id="top"></div>
+<div id="navigation">
+	<div style="float:left;color:#006700;">
+		<b> &nbsp; 》&nbsp; 歡迎光臨九宮格日記網！</b>
+	</div>
+	<div style="float:right;text-align: right;">
+		<a href="index.html">首頁</a> 
+		&nbsp; | &nbsp;<a href="index.html" class="main">登入</a>
+		&nbsp; | &nbsp;<a href="index.html" class="main">登錄</a>
+		&nbsp; | &nbsp;<a href="index.html" class="main">找回密碼</a>	 
+	</div>
+</div>
+<div style="padding:20px;width:760px;background-color: #FFF;">
+	暫無內容
+</div>
+<div id="bottom"></div>
+</body>
+</html>

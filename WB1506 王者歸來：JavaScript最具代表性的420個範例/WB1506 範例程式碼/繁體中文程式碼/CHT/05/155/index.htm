@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>滑鼠搬移文字</title>
+</head>
+
+<body>
+<p>
+  <style>
+.drag{position:relative;cursor:hand}
+</style>
+  <script language="JavaScript">
+var drag=false
+var z,x,y
+function move()
+{
+  if (event.button==drag){
+     z.style.pixelLeft=temporarily1+event.clientX-x;
+     z.style.pixelTop=temporarily2+event.clientY-y;
+     return false;
+  }
+}
+function grommet()
+{
+  if (event.srcElement.className=="drag"){
+     drag=true;
+     z=event.srcElement;
+     temporarily1=z.style.pixelLeft;
+     temporarily2=z.style.pixelTop;
+     x=event.clientX;
+     y=event.clientY;
+     document.onmousemove=move;
+   }else{drag=false;}
+}
+document.onmousedown=grommet;
+</script>
+<font size= 10 color=0000ff class="drag">明日科技圖書</font> </p>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<title>飄舞的變形圖片</title>
+<style fprolloverstyle>A:hover {color: #00FFFF}
+</style>
+</head>
+<body OnLoad="getwindowsize(),picdistortion()" OnResize="getwindowsize()">
+<SCRIPT LANGUAGE="JavaScript">
+//使圖片開始隨意搬移
+var isNS = ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) >= 4));
+var _all = '';
+var _style = '';
+var wwidth, wheight;
+var ydir = '++';
+var xdir = '++';
+var id1, id2, id3;
+var x = 1;
+var y = 1;
+var x1, y1;
+if(!isNS) 
+{
+	_all='all.';
+	_style='.style';
+}
+function getwindowsize() 
+{
+	clearTimeout(id1);
+	clearTimeout(id2);
+	clearTimeout(id3);
+
+		wwidth = document.body.clientWidth - 55;
+		wheight = document.body.clientHeight - 50;
+
+	id3 = setTimeout('randomdir()', 20000);
+	animate();
+}
+function randomdir() 
+{
+	if (Math.floor(Math.random()*2)) 
+	{
+		(Math.floor(Math.random()*2)) ? xdir='--': xdir='++';
+	} 
+	else 
+	{
+		(Math.floor(Math.random()*2)) ? ydir='--': ydir='++';
+	}
+	id2 = setTimeout('randomdir()', 20000);
+}
+function animate() 
+{
+	eval('x'+xdir);
+	eval('y'+ydir);
+	if (isNS) 
+	{
+		picture_div.moveTo((x+pageXOffset),(y+pageYOffset))
+	} 
+	else 
+	{
+		picture_div.pixelLeft = x+document.body.scrollLeft;
+		picture_div.pixelTop = y+document.body.scrollTop;
+	}
+	if (isNS) 
+	{
+		if (picture_div.top <= 5+pageYOffset) ydir = '++';
+		if (picture_div.top >= wheight+pageYOffset) ydir = '--';
+		if (picture_div.left >= wwidth+pageXOffset) xdir = '--';
+		if (picture_div.left <= 5+pageXOffset) xdir = '++';
+	} 
+	else 
+	{
+		if (picture_div.pixelTop <= 5+document.body.scrollTop) ydir = '++';
+		if (picture_div.pixelTop >= wheight+document.body.scrollTop) ydir = '--';
+		if (picture_div.pixelLeft >= wwidth+document.body.scrollLeft) xdir = '--';
+		if (picture_div.pixelLeft <= 5+document.body.scrollLeft) xdir = '++';
+	}
+	id1 = setTimeout('animate()', 30);
+}
+//圖片變形
+var size = 1;
+var bool = true;
+function picdistortion()
+{
+	if (document.all)
+	if (bool == true)
+	{
+		size++;
+	}
+	if(size==100)
+	{
+		size--;
+		bool=false;
+	}
+	if(size==10)
+	{
+		size++;
+		bool=true;
+	}
+	if(bool==false)
+	{
+		size--;
+	}
+	image1.width = 130+size;
+	image1.height = 120-size;
+	setTimeout("picdistortion()",40);
+}
+
+</script>
+<div id="picture_div" style="position:absolute; visibility:visible; left:0px; top:0px; z-index:-1">
+  <a href = "http://www.mingrisoft.com">
+    <img name="image1" src="rectangle.jpg" border="0">
+  </a>
+</div>
+<script language="javascript">
+  var picture_div=eval('document.'+_all+'picture_div'+_style);
+</script>
+</body>
+</html>

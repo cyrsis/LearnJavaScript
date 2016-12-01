@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>驗證輸入的日期格式是否正確</title>
+<link href="CSS/style.css" rel="stylesheet">
+<script language="javascript" src="onclock.JS"></script>
+<script language="javascript">
+//判斷輸入的日期是否正確
+function CheckDate(INDate){ 
+if (INDate==""){return true;}
+if(INDate.indexOf('-',0)!=-1){	separate="-"}
+else{
+	if(INDate.indexOf('/',0)!=-1){separate="/"}
+	else {return true;}
+	}
+	area=INDate.indexOf(separate,0)
+	//取得年份
+	subYY=INDate.substr(0,area)
+	if(isNaN(subYY) || subYY<=0){
+		return true;
+	}		
+	//轉換月份
+	subMM=INDate.substr(area+1,INDate.indexOf(separate,area+1)-(area+1))
+	if(isNaN(subMM) || subMM<=0){
+		return true;
+	}
+	if(subMM.length<2){subMM="0"+subMM}
+	//轉換日
+	area=INDate.lastIndexOf(separate)
+	subDD=INDate.substr(area+1,INDate.length-area-1)
+	if(isNaN(subDD) || subDD<=0){
+		return true;
+	}
+	if(eval(subDD)<10){subDD="0"+eval(subDD)}
+	NewDate=subYY+"-"+subMM+"-"+subDD
+	if(NewDate.length!=10){return true;}
+    if(NewDate.substr(4,1)!="-"){return true;}
+    if(NewDate.substr(7,1)!="-"){return true;}
+	var MM=NewDate.substr(5,2);
+	var DD=NewDate.substr(8,2);
+	if((subYY%4==0 && subYY%100!=0)||subYY%400==0){ //判斷是否為閏年
+		if(parseInt(MM)==2){
+			if(DD>29){return true;}
+		}
+	}else{
+		if(parseInt(MM)==2){
+			if(DD>28){return true;}
+		}	
+	}
+	var mm=new Array(1,3,5,7,8,10,12); //判斷每月中的最大天數
+	for(i=0;i< mm.length;i++){
+		if (parseInt(MM) == mm[i]){
+			if(parseInt(DD)>31){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
+   if(parseInt(DD)>30){return true;}
+   if(parseInt(MM)>12){return true;}
+   return false;
+   }
+</script>
+<script language="javascript">
+function check(myform){
+	if(myform.sDate.value==""){
+		alert("請輸入開始日期");myform.sDate.focus();return;
+	}		
+	if(CheckDate(myform.sDate.value)){
+		alert("您輸入的開始日期不正確！\n 請注意日期格式（如：2007/07/17或2007-07-17）或閏年！");myform.sDate.focus();return;
+	}
+	if(myform.eDate.value==""){
+		alert("請輸入結止日期");myform.eDate.focus();return;
+	}		
+	if(CheckDate(myform.eDate.value)){
+		alert("您輸入的結止日期不正確！\n 請注意日期格式（如：2007/07/17或2007-07-17）或閏年！");myform.eDate.focus();return;
+	}
+	myform.submit();
+}
+</script>
+</head>
+<body onLoad="clockon(bgclock)">
+<table width="778" border="0" align="center" cellpadding="0" cellspacing="0" class="tableBorder">
+  <tr>
+    <td height="183" valign="top" background="images/bg.jpg"><table width="100%" height="177" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="4%" height="27">&nbsp;</td>
+        <td width="96%"><div id="bgclock"></div></td>
+      </tr>
+    </table></td>
+  </tr>
+	<td>
+	<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" bgcolor="#FFFFFF"><table width="99%" height="180"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
+  <tr>
+    <td height="178" valign="top" style="padding:5px;"><table width="98%" height="168"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="22" valign="top" class="word_orange">目前位置：系統查詢 &gt; 圖書借閱查詢 &gt;&gt;&gt;</td>
+      </tr>
+      <tr>
+        <td height="146" align="center" valign="top">
+	<form action="" method="post" name="form1">  
+ <table width="98%" height="38"  border="0" cellpadding="0" cellspacing="0" bgcolor="#E3F4F7" class="tableBorder_gray">
+  <tr>
+    <td align="center">
+
+&nbsp;<img src="Images/search.gif" width="45" height="28"></td>
+    <td>從
+            <input name="sDate" type="text" id="sDate">
+&nbsp;到&nbsp; <input name="eDate" type="text" id="eDate">
+&nbsp;
+<input name="Button" type="button" class="btn_grey" value="查詢" onClick="check(form1)"></td>
+  </tr>
+</table>
+    </form>
+</td>
+      </tr>
+    </table>
+</td>
+  </tr>
+</table><table width="99%" height="72"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+      <tr>
+        <td height="2" colspan="4"></td>
+        </tr>
+      <tr>
+        <td width="124" height="23">&nbsp;</td>
+        <td valign="bottom" align="center"> CopyRight &copy; 2007 www.mingrisoft.com 吉林省明日科技有限公司</td>
+        <td width="141">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="28">&nbsp;</td>
+        <td align="center">本站請使用IE6.0或以上版本 1024*768為最佳顯示效果</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="8"></td>
+        <td height="8"></td>
+        <td height="8"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+</body>
+</html>

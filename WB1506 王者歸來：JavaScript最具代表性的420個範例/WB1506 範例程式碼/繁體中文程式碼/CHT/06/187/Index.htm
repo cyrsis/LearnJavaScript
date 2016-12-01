@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>快速閃動頁面中的超連結</title>
+</head>
+<body>
+<table id="table1" width="479" border="0">
+  <tr>
+    <td id="td1" width="284" height="72">
+	<font size="10pt" face="隸書">
+		<a id="a1" href="www.mingrisoft.com">吉林省明日科技</a>
+	</font>
+	</td>
+    <td width="185" valign="middle"><font size="10pt" face="隸書"><img src="&#26126;&#26085;&#20225;&#26631;1.jpg" width="56" height="41"></font></td>
+  </tr>
+</table>
+<p>
+<a href="#" style="text-decoration:none ">首頁&nbsp;|</a>
+<a href="#" style="text-decoration:none ">圖書介紹&nbsp;|</a>
+<a href="#" style="text-decoration:none ">新書預告&nbsp;|</a>
+<a href="#" style="text-decoration:none ">勘誤發布&nbsp;|</a>
+<a href="#" style="text-decoration:none ">技術支援&nbsp;|</a>
+<a href="#" style="text-decoration:none ">明日討論區</a>
+
+<SCRIPT LANGUAGE="JavaScript">
+function RGBArray()
+{
+	for (var i = 0;i< RGBArray.arguments.length;i++)
+	{
+		this[i] = RGBArray.arguments[i];
+	}
+	this.length = RGBArray.arguments.length;
+}
+
+var color = new RGBArray("red","green","blue","purple","tan","yellow","lime","silver","gold");
+var vlink = 0;
+function twinkling() {
+vlink = (vlink+1)%color.length;
+a1.style.color = color[vlink];
+setTimeout("twinkling()",500);
+}
+twinkling();
+</script>
+
+</body>
+</html>

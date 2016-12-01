@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>文字虛幻變化</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<script language="JavaScript">
+var s_width=150;
+var s_height=115;
+var bgcolor='#E0EFD1';
+var pause=3000;
+var Sarry=new Array()
+Sarry[0]='歡迎光臨 <a href="http://www.mingrisoft.com/">明日科技主頁</a>,您一定會有許多收穫!';
+Sarry[1]='謝謝光臨 <a href="http://www.mingrisoft.com/">明日科技主頁</a>,您一定會有許多收穫!';
+Sarry[2]='下次一定還要光臨 <a href="http://www.mingrisoft.com/">明日科技主頁</a>，您一定會有更多的收穫!';
+document.write('<div style="position:relative;width:'+s_width+';height:'+s_height+';overflow:hidden"><div id="div0" style="position:absolute;background-color:'+bgcolor+';width:'+s_width+';height:'+s_height+';top:'+s_height+';filter:alpha(opacity=20);-moz-opacity:0.2;"></div><div id="div1" style="position:absolute;background-color:'+bgcolor+';width:'+s_width+';height:'+s_height+';top:'+s_height+';filter:alpha(opacity=20);-moz-opacity:0.2;"></div></div>');
+var curpos=s_height;
+var degree=10;
+var divis="div0";
+var curindex=0;
+var nextindex=1;
+function moveslide(){
+	if (curpos>0){
+		tempobj.style.top=curpos=Math.max(curpos-degree,0);
+	}
+	else{
+		clearInterval(dropslide)
+		if (crossobj.filters) crossobj.filters.alpha.opacity=100;
+		else if (crossobj.style.MozOpacity) crossobj.style.MozOpacity=1;
+		divis=(divis=="div0")? "div0" : "div1";
+		tempobj=eval("document.all."+divis);
+		tempobj.innerHTML=Sarry[curindex];
+		nextindex=(nextindex<Sarry.length-1)? nextindex+1 : 0
+		setTimeout("rotateslide()",pause)
+	}
+}
+function rotateslide(){
+	resetit(divis)
+	crossobj=tempobj=eval("document.all."+divis);
+	crossobj.style.zIndex++;
+	document.all.div0.filters.alpha.opacity=document.all.div1.filters.alpha.opacity=20;
+	var temp='setInterval("moveslide()",50)';
+	dropslide=eval(temp);
+	divis=(divis=="div0")? "div1" : "div0";
+	curindex=(curindex<Sarry.length-1)? curindex+1 : 0;
+}
+function resetit(what){
+	curpos=s_height;
+	var crossobj=eval("document.all."+what);
+	crossobj.style.top=curpos=s_height;
+}
+function startit(){
+	crossobj=eval("document.all."+divis);
+	crossobj.innerHTML=Sarry[curindex]
+	rotateslide()
+}
+window.onload=startit
+</script>
+</body>
+</html>

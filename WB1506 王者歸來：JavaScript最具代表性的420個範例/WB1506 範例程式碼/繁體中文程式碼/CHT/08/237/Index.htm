@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>改變形狀的圖片</title>
+</head>
+
+<body onLoad="imgdistortion()">
+<center>
+	<img name="image1" src="rectangle.jpg" border="0">
+</center>
+<script language="javascript">
+//圖片變形
+var size = 1;
+var bool = true;
+function imgdistortion()
+{
+	if (document.all)
+	if (bool == true)
+	{
+		size++;
+	}
+	if(size==100)
+	{
+		size--;
+		bool=false;
+	}
+	if(size==10)
+	{
+		size++;
+		bool=true;
+	}
+	if(bool==false)
+	{
+		size--;
+	}
+	image1.width = 130 + size;
+	image1.height = 120 - size;
+	setTimeout("imgdistortion()",30);
+}
+</script>
+</body>
+</html>

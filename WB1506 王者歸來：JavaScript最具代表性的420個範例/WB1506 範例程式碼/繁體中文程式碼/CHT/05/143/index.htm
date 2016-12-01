@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>製作彩色漸層文字動畫</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="CSS/style.css" rel="stylesheet">
+<script language="javascript">
+var rate = 20;
+var elmH = 0;
+var elmS = 128;
+var elmV = 255;
+function makeColor(){
+if (elmS == 0) {
+	elmR = elmV; elmG = elmV; elmB = elmV;
+}
+else {
+	t1 = elmV;
+	t2 = (255 - elmS) * elmV / 255;
+	t3 = elmH % 60;
+	t3 = (t1 - t2) * t3 / 60;
+	if (elmH < 60) {
+		elmR = t1; elmB = t2; elmG = t2 + t3;
+	}else if (elmH < 120) {
+		elmG = t1; elmB = t2; elmR = t1 - t3;
+	}else if (elmH < 180) {
+		elmG = t1; elmR = t2; elmB = t2 + t3;
+	}else if (elmH < 240) {
+		elmB = t1; elmR = t2; elmG = t1 - t3;
+	}else if (elmH < 300) {
+		elmB = t1; elmG = t2; elmR = t2 + t3;
+	}else if (elmH < 360) {
+		elmR = t1; elmG = t2; elmB = t1 - t3;
+	}else {
+		elmR = 0; elmG = 0; elmB = 0;
+	}
+	}
+	elmR = Math.floor(elmR);
+	elmG = Math.floor(elmG);
+	elmB = Math.floor(elmB);
+	clrRGB = '#' + elmR.toString(16) + elmG.toString(16) + elmB.toString(16);
+	elmH = elmH + rate;
+	if (elmH >= 360)
+		elmH = 0;
+		return clrRGB;
+}
+function ChangeColor(tagname){     //將產生的十六進位的彩色套用在文字上
+	tagname.style.color = makeColor();
+}
+window.setInterval("ChangeColor(feature)",100);
+</script>
+</head>
+
+<body>
+<table width="882" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="311" background="images/top.jpg"></td>
+  </tr>
+</table>
+<table width="882"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="259" valign="top" bgcolor="#FFFFFF"><table width="100%"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="17" valign="top"><img src="images/left_01.GIF" width="17" height="173"></td>
+        <td valign="top"><table width="100%" height="25"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+			<td>
+				&nbsp;<img src="Images/jian_null.gif" width="38" height="16" border="0">
+				<a href="#">函數類別</a>                </td>
+                  </tr>
+                  <tr>				
+			<td>
+				&nbsp;<img src="Images/jian_null.gif" width="38" height="16" border="0">
+				<a href="#">陣列</a>                </td>	
+                  </tr>
+                  <tr>				
+							
+			<td>
+				&nbsp;<img src="Images/jian_null.gif" width="38" height="16" border="0">
+				<a href="#">順序結構</a>                </td>	
+                  </tr>
+                  <tr>				
+					
+			<td>
+				&nbsp;<img src="Images/jian_null.gif" width="38" height="16" border="0">
+				<a href="#">列印與報表</a>                </td>		</tr>					
+				
+				
+			  <tr id="OpenRep" style="display:none;">
+			   <td colspan="6">				
+			     <table width="100%"  border="0" cellspacing="-2" cellpadding="-2">
+                   <tr onMouseOver="this.style.background='#EEEEEE'" onMouseOut="this.style.background=''">
+                      <td height="25" align="center"><table width="90%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="12%" align="center"><img src="images/folder.gif" width="16" height="16" border="0"> </td>
+                    <td width="88%" height="27">基本語法</td>
+                  </tr>
+              </table></td>
+                   </tr>  
+                 </table>
+			   </td>
+			  </tr>
+
+        </table></td>
+        <td width="23" valign="top"><img src="images/left_02.GIF" width="25"></td>
+      </tr>
+    </table>    </td>
+    <td valign="top" bgcolor="#FFFFFF"><table width="100%" height="218"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="26" valign="top">&nbsp;</td>
+        <td width="566" valign="top"><table width="100%" height="60"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td><table width="100%" height="60"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td><table width="100%" height="42"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="10" colspan="2" background="../images/sub_line.GIF"></td>
+                  </tr>
+                  <tr>
+                    <td height="3" colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td height="29" class="word_blue">目前位置：Visual Basic寫程式詞典&gt; 首頁 &gt; 寫程式基礎 &gt;&gt;&gt; </td>
+                    <td width="19%" class="word_blue">[ <a href="#">傳回首頁 </a>]</td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+            </tr>
+            <tr>
+              <td ><table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="24" height="118" valign="top">&nbsp;</td>
+                  <td valign="top" style="line-height:140% ">&nbsp;&nbsp;&nbsp; 《Visual Basic 寫程式詞典》軟體提供快速檢索功能，開發者不但可以在基礎知識庫中快速查詢所需技術，還可以在典型案例、專案原始程式、經驗技巧中快速檢索所查技術在實際開發中的套用。<br>
+      <br>
+      <div id="feature" class="shadow_3"><b>《Visual Basic 寫程式詞典》軟體的特點如下：</b></div>
+      <br>
+&nbsp;&nbsp;&nbsp;&nbsp; <span class="shadow_2"><strong>☆ 高效率、快速</strong></span> 《Visual Basic 寫程式詞典》軟體提供了智慧檢索功能。開發者不但可以在基礎知識庫中快速查詢所需技術，還可以在典型案例、專案原始程式、經驗技巧中快速檢索所查技術在實際案例開發中的套用，快速提昇寫程式水平。<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <span class="shadow_2"><strong>☆ 物超所值</strong></span> 《 Visual Basic 寫程式詞典》軟體基礎知識部分涵蓋了程式開發過程中所需的較全面、較實用的基礎技術資料，絕對物超所值。<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <span class="shadow_2"><strong>☆ 知識全面、系統</strong></span> 《 Visual Basic 寫程式詞典》軟體利用網頁與資料庫結合技術，突破了圖書受頁面、版面的限制，軟體容量超過 1G ，折算頁碼超過200,000頁，是一個真正意義上的 Visual Basic 寫程式技術資源大全。解決了開發者技術難查、經驗難學、專案難做的難題，真正成為開發者的左膀右臂、技術參謀。<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <span class="shadow_2"><strong>☆ 陞級和有限支援</strong></span> 為給廣大寫程式愛好者提供最新的基礎知識技術，《 Visual Basic 寫程式詞典》軟體開發版以上版本提供每月昇級服務和有限支援服務，真正讓您寫程式詞典在手，軟體開發無憂。</td>
+                  <td width="29" valign="top">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="13" valign="top">&nbsp;</td>
+                  <td align="center" valign="top">&nbsp;</td>
+                  <td valign="top">&nbsp;</td>
+                </tr>
+              </table></td>
+            </tr>
+          </table>
+          </td>
+      </tr>
+    </table></td>
+    <td width="31" valign="top" bgcolor="#FFFFFF"><img src="images/main_detail03.GIF" width="31" height="173"></td>
+  </tr>
+</table>
+<table width="882" height="86"  border="0" align="center" cellpadding="-2" cellspacing="-2" background="images/bg_copyright.gif">
+  <tr>
+    <td width="124" height="13">&nbsp;</td>
+    <td height="13" colspan="3"><div align="center">
+        <hr width="100%" size="1" noshade color="#EEEEEE">
+    </div></td>
+    <td width="141">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="124" height="13">&nbsp;</td>
+    <td height="13" colspan="3" align="center">明日寫程式者之家客戶服務熱線：0431-84978981，84978982 傳真：0431-84972266</td>
+    <td width="141">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="15" colspan="2">&nbsp;</td>
+    <td width="464" valign="bottom"><div align="center"> CopyRight &copy; 2007 www.cccxy.com 吉林省明日科技有限公司</div></td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td align="center">本站請使用IE6.0或以上版本 1024*768為最佳顯示效果</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="2">&nbsp;</td>
+    <td align="center"></td>
+    <td colspan="2" rowspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

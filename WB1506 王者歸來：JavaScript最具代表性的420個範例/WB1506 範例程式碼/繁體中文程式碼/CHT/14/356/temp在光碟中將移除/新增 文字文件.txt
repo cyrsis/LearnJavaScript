@@ -1,0 +1,19 @@
+javascript毌연ȫXMLʽ
+ʹӃjavascript䴽藎crosoft XML DOM,ɒԍ곉բһ餗箠
+
+// װȫʽ 
+var source = new ActiveXObject("Microsoft.XMLDOM"); 
+source.async = false 
+source.load("history.xml"); 
+
+// װȫѹʽ᭮ 
+var stylesheet = new ActiveXObject("Microsoft.XMLDOM"); 
+stylesheet.async = false 
+stylesheet.load("history.xsl"); 
+
+ʹӃnew ActiveXObject("Microsoft.XMLDOM")䴽蒻趍icrosoft XML DOM, עҢasync儊䐔һ樒ꉨΪfalse,籔⻡ҲΪ⻍첽渲ꉺ䭎㮠
+
+// ���ṻת믎꒻趄OM΄巔 
+divContent.innerHTML = source.transformNode(stylesheet); 
+
+divContentԶ蒥Ϊ<div id="divContent"></div>. 

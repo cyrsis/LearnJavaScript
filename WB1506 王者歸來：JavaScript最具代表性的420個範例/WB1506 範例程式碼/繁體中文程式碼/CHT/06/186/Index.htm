@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>導覽連結</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<script language="javascript">
+function text(index)
+{
+	index = document.form1.select1.selectedIndex;
+	switch (index)
+	{
+		case 0 : 
+		window.location = "http://www.mingrisoft.com";
+		break;
+		case 1 :
+		window.location = "http://www.dearbook.com";
+		break;
+		case 2 :
+		window.location = "http://www.dangdang.com";
+		break;
+		case 3 :
+		window.location = "http://www.huachu.com.cn";
+		break;
+		default :
+		window.location = "#";
+	}
+}
+</script>
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1">
+  <p><font color="#0066FF" size="3pt"> &nbsp;</font></p>
+  <table width="782" height="536" border="0" align="center">
+    <tr>
+      <td width="782" height="532" background="Images/backgroup.JPG">
+        <table width="196" border="0">
+          <tr>
+            <td width="190" height="494" valign="bottom"><p><font color="#0066FF" size="3pt">&nbsp;&nbsp;<font size="3" face="宋體"><strong>友情連結：</strong></font></font></p>
+              <p align="center">
+                <select name="select1" size="8" multiple>
+                  <option selected>吉林省明日科技</option>
+                  <option>第二書店</option>
+                  <option>當當網</option>
+                  <option>華儲圖書網</option>
+                </select>
+                </p>
+              <p align="center">
+                <input type="button" name="Button" value="去看看" onClick="text(0);">
+              </p></td>
+          </tr>
+        </table>
+      <p>&nbsp;</p></td>
+    </tr>
+  </table>
+  <p>&nbsp;  </p>
+</form>
+</body>
+</html>

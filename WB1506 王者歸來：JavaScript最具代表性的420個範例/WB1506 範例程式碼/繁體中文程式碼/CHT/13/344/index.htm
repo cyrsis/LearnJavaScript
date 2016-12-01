@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>文字扭曲動畫</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+.skewcss {
+	width:300px;height:150px;font-family:黑體;font-size:50px;color:#00AAFF;
+	filter:wave(freq=6, strength=4, phase=5, lightstrength=45, add=0, enabled=1)
+}
+-->
+</style>
+</head>
+
+<body>
+<div id="div1" class="skewcss">明日科技圖書</div>
+<script language="javascript">
+var p=2;
+function sport(){
+	div1.filters.wave.phase=p;
+	p=p+2;	
+	setTimeout("sport()",10)
+}
+sport();
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>多級串聯選單</title>
+<script type="text/javascript">
+var arr2 = new Array(4);
+arr2["數碼裝置"] = new Array("數碼相機","印表機");
+arr2["家用電器"] = new Array("電視機","電冰箱");
+arr2["禮品工藝"] = new Array("鮮花","彩帶");
+function removeinfo(classMenu){//將下拉框各選項清理
+  for (var i=0; i < classMenu.options.length; i++){
+    classMenu.options[i]=null;
+  }
+}
+function changeMenu(classList,classMenu){
+  removeinfo(classMenu)
+  for (var i=0; i < classList.length; i++){
+      classMenu[i]=new Option(classList[i],classList[i]);
+  }
+}
+</script>
+</head>
+<body style="font-size:12px">
+<table width="487" height="333" border="0" align="center" cellpadding="0" cellspacing="0" background="bg.JPG">
+  <tr>
+    <td align="center" valign="top"><br>
+      <br>
+      <br>
+      <br>      <br>      <table width="86%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#6699CC">
+      <form name="form1">
+        <tr bgcolor="#FFFFFF">
+          <td height="22" align="right">所屬類別別:</td>
+          <td height="22" align="left"><select name="類別別" id="類別別" onChange="changeMenu(arr2[document.form1.類別別.options[document.form1.類別別.selectedIndex].text],document.form1.分類別);">
+              <option selected>數碼裝置</option>
+              <option>家用電器</option>
+              <option>禮品工藝</option>
+              
+            </select>
+              <select name="分類別" id="分類別">
+                <option>數碼相機</option>
+                <option>印表機</option>
+                </select></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="22" align="right">商品名稱:</td>
+          <td height="22" align="left"><input name="商品名稱" type="text" id="商品名稱" size="30" maxlength="50"></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="22" align="right">會員價:</td>
+          <td height="22" align="left"><input name="會員價" type="text" id="會員價" size="10"></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="22" align="right">提供廠商:</td>
+          <td height="22" align="left"><input name="提供廠商" type="text" id="提供廠商" size="30" maxlength="50"></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="22" align="right">商品簡介:</td>
+          <td height="22" align="left"><textarea name="商品簡介" cols="35" rows="4" id="商品簡介"></textarea></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="22" align="right">商品數量:</td>
+          <td height="22" align="left"><input name="商品數量" type="text" id="商品數量" size="10"></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="22" colspan="2" align="center"><input name="add" type="submit" id="add2" value="添 加">
+&nbsp;
+        <input type="reset" name="Submit2" value="重 置"></td>
+        </tr>
+      </form>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

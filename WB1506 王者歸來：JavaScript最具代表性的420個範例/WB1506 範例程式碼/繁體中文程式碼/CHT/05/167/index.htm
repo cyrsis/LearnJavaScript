@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+</head>
+
+<body>
+<script language="javascript">
+var strname="歡迎觀看明日科技製作的文字抖動效果";
+var strlen=strname.length;
+var dstr="";
+var ssize=50;
+function fdiv(){
+  for (i=0;i<strlen;++i){
+    dstr=dstr+'<div id=aa'+i+' style="font-size:20px; top:200px; left:'+ssize+'px; position:absolute;">'+strname.charAt(i)+'</div>';
+	ssize=ssize+22;
+  }
+  document.write(dstr);
+}
+fdiv();
+var sumstr=new Array(-1,-6,-10,-15,-10,-6,-1);
+var sublen=sumstr.length;
+var i=1;
+function dmove(){
+  var s="";
+  //if (i==1){Larray(1);}
+  //else{
+	//Parray(i);
+	//Larray(i);
+  //}
+  if (i!=1){Parray(i);}
+  Larray(i);
+  ++i;
+  if (i==strlen) i=0;
+  setTimeout("dmove()",100);
+}
+function Parray(n){
+  for (i1=1;i1<n;++i1){
+    ob=document.all("aa"+(i1));
+	ob.style.top=200+"px";
+  }
+}
+function Larray(n){
+  for (i2=0;i2<sublen;++i2){
+    if ((n+i2)<strlen){
+	  ob=document.all("aa"+(n+i2));
+      ob.style.top=((200+sumstr[i2])+"px");
+	}
+  }
+}
+dmove();
+</script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<html>
+<head>
+<title>表格隔行變色</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+<!--
+td           { font-size: 9pt;font_name:宋體;; line-height: 16pt}
+a:hover      { color: #ff0000; text-decoration: underline; font-size: 9pt }
+a            { font-size: 9pt; color: #FFFFFF; text-decoration: none }
+p {  font-size: 9pt; font-family: "宋體"; line-height: 11pt}
+.l {  font-size: 9pt; color: #0000FF}
+.style1 {
+	font-size: 18pt;
+	color: #FF0000;
+}
+.DoubleColorTable tr{
+	font-size:12px;
+	background-color:expression("#DEF1FE,#FFFFFF".split(",")[rowIndex%2]);
+	color:expression("#FF3300,#0000FF".split(",")[rowIndex%2])
+  }
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" >
+<link rel="stylesheet"href="../style.css">
+<div align="center"> 
+  <table width="750" border="0" cellpadding="0" cellspacing="0" height="15">
+    <tr> 
+      <td width="472" height="15"></td>
+      <td width="24" height="15" background="./image/top_r1_c1.gif"></td>
+      <td width="254" valign="top" background="./image/top_r1_c2.gif" height="15"><font color="#FFFFFF">首頁導覽--公司簡介--產品介紹--未來展望</font></td>
+    </tr>
+  </table>
+  <table width="750" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td width="172" height="65"> 
+        <div align="left"><img src="./image/mrbiao.gif" width="144" height="65"></div>
+      </td>
+      <td width="578" background="./image/clock.gif"> 
+        <div align="center" class="style1">吉林省明日科技有限公司</div></td>
+    </tr>
+  </table>
+  <table width="750" border="0" cellpadding="0" cellspacing="0" height="17">
+    <tr> 
+      <td width="140" height="17"> 
+        <div align="center"> 
+          <script language=JavaScript>
+<!--顯示目前日期-->
+	var today = new Date();
+	var strDate = "";
+	if (today.getYear() < 2000)
+	   {
+			yearnow=1900+today.getYear();
+	      strDate = ( yearnow + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日");
+	    }
+	else{
+	      strDate = ( today.getYear() + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日");
+	
+	    }
+		var n_day = today.getDay();
+	switch (n_day)
+	{
+	case 0:{
+	strDate = strDate + " 星期日"
+	}break;
+	case 1:{
+	strDate = strDate + " 星期一"
+	}break;
+	case 2:{
+	strDate = strDate + " 星期二"
+	}break;
+	case 3:{
+	strDate = strDate + " 星期三"
+	}break;
+	case 4:{
+	strDate = strDate + " 星期四"
+	}break;
+	case 5:{
+	strDate = strDate + " 星期五"
+	}break;
+	case 6:{
+	strDate = strDate + " 星期六"
+	}break;
+	case 7:{
+	strDate = strDate + " 星期日"
+	}break;
+	}
+	strDate="<font color=#3333ff class=9>"+strDate+"</font>"
+	document.write(strDate);
+	</script>
+        </div>
+      </td>
+      <td width="33" height="17" background="./image/dht.gif"> 
+        <div align="center"></div>
+      </td>
+      <td width="41" height="15" bgcolor="#0099FF"> 
+        <div align="left"><font color="#FFFFFF">|首頁|</font></div>
+      </td>
+      <td width="67" height="17" bgcolor="#0099FF"> 
+        <div align="center"><font color="#FFFFFF">|公司簡介|</font></div>
+      </td>
+      <td width="67" height="17" bgcolor="#0099FF"> 
+        <div align="center"><font color="#FFFFFF">|產品介紹|</font></div>
+      </td>
+      <td width="67" height="17" bgcolor="#0099FF"> 
+        <div align="center"><font color="#FFFFFF">|原始程式開放|</font></div>
+      </td>
+      <td width="67" height="17" bgcolor="#0099FF"> 
+        <div align="center"><font color="#FFFFFF">|軟體下載|</font></div>
+      </td>
+      <td width="67" height="17" bgcolor="#0099FF"> 
+        <div align="center"><font color="#FFFFFF">|技術支援|</font></div>
+      </td>
+      <td width="67" height="17" bgcolor="#0099FF"> 
+        <div align="center"><font color="#FFFFFF">|招賢納士|</font></div>
+      </td>
+      <td width="67" height="17" bgcolor="#0099FF"> 
+        <div align="center"><font color="#FFFFFF">|與我聯繫|</font></div>
+      </td>
+      <td width="67" height="17" bgcolor="#0099FF"> 
+        <div align="center"><font color="#FFFFFF">|未來展望|</font></div>
+      </td>
+    </tr>
+  </table>
+  <table width="750" border="0" cellpadding="0" cellspacing="0" height="471">
+    <tr> 
+      <td width="112" height="14"></td>
+      <td width="9"></td>
+      <td rowspan="3" valign="middle" background="./image/gsjj.gif"> 
+        <table width="100%" border="0" cellspacing="-1" cellpadding="-1" height="216">
+          <tr> 
+            <td height="33" width="13%">&nbsp;</td>
+            <td height="33" width="76%">&nbsp;</td>
+            <td height="33" width="11%">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td width="13%" height="170">&nbsp;</td>
+            <td width="76%" height="170" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;吉林省明日科技有限公司是一家以電腦軟體技術為核心的高科技企業，多年來始終致力於產業管理軟體開發、數字化出版物製作、電腦網路系統綜合套用以及產業電子商務網站開發等領域，涉及生產、管理、控制、倉貯、物流、營銷、服務等產業。
+公司擁有軟體開發和專案實施方面的資深專家和研讀型技術團隊，多年來累積了豐富的技術文件和研讀資源，公司的開發團隊不僅是開拓進取的技術實作者，更致力於成為技術的普及和傳播者。
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="l">詳細內容&gt;&gt;</a><br>
+            </td>
+            <td width="11%" height="170">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td width="13%" height="7">&nbsp;</td>
+            <td width="76%" height="7">&nbsp;</td>
+            <td width="11%" height="7">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+      <td width="10"></td>
+      <td rowspan="4" valign="top" class="main"> 
+        <TABLE cellPadding=0 cellSpacing=2 width="100%">
+          <tr> 
+            <td align=left vAlign=top> 
+              <div align="left"></div>
+            </td>
+          </tr>
+        </table>
+        <font color=#3333ff> </font> 
+        <table border=1 bordercolor=#ffffff bordercolordark=#ffffff 
+                  bordercolorlight=#000000 cellpadding=-1 cellspacing=0 
+                  width="100%" height="74">
+          <tbody> 
+          <tr> 
+            <td height="18" bgcolor="#eeeeee"> 
+              <div align="center"><font color="#C60001">=== 經理致詞 ===</font></div>
+            </td>
+          </tr>
+          <tr valign=top> 
+            <td align=left valign=top> <MARQUEE direction=up height=200 onmouseout=this.start() 
+      onmouseover=this.stop() scrollAmount=1 scrollDelay=10> 
+              <TABLE cellPadding=0 cellSpacing=2 width="100%">
+                <TBODY> 
+                <TR> 
+                  <TD align=left vAlign=top><SPAN 
+            class=unnamed1>您好!<BR>
+                    　　首先感謝您關心我們明日科技,走進明日,了解明日,成為明日的朋友和伙伴。<BR>
+                    　　</SPAN>長春市明日科技有限責任公司<br>
+                      <br>
+                      <br>
+                      總經理：賽奎春</TD>
+                </TR>
+                </TBODY> 
+              </TABLE>
+              </MARQUEE> </td>
+          </tr>
+          </tbody> 
+        </table>
+        <table border=1 bordercolor=#ffffff bordercolordark=#ffffff 
+                  bordercolorlight=#000000 cellpadding=-1 cellspacing=0 
+                  width="100%" height="74">
+          <tbody> 
+          <tr> 
+            <td height="18"> 
+              <div align="center"><img src="image/friend.gif" width="132" height="32"></div>
+            </td>
+          </tr>
+          <tr valign=top> 
+            <td><a href="http://www.mingrisoft.com" class="l">◎ 明日科技圖書網 </a><br>
+              <a href="#" class="l">◎ 人民郵電出版社 </a><br>
+              <a href="http://www.mingrisoft.com" class="l">◎ 明日科技軟體網</a></td>
+          </tr>
+          </tbody> 
+        </table>
+    </tr>
+    <tr> 
+      <td valign="top" height="192"> <img src="./image/left.gif" width="112" height="190" border="0">      </td>
+      <td></td>
+      <td valign="top" rowspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td height="2"></td>
+      <td height="2"></td>
+    </tr>
+    <tr> 
+      <td valign="top"> 
+        <div align="center"></div>
+      </td>
+      <td height="242"></td>
+      <td width="481" valign="top" background="./image/gsdt.gif"> 
+        <div align="center"> 
+          <table width="100%" border="0" cellspacing="-2" cellpadding="-2" height="246">
+            <tr> 
+              <td width="9%" height="29" valign="top">&nbsp;</td>
+              <td width="83%" height="29">&nbsp;</td>
+            </tr>
+            <tr> 
+              <td width="9%" height="209">&nbsp; </td>
+              <td width="83%" height="209" valign="bottom"> 
+                <table class="DoubleColorTable" width="100%" border="0" cellspacing="0" cellpadding="0" height="189">
+                  <tr> 
+                    <td bgcolor="#DEF1FE">明日科技率先提出原始程式開放政策&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="34" height="18">
+                        <param name=movie value="./new.swf">
+                        <param name=quality value=high>
+                        <param name="wmode" value="transparent">
+                        <embed src="./new.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="34" height="18" wmode="transparent">
+                        </embed> 
+                    </object></td>
+                  </tr>
+                  <tr> 
+                    <td>明日騰龍版商務軟體全面推出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="34" height="18">
+                        <param name=movie value="./new.swf">
+                        <param name=quality value=high>
+                        <param name="wmode" value="transparent">
+                        <embed src="./new.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="34" height="18" wmode="transparent">
+                        </embed> 
+                      </object></td>
+                  </tr>
+                  <tr> 
+                    <td> 多媒體宣傳軟體、光碟製作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="34" height="18">
+                        <param name=movie value="./new.swf">
+                        <param name=quality value=high>
+                        <param name="wmode" value="transparent">
+                        <embed src="./new.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="34" height="18" wmode="transparent">
+                        </embed> 
+                      </object></td>
+                  </tr>
+                  <tr> 
+                    <td>網站特惠套餐1+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="34" height="18">
+                        <param name=movie value="./new.swf">
+                        <param name=quality value=high>
+                        <param name="wmode" value="transparent">
+                        <embed src="./new.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="34" height="18" wmode="transparent">
+                        </embed> 
+                      </object></td>
+                  </tr>
+                  <tr> 
+                    <td>明日騰龍版進銷存軟體全面推出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="34" height="18">
+                        <param name=movie value="./new.swf">
+                        <param name=quality value=high>
+                        <param name="wmode" value="transparent">
+                        <embed src="./new.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="34" height="18" wmode="transparent">
+                        </embed> 
+                      </object></td>
+                  </tr>
+                </table>
+                <div align="right"><font color="#0000FF"><a href="#" class="l">更多&gt;&gt;</a></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              </td>
+              <td width="8%" height="209"> 
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table width="750" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td width="750" height="6"></td>
+    </tr>
+    <tr> 
+      <td valign="top" height="20"> 
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr> 
+            <td width="750" height="20" background="./back.gif"> 
+              <div align="center">本站請用IE5.0或以上版本瀏覽，800*600為最佳效果 版權所有：吉林省明日科技有限責任公司 
+                <br>
+                客戶信箱：<a href="mailto:mingrisoft@mingrisotf.com" class="l">mingrisoft@mingrisoft.com</a> 
+                聯繫電話：0431-84972266</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr> 
+      <td height="5"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

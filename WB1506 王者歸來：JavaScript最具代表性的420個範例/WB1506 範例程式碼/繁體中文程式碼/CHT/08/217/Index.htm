@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>透過滑鼠滾輪拉近拉遠圖片</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+.style1 {
+	color: #FF0000;
+	font-size: 16px;
+}
+-->
+</style>
+</head>
+<script language="javascript">
+function bigimg(i)
+{
+	var zoom = parseInt(i.style.zoom,10)||100;
+	zoom += event.wheelDelta / 12;
+	if(zoom > 0 )
+	i.style.zoom=zoom+'%';
+	return false;
+}
+</script>
+<body>
+<table width="100%">
+  <tr>
+    <td><span class="style1">請卷動滑鼠滾輪</span></td>
+  </tr>
+</table>
+<center>
+<a href="http://www.mingrisoft.com">
+<img src="image.jpg" width="461" height="277" border="1" onmousewheel="return bigimg(this)">
+</a>
+</center>
+</body>
+</html>

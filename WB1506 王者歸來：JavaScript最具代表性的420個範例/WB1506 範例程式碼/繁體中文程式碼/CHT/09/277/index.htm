@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>帶密碼的網頁</title>
+</head>
+
+<body>
+<script language="javascript">
+var s=false;
+var str="mingri"
+function mima(){
+	if (prompt("請輸入密碼:"+str)==str){
+		s=true;
+	}
+	else{s=false;}
+}
+mima();
+</script>
+ <table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+   <tr>
+     <script language="javascript">
+	 var arr=new Array("你已經透過正確的密碼進行本網頁","密碼錯誤,請重新輸入")
+	 if (s==true){
+		document.write('<td id="td1" height="13" scope="col">'+arr[0]+'</td>')
+	 }
+	 else{document.write('<td id="td1" height="13" scope="col">'+arr[1]+'</td>')}
+	 </script>
+   </tr>
+   <tr>
+     <th height="200" valign="top" scope="col">
+	 <script language="javascript">
+	 if (s==true){
+		document.write('<iframe src="page.htm" name="ifrm" frameborder="0" scrolling="auto" width="100%" height="100%">ff</iframe>')
+	 }
+	 </script>
+	 </th>
+   </tr>
+ </table>
+</body>
+</html>

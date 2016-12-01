@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+<script language=javascript>
+Phrase="明日科技圖書";
+Balises="";
+Nb=Phrase.length;
+layer=8;
+si=80;
+for (x=0;x<Nb;x++){
+	for(y=0;y<layer;++y)  {
+		Balises=Balises+'<DIV id=L'+x+y+' style="FONT-WEIGHT: bold; FONT-SIZE: 70px; LEFT: '+si+'px; WIDTH: 5px; COLOR: rgb(195,195,0); FONT-FAMILY: Courier New; POSITION: absolute; FONT-FAMILY: Courier New; TOP: 200px">'+Phrase.charAt(x)+ '</DIV>';
+	}
+	si=si+80;  
+}
+document.write(Balises);
+function max3D(){
+	for (x=0;x<Nb;++x){
+		for (y=0;y<layer;++y){
+			var Ob=document.all("L"+x+y);
+			Ob.style.posLeft=Ob.style.posLeft-y-1;
+			Ob.style.posTop=Ob.style.posTop+y*2+1;
+			Ob.style.color="rgb("+ (30+y*35) + ","+ (y*20+30) + ",100)";
+			Ob.style.fontSize=parseInt(Ob.style.fontSize)+15;
+		}
+	}
+}
+max3D();
+</script>
+</head>
+
+<body>
+</body>
+</html>

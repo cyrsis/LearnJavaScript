@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>parent &gt; child選取器的範例</title>
+<style type="text/css">
+input{
+	margin:5px;						/*設定input元素的外邊距為5像素*/
+}
+.input {
+	font-size: 12pt;					/*設定文字大小*/
+	color: #333333;						/*設定文字彩色*/
+	background-color:#cef;	/*設定背景彩色*/
+	border: 1px solid #000000;	/*設定邊框*/
+}
+</style>
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#change").click(function(){	//綁定"換膚"按鈕的點選事件
+  		$("form>input").addClass("input");	//為表單元素的直接子元素input加入型態		
+	});
+	$("#default").click(function(){	//綁定“還原預設”按鈕的點選事件
+  		$("form>input").removeClass("input");	//移除為表單元素的直接子元素input加入的型態		
+	});
+});
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  姓&nbsp;&nbsp;名：<input type="text" name="name" id="name" />
+  <br />
+  籍&nbsp;&nbsp;貫：<input name="native" type="text" id="native" />
+  <br />
+  生&nbsp;&nbsp;日：<input type="text" name="birthday" id="birthday" />
+  <br />
+  E-mail：<input type="text" name="email" id="email" />
+  <br />
+  <span>
+  <input type="button" name="change" id="change" value="換膚"/>
+  </span>
+  <input type="button" name="default" id="default" value="還原預設"/>
+  <br /> 
+</form>
+</body>
+</html>

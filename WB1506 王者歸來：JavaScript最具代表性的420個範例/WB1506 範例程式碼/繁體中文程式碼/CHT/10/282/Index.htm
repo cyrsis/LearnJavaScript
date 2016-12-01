@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>文字從右向左依次出現</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<script language="JavaScript">
+var MESSAGE  =   "  歡迎來到明日科技主頁，  請您提出寶貴意見！    "
+var POSITION = 150
+var DELAY    = 10
+var scroll = new statusMessageObject()
+function statusMessageObject(p,d)
+{
+	this.msg = MESSAGE
+	this.out = " "
+	this.pos = POSITION
+	this.delay = DELAY
+	this.i     = 0
+	this.reset = clearMessage
+}
+function clearMessage() 
+{
+	this.pos = POSITION
+}
+function scroller() 
+{
+  	for (scroll.i = 0; scroll.i < scroll.pos; scroll.i++) 
+ 	{
+    	scroll.out += " "
+  	}
+  	if (scroll.pos >= 0)
+   		scroll.out += scroll.msg
+  	else 
+		scroll.out = scroll.msg.substring(-scroll.pos,scroll.msg.length)
+  		window.status = scroll.out
+  		scroll.out = " "
+  		scroll.pos--
+ 	if (scroll.pos < -(scroll.msg.length)) 
+ 	{
+  	scroll.reset()
+ 	}
+ 	setTimeout ('scroller()',scroll.delay)
+  }
+function snapIn(jumpSpaces,position) 
+{
+	var msg = scroll.msg
+	var out = ""
+	for (var i=0; i<position; i++) 
+	{
+		out += msg.charAt(i)
+	}
+	for (i=1;i<jumpSpaces;i++) 
+	{
+		out += " "
+	}
+	out += msg.charAt(position)
+	window.status = out
+	if (jumpSpaces <= 1) 
+	{
+		position++
+		if (msg.charAt(position) == ' ') 
+		{position++ }
+		jumpSpaces = 100-position
+	} 
+	else if (jumpSpaces >  3)
+	{
+		jumpSpaces *= .75
+	}
+	else
+	{
+		jumpSpaces--
+	}
+	if (position != msg.length) 
+	{
+	var cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+	scrollID = window.setTimeout(cmd,scroll.delay);
+	}
+	else
+	{    
+	window.status=""
+	jumpSpaces=0
+	position=0
+	cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+	scrollID = window.setTimeout(cmd,scroll.delay);
+	return false 
+	}
+	return true
+}
+snapIn(100,0);
+</script>
+<body>
+<center>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="607" height="198">
+  <param name="movie" value="&#31185;&#25216;3.swf">
+  <param name="quality" value="high">
+  <embed src="&#31185;&#25216;3.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="607" height="198"></embed>
+</object>
+</center>
+</body>
+</html>
+

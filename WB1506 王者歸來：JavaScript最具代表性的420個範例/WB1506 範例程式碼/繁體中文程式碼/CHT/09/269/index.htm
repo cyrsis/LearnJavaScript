@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>下雪</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+body {
+	background-image: url(2.jpg);
+}
+-->
+</style></head>
+
+<body>
+<script language="javascript">
+drop = new Array(); xx = new Array(); yy = new Array(); mv = new Array();
+snowsym = "*";
+howmany = 15;     
+speed=50; drops=howmany; angle=6;
+movex = -speed/angle; movey = speed; count = 0;
+for(var i= 0; i < drops; i++){
+	document.write('<div id="drop'+i+'" style="position: absolute;">'+snowsym+'</div>');
+	drop[i] = eval("document.all['drop"+i+"'].style");
+	maxx = document.body.clientWidth-40;
+	maxy = document.body.clientHeight-40;
+	xx[i] = Math.random()*maxx;
+	yy[i] = -100-Math.random()*maxy;
+	drop[i].left = xx[i];
+	drop[i].top = yy[i];
+	mv[i] = (Math.random()*5)+speed/16;
+	drop[i].fontSize = (Math.random()*10)+10;
+	drop[i].color = "#FFFFFF";
+}
+function moverain(){
+	for(move = 0; move < drops; move++){
+		xx[move]+=movex;  yy[move]+=mv[move];
+		if(xx[move] < 0){xx[move] = maxx+10;}
+		if(yy[move] > maxy){yy[move] = 10;}
+		drop[move].left = xx[move];
+		drop[move].top = yy[move]+document.body.scrollTop;
+	}
+	setTimeout('moverain()','1');
+}
+moverain();
+</script>
+</body>
+</html>

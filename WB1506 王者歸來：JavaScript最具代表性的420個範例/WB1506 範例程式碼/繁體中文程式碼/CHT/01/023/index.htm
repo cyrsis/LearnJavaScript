@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>視窗始終在最上面</title>
+</head>
+
+<body>
+<input type="button" name="Button" value="顯示視窗" onClick="newform()">
+<script language="JavaScript">
+var name;
+function newform(){
+	name=window.open("","","width=300,height=200");
+	name.document.write('<input name="imageField" type="image" src="6.jpg" width="280" height="180" border="0">');
+	show(name);
+}
+function show(name){
+	try{
+	name.document.focus();
+	setTimeout("show(name)",1);
+	}
+	catch(e){}
+}
+</script>
+
+</body>
+</html>

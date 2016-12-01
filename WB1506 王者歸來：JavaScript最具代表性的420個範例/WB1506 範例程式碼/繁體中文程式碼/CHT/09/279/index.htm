@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>動態搬移的層</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<body bgcolor="#ADBAC9">
+<div  id="div1" class=yellow style="VISIBILITY:visible ; background-color:#FFFF00; position: absolute; top: 60; left: 200; width: 360; height: 250; filter: revealTrans(transition=12, 'duration=0.1) blendTrans(duration=0.1)">
+	<div id=title onmousedown=DIVDown("div1") style="background-color:#30608F;padding:2px; font-size:13px;text-indent:5;color:#FFFFFF;cursor:move">明日科技</div>
+	<img id=close  onclick=Hide(div1)  style="position: absolute; right: 2; top: 2" border="0" src="close.gif" width="15" height="15">
+</div>
+<script language="JavaScript">
+var Obj="none";
+var pX
+var pY
+document.onmousemove=DIVMove;
+document.onmouseup=DIVUp;
+function DIVDown(tag){
+	Obj=tag;
+	pX=parseInt(document.all(Obj).style.left)-event.x;
+	pY=parseInt(document.all(Obj).style.top)-event.y;
+}
+function DIVMove(){
+	if(Obj!="none"){
+		document.all(Obj).style.left=pX+event.x;
+		document.all(Obj).style.top=pY+event.y;
+		event.returnValue=false;
+	}
+}
+function DIVUp(){Obj="none";}
+function Hide(divid){
+	divid.filters.revealTrans.apply();
+	divid.style.visibility = "hidden";
+	divid.filters.revealTrans.play();
+}
+</script>
+</body>
+</html>

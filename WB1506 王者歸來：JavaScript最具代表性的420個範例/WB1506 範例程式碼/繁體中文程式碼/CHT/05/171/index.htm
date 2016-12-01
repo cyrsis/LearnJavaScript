@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+</head>
+
+<body onload=dream()>
+<SCRIPT>
+textstr = new Array()
+textstr[0] = "明日科技"
+textstr[1] = "歡迎購買明日科技圖書"
+textstr[2] = "明日科技圖書是您研讀的最佳材料"
+textstr[3] = "如有意見請到www.mingrisoft.com網站中"
+textcolor = new Array()
+textcolor[0] = "003399"
+textcolor[1] = "66CC00"
+textcolor[2] = "FF3300"
+textcolor[3] = "0000FF"
+var i = 0
+function dream()
+{
+   Tdiv.filters[0].apply();
+   Tdiv.innerHTML = "<span style='color:"+textcolor[i]+";font-size: '20px';filter: revealTrans(Transition=10, Duration=8)'>"+textstr[i]+"</span>";
+   Tdiv.filters[0].play();
+   if (i >= textstr.length-1) {i = 0}
+   else {i++}
+   setTimeout("dream()",5000);
+}
+</SCRIPT>
+<DIV id=Tdiv 
+style="FILTER: revealTrans(Transition=12, Duration=2); HEIGHT: 30px; LEFT: 131px; POSITION: absolute; TEXT-ALIGN: center; TOP: 155px; WIDTH: 500px"></DIV>
+</body>
+</html>

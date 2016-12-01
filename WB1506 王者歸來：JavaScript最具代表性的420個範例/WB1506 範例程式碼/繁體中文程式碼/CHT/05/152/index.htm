@@ -1,0 +1,39 @@
+
+<html>
+<head>
+<title>文字虛幻抖動</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+body {
+	background-color: #000000;
+}
+-->
+</style>
+</head>
+<body>
+<DIV id=Title2 style="COLOR: gray; FONT: bold 11pt arial; POSITION: absolute; visibility:hidden; top:300; left:300;">
+<P><FONT size=8>特效JavaScript<br>明日科技圖書</FONT></P></DIV>
+<DIV id=Title1 style="COLOR: white; FONT: bold 11pt arial; POSITION: absolute; visibility:hidden; top:300; left:300">
+<P><FONT size=8>特效JavaScript<br>明日科技圖書</FONT></P></DIV>
+<script language="javascript">
+var Tle2="document.all.Title2.style";
+var Tle1="document.all.Title1.style";
+eval(Tle2).top=eval(Tle1).top=document.body.clientHeight/2 - 20;
+eval(Tle2).left=eval(Tle1).left=document.body.clientWidth/2 - 150;
+function Fade(){   
+	var BackX = Math.random()*10;
+	var BackY = Math.random()*5;   
+	if(Math.random()<0.5){   
+		BackX = -BackX;   
+		BackY = -BackY;   
+	}   
+	eval(Tle1).visibility = eval(Tle2).visibility = "visible";   
+	eval(Tle2).left = parseInt(eval(Tle1).left) + BackX;   
+	eval(Tle2).top = parseInt(eval(Tle1).top)  + BackY;   
+	var FadeID = setTimeout("Fade()",50);   
+}
+Fade();
+</script>
+</body>
+</html>

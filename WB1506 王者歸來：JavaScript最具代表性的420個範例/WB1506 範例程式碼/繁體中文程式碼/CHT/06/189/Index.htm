@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>公告欄中顯示超連結</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<script language="javascript">
+var affiche_index = 6;
+link = new Array(5);
+affiche = new Array(5);
+link[0]= 'http://www.mingrisoft.com/bookJS.asp#';
+link[1]= 'http://www.mingrisoft.com/bookdelphitechnic.asp#';
+link[2]= 'http://www.mingrisoft.com/bookDelphifunction.asp#';
+link[3]= 'http://www.mingrisoft.com/bookVBCompoent.asp#';
+link[4]= 'http://www.mingrisoft.com/bookASPNET.asp#';
+link[5]= 'http://www.mingrisoft.com/bookVC.asp#';
+affiche[0] = 'JavaScript範例寶典';
+affiche[1] = 'Delphi技術大全';
+affiche[2] = 'Delphi函數大全';
+affiche[3] = 'VB元件大全';
+affiche[4] = 'ASP.NET完全手冊';
+affiche[5] = 'VC案例精選';
+document.write("<table><tr><td background='公告欄.jpg'; width=154px; height=180px>");
+document.write("&nbsp;&nbsp;<marquee scrollamount = '1' direction ='up' width ='130' height ='80' scrolldelay ='80' id = table  onmouseover = table.stop() onmouseout = table.start()>");
+for (i = 0;i<affiche_index;i++)
+{
+	document.write("<a href = "+link[i]+"target='_blank'><font color = '#003399'>");
+	document.write(affiche[i]+"</font></A><br>");
+}
+document.write("</marquee>");
+document.write("</td></tr></table>");
+</script>
+<body alink="#FF0000" style="text-decoration:none;">
+
+</body>
+</html>

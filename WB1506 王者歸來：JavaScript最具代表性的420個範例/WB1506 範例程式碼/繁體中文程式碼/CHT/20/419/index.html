@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>實現圖形傳輸帶</title>
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<style type="text/css">
+a img {
+  border: 0;	/*無邊框*/
+}
+#container {
+  position: relative;	/*設定相對佈局*/
+  background: #E0F0FB;	/*設定背景彩色*/
+  width: 240px;			/*設定寬度*/
+  height: 70px;			/*設定高度*/
+  margin: 1px auto;		/*設定外邊距*/
+  padding: 0;			/*設定內邊距*/
+  border:1px solid #A1D6FE; /*設定邊框*/
+  z-index: 2;			/*設定層疊次序*/
+}
+#container .box {
+  position: relative;	/*設定相對佈局*/
+  width: 480px;
+  z-index: 3;			/*設定層疊次序*/
+}
+#container a {
+  float: left;			/*設定浮動在左邊*/
+  margin: 5px 0px 5px 5px;		/*設定外邊距*/
+  height: 58px;
+}
+
+#container .control {
+  position: absolute;	/*設定絕對佈局*/
+  z-index: 3;			/*設定層疊次序*/
+  left: 0;				/*設定左邊距*/
+  top: 0;				/*設定頂邊距*/
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+  var spacing = 90;						//定義儲存間距的變數
+  function createControl(src) {		//定義建立控制圖片的函數
+    return $('<img/>')
+      .attr('src', src)				//設定圖片的來源
+	  .attr("width",80)
+	  .attr("height",60)
+      .addClass('control')
+      .css('opacity', 0.6)			//設定透明度
+      .css('display', 'none');			//預設為不顯示
+  }
+      
+  var $leftRollover = createControl('images/left.gif');	//建立向左搬移的控制圖片
+  var $rightRollover = createControl('images/right.gif');	//建立向左搬移的控制圖片
+
+  $('#container').css({								//改變圖形傳輸帶容器的CSS型態
+    'width': spacing * 3,
+    'height': '70px',
+    'overflow': 'hidden'								//溢位時隱藏
+  }).find('.box a').css({
+    'float': 'none',
+    'position': 'absolute',							//設定為絕對佈局
+    'left': 1000									//將左邊距設定為1000，目的是不顯示
+  });
+
+  var setUpbox = function() {
+    var $box = $('#container .box a');
+    $box.unbind('click mouseenter mouseleave');		//移除綁定的事件
+
+    /******************************左邊的圖片*************************************/
+    $box.eq(0)
+      .css('left', 0)
+      .click(function(event) {
+        $box.eq(0).animate({'left': spacing}, 'fast');		//為第一張圖片加入動畫
+        $box.eq(1).animate({'left': spacing * 2}, 'fast');	//為第二張圖片加入動畫
+        $box.eq(2).animate({'left': spacing * 3}, 'fast');	//為第3張圖片加入動畫
+        $box.eq($box.length - 1)
+          .css('left', -spacing)						//設定左邊距
+          .animate({'left': 0}, 'fast', function() {
+            $(this).prependTo('#container .box');
+            setUpbox();
+          });									//加入動畫
+
+        event.preventDefault();						//取消事件的預設動作
+      }).hover(function() {							//設定滑鼠的懸停事件
+        $leftRollover.appendTo(this).fadeIn(200);		//顯示向左搬移的控制圖片
+      }, function() {
+        $leftRollover.fadeOut(200);					//隱藏向左搬移的控制圖片
+      });
+
+    /******************************右邊的圖片**************************************/
+    $box.eq(2)
+      .css('left', spacing * 2)	//設定左邊距
+      .click(function(event) {	//綁定點選事件
+        $box.eq(0)			//取得左邊的圖片，也就是第一張圖片
+          .animate({'left': -spacing}, 'fast', function() {
+            $(this).appendTo('#container .box');	
+            setUpbox();
+          });									//加入動畫
+        $box.eq(1).animate({'left': 0}, 'fast');//加入動畫
+        $box.eq(2).animate({'left': spacing}, 'fast');//加入動畫
+        $box.eq(3)
+          .css('left', spacing * 3)					//設定左邊距
+          .animate({'left': spacing * 2}, 'fast');	//加入動畫
+
+        event.preventDefault();		//取消事件的預設動作
+      }).hover(function() {			//設定滑鼠的懸停事件
+        $rightRollover.appendTo(this).fadeIn(200);	//顯示向右搬移的控制圖片
+      }, function() {
+        $rightRollover.fadeOut(200);		//隱藏向右搬移的控制圖片
+      });
+
+    /************************中間的圖片*****************************************/
+    $box.eq(1).css('left', spacing);	//設定中間圖片的左邊距
+      };
+  setUpbox();
+  $("a").attr("target","_blank");	//檢視原圖時，在新的視窗中開啟
+});
+
+</script>
+
+</head>
+
+<body>
+<div id="container">
+<div class="box">
+    <a href="images/01.jpg"><img height=60 src="images/01.jpg" width=80></a>
+    <a href="images/02.jpg"><img height=60 src="images/02.jpg" width=80></a>
+    <a href="images/03.jpg"><img height=60 src="images/03.jpg" width=80></a>
+    <a href="images/04.jpg"><img height=60 src="images/04.jpg" width=80></a>
+    <a href="images/05.jpg"><img height=60 src="images/05.jpg" width=80></a>
+    <a href="images/06.jpg"><img height=60 src="images/03.jpg" width=80></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>使狀態列中的文字不停閃爍</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<script language="javascript">
+var text = "  歡迎來到明日科技軟體網  ";
+var Timer = 500;
+var b = 1;
+function flash()
+{
+  window.status="";
+  if (b == 1)
+    {
+      window.status=text;
+      b=0;
+    }  
+  else
+    {
+      window.status="";
+      b=1;
+    }
+  setTimeout("flash()",Timer);
+}
+</script>
+<body onLoad="flash();">
+<center>
+<table width="782" height="514" border="0">
+  <tr>
+    <td width="776" height="510" background="Images/backgroup.jpg">&nbsp;</td>
+  </tr>
+</table>
+</center>
+</body>
+</html>

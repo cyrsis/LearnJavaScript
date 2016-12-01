@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>下載頁面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body style="font-size: 9pt " bgcolor="#EDECE9" onload="load_n('已完成:')">
+<div id=load style="font-size: 9pt; cursor: default; position: absolute; display:block;width:402;height:20;top:expression(18);left:expression(10); display: block; z-index:100;background:#EDECE9 " align="left">請稍候..
+	<div style=" border-width:1px; border-color:#000000; border-style:ridge">
+		<img id=line style="background:#3300CC" height=10></div>
+		<div id=load_txt><div style="font-size: 9pt; cursor: default; position: absolute; display: marker;width:402;height:20;top:expression(18);left:expression(10); display: block; z-index:100;background:#EDECE9 "></div>
+	</div>
+</div>
+<script language="JavaScript">
+var load_line_i=1;
+var load_line_n=500;
+var tim;
+var i=0
+function load_n(txt){
+	if ((Math.floor(load_line_i/4.00))==100){
+		finish();
+		window.returnValue='t';
+		clearTimeout(tim);
+	}
+	else{
+		load_line_i+=400/load_line_n;
+		load_txt.innerText=txt+" "+Math.floor(load_line_i/4.00)+"%";
+		document.all("line").width=load_line_i;
+		tim=setTimeout("load_n('已完成:')",10);
+	}
+}
+function finish(){
+	if(confirm("已經下載完成,關閉交談視窗嗎?")){
+		close();
+	}
+}
+</script>
+</body>
+</html>

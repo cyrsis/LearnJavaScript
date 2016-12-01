@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>雷達掃描圖片特效</title>
+</head>
+
+<body onLoad="beginscan();">
+<center>
+<IMG SRC="雷達.JPG" ID="img1" STYLE="filter:light()">
+</center>
+<script language="javascript">
+   var X=20//角度
+   var Y=20//角度
+   var Z=40//角度
+   var xInc=100;
+   var yInc=100;
+   var r=200;
+   var X1=0;
+   var change = (2 * Math.PI)/360
+   
+function moveposition()
+{
+	X = r+r*Math.cos(X1*change);
+	Y = r+r*Math.sin(X1*change);
+	X1 += 10;
+	if(X1 == 360)  X1=0;
+	img1.filters[0].moveLight(0,X,Y,Z,1);
+	mytimeout=setTimeout('moveposition()',80);
+}
+function beginscan()//開始雷達掃描
+{
+	img1.filters.light.addCone(192,110,0,X,Y,0,255,0,150,20);
+	img1.filters.light.addAmbient(0,255,0,50)
+	var x=0;
+	moveposition();
+}
+</script>
+</body>
+</html>

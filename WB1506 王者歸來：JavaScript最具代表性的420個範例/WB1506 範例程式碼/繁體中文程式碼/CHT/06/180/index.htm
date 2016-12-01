@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>取得頁面中的全部超連結</title>
+<script language="javascript">
+function getUrl(){
+	var allLink=document.getElementsByTagName("A");
+	var linktotal=allLink.length;
+	var newWin=window.open("")
+	newWin.document.write("<title>取得的全部超連結</title>");
+	newWin.document.write("<style>a:hover {font-size: 9pt;color: #FF6600;}");
+	newWin.document.write("a {	font-size: 9pt;	text-decoration: none;	color: #676767;}</style>");	
+	for (i=0;i<linktotal;i++){
+		newWin.document.write(allLink[i].outerHTML+"<br>")
+	}
+}
+</script>
+<script src="fun.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table id="jszc" class='box'  style='display:none' onMouseOver="popmenu(this)" onMouseOut="popmenu(this)"  align="center"> 
+  <tr> 
+    <td onMouseOver="pu(event)" onMouseOut="po(event)" style="cursor:hand; color:#000000"><a href="#">常見問題</a></td> 
+  </tr> 
+  <tr> 
+    <td onMouseOver="pu(event)" onMouseOut="po(event)" style="cursor:hand; color:#000000"><a href="#">工具下載</a></td> 
+  </tr> 
+  <tr> 
+    <td onMouseOver="pu(event)" onMouseOut="po(event)" style="cursor:hand; color:#000000"><a href="#">更新下載</a></td> 
+  </tr> 
+</table> 
+<table id="khqd" class='box'  style='display:none' onMouseOver="popmenu(this)" onMouseOut="popmenu(this)" align="center"> 
+  <tr> 
+    <td onMouseOver="pu(event)" onMouseOut="po(event)" style="cursor:hand; color:#000000"><a href="#">使用者登錄</a></td> 
+  </tr> 
+  <tr> 
+    <td onMouseOver="pu(event)" onMouseOut="po(event)" style="cursor:hand; color:#000000"><a href="#">使用者登入</a></td> 
+  </tr> 
+  <tr> 
+    <td onMouseOver="pu(event)" onMouseOut="po(event)" style="cursor:hand; color:#000000"><a href="#">使用者修改</a></td> 
+  </tr> 
+  <tr> 
+    <td onMouseOver="pu(event)" onMouseOut="po(event)" style="cursor:hand; color:#000000"><a href="#">留言版</a></td> 
+  </tr> 
+</table> 
+<table width="778" height="148"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="206" height="63"><img src="images/index_01.gif" width="280" height="63"></td>
+    <td background="images/index_02.gif">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td width="30" height="22" align="center" valign="middle"><img src="images/index_separate.gif" width="2" height="47"></td> 
+    <td align="center"><a href="#">首頁<br>Index</a></td> 
+    <td width="30" align="center" valign="middle"><img src="images/index_separate.gif" width="2" height="47"></td> 
+    <td align="center"><a href="#">產品地帶<br>Product</a></td> 
+    <td width="30" align="center" valign="middle"><img src="images/index_separate.gif" width="2" height="47"></td> 
+    <td align="center"> <a href="#">解決專案<br>Scheme</a> </td> 
+    <td width="30" align="center" valign="middle"><img src="images/index_separate.gif" width="2" height="47"></td> 
+    <td align="center" onMouseOver="popUp(jszc)" onMouseOut="popUp(jszc)" class="word_deepgrey">技術支援<br>Instructor </td> 
+    <td width="30" align="center" valign="middle"><img src="images/index_separate.gif" width="2" height="47"></td> 
+    <td align="center" onMouseOver="popUp(khqd)" onMouseOut="popUp(khqd)" class="word_deepgrey">客戶通路<br>channel      </td> 
+    <td width="30" align="center" valign="middle"><img src="images/index_separate.gif" width="2" height="47"></td> 
+    <td align="center"><a href="#">討論區<br>forum</a></td> 
+  </tr> 
+</table>	</td>
+  </tr>
+  <tr valign="top">
+    <td height="178" colspan="2" background="images/index_04.gif"><table width="100%" height="36"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="46%" class="word_white" id="bgclock">&nbsp;&nbsp;<a href="#" onClick="getUrl()" class="word_white">[取得全部超連結]</a></td>
+        <td width="15%"><a href="#" class="word_white" onClick="this.style.behavior='url(#default#homepage)';this.sethomepage('htttp://www.mingrisoft.com')">設為首頁</a></td>
+        <td width="15%"><a href="JavaScript:window.external.AddFavorite('Http://www.mingrisoft.com','明日科技')"  class="word_white">收藏本站</a></td>
+        <td width="14%"><a href="mailto:mingrisoft@mingrisoft.com" class="word_white">聯繫我們</a></td>
+        <td width="10%"><a href="http://www.mingrisoft.com" class="word_white">關於</a></td>
+      </tr>
+    </table></td>
+  </tr>
+</table> 
+</body>
+</html>

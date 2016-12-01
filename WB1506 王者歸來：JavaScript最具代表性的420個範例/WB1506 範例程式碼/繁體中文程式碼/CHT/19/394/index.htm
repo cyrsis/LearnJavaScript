@@ -1,0 +1,252 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+table td{
+	border: #407D2A 0px solid;
+}
+
+input{
+	font-family: "宋體";	font-size: 9pt;color: #333333;	
+	background-color: #eeeeee;cursor: hand;padding:1px;height:19px;
+	border-top: 1px solid #FFFFFF;border-right:1px solid #666666;
+	border-bottom: 1px solid #666666;border-left: 1px solid #FFFFFF;
+}
+</style>
+<title>復雜計算機</title>
+</head>
+
+<body scrollbars="no">
+<table width="300" height="214" border="1" cellpadding="0" cellspacing="5" style=" background-color: #CCFFFF">
+  <tr>
+    <td id="td1" colspan="6" height="20">
+      <input name="zhi" type="text" value="0" size="45" style="background-color: #FFFFFF;font-size: 9pt;color: #333333;border: 1px solid #999999; cursor:text">
+	</td>
+  </tr>
+  <tr>
+    <td align="left" height="30" colspan="2">
+      <input type="button" name="back" value="Backspace" onClick="backspace()">
+	</td>
+	<td align="right" colspan="2">
+      <input align="right" type="button" name="CE" value="  CE  " onClick="ce()">
+	</td>
+    <td width="53">
+      <input type="button" name="C" value="  C  " onClick="Aclose()">
+	</td>
+  </tr>
+  <tr>
+    <td width="51" height="28">
+      <input type="button" name="A7" value="  7  " onClick="num(7)">
+	</td>
+    <td width="51">
+      <input type="button" name="A8" value="  8  " onClick="num(8)">
+	</td>
+    <td width="56">
+      <input type="button" name="A9" value="  9  " onClick="num(9)">
+	</td>
+    <td width="57">
+      <input type="button" name="chu" value="  /  " onClick="js('/')">
+	</td>
+    <td>
+      <input type="button" name="sqrt" value=" sqrt" onClick="kfang()">
+	</td>
+  </tr>
+  <tr>
+    <td width="51" height="28">
+    <input type="button" name="A4" value="  4  " onClick="num(4)">
+	</td>
+    <td width="51">
+      <input type="button" name="A5" value="  5  " onClick="num(5)">
+	</td>
+    <td width="56">
+      <input type="button" name="A6" value="  6  " onClick="num(6)">
+	</td>
+    <td>
+      <input type="button" name="chu" value="  *  " onClick="js('*')">
+	</td>
+    <td>
+      <input type="button" name="bai" value="  %  " onClick="bai()">
+	</td>
+  </tr>
+  <tr>
+    <td width="51" height="28">
+      <input type="button" name="A1" value="  1  " onClick="num(1)">
+	</td>
+    <td width="51">
+      <input type="button" name="A2" value="  2  " onClick="num(2)">
+	</td>
+    <td width="56">
+      <input type="button" name="A3" value="  3  " onClick="num(3)">
+	</td>
+    <td>
+      <input type="button" name="chu" value="  -  " onClick="js('-')">
+	</td>
+    <td>
+      <input type="button" name="xz1" value=" 1/x " onClick="ji()">
+	</td>
+  </tr>
+  <tr>
+    <td width="51" height="28">
+      <input type="button" name="A0" value="  0  " onClick="num(0)">
+	</td>
+    <td width="51">
+      <input type="button" name="jgj" value=" +/- " onClick="zf()">
+	</td>
+    <td width="56">
+      <input type="button" name="dian" value="  .  " onClick="dian()">
+	</td>
+    <td>
+      <input type="button" name="jia" value="  +  " onClick="js('+')">
+	</td>
+    <td>
+      <input type="button" name="deng" value="  =  " onClick="js('=')">
+	</td>
+  </tr>
+</table>
+<p>
+<script language="javascript">
+var isnum=false;
+var n1=0;
+var fu="";
+var zong=0;
+var isdian=false;
+function num(n){
+	if (isnum==true){
+		if (zhi.value=='0.'){zhi.value=zhi.value+n;}
+		else{zhi.value=n;}
+		isnum=false;
+	}
+	else{
+		if (zhi.value=='0'){zhi.value=n;}
+		else{
+			zhi.value=zhi.value+n;
+		}
+	}
+	n1=parseFloat(zhi.value);
+}
+function dian(){
+	var isfirst=isfloor();
+	if ((isnum == true)||(zhi.value=='0')){zhi.value='0.'}
+	if ((isdian==false)&&(isfirst==true)){
+		zhi.value='0.';
+	}	
+	else if (isdian==false){
+		if (parseFloat(zhi.value)=='0'){zhi.value='0.';}
+		else if (isfirst==true){zhi.value=zhi.value;}
+		else{zhi.value=zhi.value+'.';}
+		isdian=true;
+	}
+}
+function isfloor(){
+	var int1=parseFloat(zhi.value);
+	var int2=Math.floor(int1);
+	if (int1>int2){return true;}
+	else{return false;}
+}
+function ce(){
+	zong= parseFloat(zhi.value);
+	zhi.value="0";
+	isnum=true;
+	isdian=false;
+}
+function Aclose(){
+	isdian=isnum=false;
+	ce();
+	fu=base="";
+	dd=jsq=zong=n1=0;
+}
+function isxiao(n){
+	var int1=parseFloat(n);
+	var int2=Math.floor(int1);
+	if (int1>int2){return true;}
+	else{return false;}
+}
+var base;
+function js(s){
+	var lin =  parseFloat(n1);
+	if ((s=="=")&&(fu=="=")){
+		if ((base=="+")||(base=="-")||(base=="*")||(base=="/")){
+			zong =eval(zong+base+lin);
+			if (isxiao(zong)==true){zhi.value = zong.toFixed(4);}
+			else{zhi.value = zong}
+		}
+	}
+	else if ((fu=="=")&&(s==("*")||s==("/")||s==("+")||s==("-"))){
+		if (isxiao(zong)==true){zhi.value = zong.toFixed(4);}
+		else{zhi.value = zong}
+		base=fu;
+		fu = s;
+	}
+	else{
+		if (isnum && fu != "="){
+			if ( '+' == fu )
+				zong =eval(zong+fu+lin);
+			else if ( '-' == fu )
+				zong =eval(zong+fu+lin);
+			else if ( '/' == fu )
+				zong =eval(zong+fu+lin);
+			else if ( '*' == fu )
+				zong =eval(zong+fu+lin);
+			else if ('' == fu)
+				zong = lin;
+			if (isxiao(zong)==true){zhi.value = zong.toFixed(4);}
+			else{zhi.value = zong}
+			base=fu;
+			fu = s;
+		}
+		else{
+			if ( '+' == fu )
+				zong += lin;
+			else if ( '-' == fu )
+				zong =zong- lin;
+			else if ( '/' == fu )
+				zong /= lin;
+			else if ( '*' == fu )
+				zong *= lin;
+			else
+				zong = lin;
+			if (isxiao(zong)==true){zhi.value = zong.toFixed(4);}
+			else{zhi.value = zong}
+			base=fu;
+			fu = s;
+		}
+	}
+	isnum = true;
+}
+function bai() {
+	zhi.value = (parseFloat(zhi.value) / 100) * parseFloat(zong);
+	isdian=false;
+}
+function kfang(){
+	if (zhi.value!="0"||zhi.value!=""){
+		zhi.value=Math.sqrt(parseFloat(zhi.value));
+		isnum=true;
+		isdian=false;
+	}
+}
+function zf(){
+	var pp=parseFloat(zhi.value);
+	if (pp>0){zhi.value="-"+pp}
+	if (pp<0){zhi.value=Math.abs(pp)}
+}
+function ji(){
+	var pp=parseFloat(zhi.value);
+	zhi.value=parseFloat(1/pp);
+	isnum=true;
+	isdian=false;
+}
+function backspace(){
+	var bstr=zhi.value;
+	if (bstr!="0"){
+		var isabs=String(Math.abs(bstr));
+		if ((bstr.length==1)||(isabs.length==1)){
+			zhi.value="0";
+			isdian=false;
+		}
+		else{zhi.value=bstr.substr(0,bstr.length-1)}
+	}
+}
+</script>
+</body>
+</html>
+      

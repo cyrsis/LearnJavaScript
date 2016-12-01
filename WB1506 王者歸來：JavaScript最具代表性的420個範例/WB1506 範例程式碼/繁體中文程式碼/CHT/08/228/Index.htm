@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>上下跳動的圖片</title>
+<style fprolloverstyle>A:hover {color: #00FFFF}
+</style>
+</head>
+<style type="text/css">
+#superball {
+position:absolute;
+left:0;
+top:0;
+visibility:hide;
+visibility:hidden;
+width:40;
+height:40;
+}
+</style>
+<body>
+<p>
+  <script language="JavaScript">
+var ballWidth = 40;
+var ballHeight = 40;
+var BallSpeed = 10;
+var maxBallSpeed = 50;
+var xMax;
+var yMax;
+var xPos = 0;
+var yPos = 0;
+var xDir = 'right'; 
+var yDir = 'down'; 
+var superballRunning = true;
+var tempBallSpeed;
+var currentBallSrc;
+var newXDir;
+var newYDir;
+
+function initializeBall() {
+
+      xMax = document.body.clientWidth
+      yMax = document.body.clientHeight
+      document.all("superball").style.visibility = "visible";
+   setTimeout('moveBall()',1000);
+   }
+
+function moveBall() {
+   if (superballRunning == true) {
+      calculatePosition();
+      document.all("superball").style.left = xPos + document.body.scrollLeft;
+      document.all("superball").style.top = yPos + document.body.scrollTop;
+      setTimeout('moveBall()',50);
+      }
+   }
+function calculatePosition() {
+   if (xDir == "right") {
+      if (xPos > (xMax - ballWidth - BallSpeed)) { 
+         xDir = "left";
+         }
+      }
+   else if (xDir == "left") {
+      if (xPos < (0 + BallSpeed)) {
+         xDir = "right";
+         }
+      }
+   if (yDir == "down") {
+      if (yPos > (yMax - ballHeight - BallSpeed)) {
+         yDir = "up";
+         }
+      }
+   else if (yDir == "up") {
+      if (yPos < (0 + BallSpeed)) {
+         yDir = "down";
+         }
+      }
+   if (xDir == "right") {
+      xPos = xPos + BallSpeed;
+      }
+   else if (xDir == "left") {
+      xPos = xPos - BallSpeed;
+      }
+   else {
+      xPos = xPos;
+      }
+   if (yDir == "down") {
+      yPos = yPos + BallSpeed;
+      }
+   else if (yDir == "up") {
+      yPos = yPos - BallSpeed;
+      }
+   else {
+      yPos = yPos;
+      }
+   }
+
+window.onload = initializeBall;
+window.onresize = new Function("window.location.reload()");
+</script>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="http://www.mingrisoft.com" style="cursor:pointer ">
+</a></p>
+<a href="http://www.mingrisoft.com" style="cursor:pointer ">
+<span id="superball">
+	<img name="superballImage" src="明日企標.jpg" height="130" width="130" border="0">
+</span> 
+</a>
+
+</body>
+</html>
+

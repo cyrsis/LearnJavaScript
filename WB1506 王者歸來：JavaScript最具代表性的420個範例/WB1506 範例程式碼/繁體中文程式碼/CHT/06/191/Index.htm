@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>顯示連結的提示訊息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body onLoad="out()">
+<script language="javascript">
+function over(hint)
+{
+	document.all.Tdiv.innerHTML = hint;
+	document.all.Tdiv.style.position="absolute";
+	document.all.Tdiv.style.backgroundColor="#FFFFCC";
+	document.all.Tdiv.style.width="140px";
+	document.all.Tdiv.style.fontSize="9pt";
+	document.all.Tdiv.style.posLeft=window.event.x+document.body.clientLeft+4;
+	document.all.Tdiv.style.posTop =window.event.y+document.body.clientTop+2;
+	document.all.Tdiv.style.visibility = "visible";
+}
+function out()
+{
+	document.all.Tdiv.style.visibility = "hidden";
+}
+</script>
+<a style="width:100px " href="http://www.mingrisoft.com" onMouseOut="out()" onMouseOver="over('吉林省明日科技有限公司')">
+<p>
+http://www.mingrisoft.com</p>
+</a>
+<div id="Tdiv"></div>
+</body>
+</html>

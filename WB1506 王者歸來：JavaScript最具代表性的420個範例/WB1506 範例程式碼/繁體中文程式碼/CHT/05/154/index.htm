@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>右上角文字</title>
+</head>
+
+<body>
+&nbsp;
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>
+  <SCRIPT language="JavaScript">
+textstr="明日科技圖書";
+TColor="#AA92C7";
+TFont="楷書";
+textstr=textstr.split("");
+n=textstr.length;
+mass=360/n;
+cy=cx=sb=0;
+yb=50;
+xb=60;
+sa=0.1;
+pa=new Array();
+pb=new Array();
+for (i=0; i < n; i++) document.write('<div id="logo" style="position:absolute;top:0;left:0;'+'height:30;width:30;font-family:'+TFont+';text-align:center;color:'+TColor+'">'+textstr[i]+'</div>');
+function sport(){
+  cy=document.body.scrollTop+60;
+  cx=document.body.scrollLeft+window.document.body.clientWidth-100;
+  for (i=0; i < n; i++){
+     logo[i].style.top =cy+yb*Math.sin(sb+i*mass*Math.PI/180);
+     logo[i].style.left=cx+xb*Math.cos(sb+i*mass*Math.PI/180);
+     pb[i]=logo[i].style.pixelTop-cy;
+     pa[i]=pb[i]-pb[i]*2;
+     if (pa[i] < 1){
+        pa[i]=0;
+        logo[i].style.visibility='hidden';
+     }
+     else logo[i].style.visibility='visible';
+     logo[i].style.fontSize=pa[i]/1.7;
+  }
+  sb-=sa;
+  setTimeout('sport()',100);
+}
+sport();
+</SCRIPT>
+</p>
+</body>
+</html>

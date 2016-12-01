@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>在頁面旋轉的圖片</title>
+</head>
+
+<body>
+<div id="rounddiv" style="width:50pt; top:198.75pt; left:256.5pt; position:absolute; z-index:0">
+<img src="temp.jpg">
+</div>
+<script language="javascript"> 
+var x1=200; 
+var x2=200; 
+var timer;
+var r=60;
+var i = 0; 
+function eddy(i) 
+{ 
+	var ob=document.all("rounddiv");
+	ob.style.posTop = r*Math.sin((i*Math.PI)/180)+x1; 
+	ob.style.posLeft = r*Math.cos((i*Math.PI)/180)+x2; 
+	i=i+1;
+	if (r>100){window.clearTimeout(timer);}
+	else{
+		if (i > 360){i = 0;r = r + 1;}
+ 		timer=setTimeout("eddy("+i+")",10);
+	}
+}
+eddy(0);
+</script>
+</body>
+</html>

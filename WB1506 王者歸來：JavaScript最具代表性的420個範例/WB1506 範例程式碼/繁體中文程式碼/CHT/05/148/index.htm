@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>自動改變大小</title>
+</head>
+
+<body>
+<SCRIPT language="JavaScript">
+var speed = 20;
+var cycledelay = 1000;
+var maxsize = 48;
+var x=y=0;
+var themessage, size;
+var esize = "";
+var a = new Array();
+a[0]="歡迎購買";
+a[1]="明日圖書系列";
+a[2]="明日圖書將是你成功的密決";
+document.write('<div id="div1"></div><br>');
+function upwords(){
+	themessage = a[y];
+	if (x < maxsize) {
+		x++;
+		setTimeout("upwords()",speed);
+	}
+	else setTimeout("downwords()",cycledelay);
+	div1.innerHTML = "<center>"+themessage+"</center>";
+	div1.style.fontSize=x;
+}
+function downwords(){
+	if (x > 1) {
+		x--;
+		setTimeout("downwords()",speed);
+	}
+	else {
+		setTimeout("upwords()",cycledelay);
+		y++;
+		if (y > a.length - 1) y = 0;
+	}
+	div1.innerHTML = "<center>"+themessage+"</center>";
+	div1.style.fontSize=x;
+}
+upwords();
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<table id="table1" width="200">
+  <tr>
+    <td width="60" id="Ttd0">&nbsp;</td>
+    <td width="58" id="Ttd1">箱數</td>
+    <td width="66" id="Ttd2">單價</td>
+  </tr>
+  <tr>
+    <td id="Ttd3">蘋果</td>
+    <td id="Ttd4">50</td>
+    <td id="Ttd5">30</td>
+  </tr>
+  <tr>
+    <td id="Ttd6">香蕉</td>
+    <td id="Ttd7">60</td>
+    <td id="Ttd8">35</td>
+  </tr>
+</table>
+<script language="javascript">
+var tt=true;
+table1.cellSpacing="0";
+table1.border="2";
+function changcolor(){
+	for (var i=0;i<9;i++){
+		if (tt==true){eval("Ttd"+i).borderColor="#00FF00";}
+		if (tt==false){eval("Ttd"+i).borderColor="#6666FF";}
+	}
+	tt=!tt;
+	setTimeout("changcolor()",200);
+}
+changcolor();
+</script>
+</body>
+</html>

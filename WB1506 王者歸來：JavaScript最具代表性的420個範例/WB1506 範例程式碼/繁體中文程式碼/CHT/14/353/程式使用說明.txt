@@ -1,0 +1,2 @@
+執行程式時右鍵點選index.xml檔案，在出現的快速選單中選取“開啟模式”/“Internet EXPLORER”指令即可進行程式。
+若果在“開啟模式”後沒有“Internet EXPLORER”選項可以點選其後的“選取程式，然後選取“從清單中選取程式”單選項，在出現的“開啟模式”中選取“Internet EXPLORER”指令執行。

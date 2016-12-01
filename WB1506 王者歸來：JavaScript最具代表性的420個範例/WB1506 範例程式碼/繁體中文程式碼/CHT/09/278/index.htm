@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>頁面左右卷動</title>
+</head>
+
+<body>
+<img src="1.jpg">
+<script language="javascript"> 
+function document.body.onselectstart(){return false;} 
+var tim = null; 
+var bigit = 1; 
+function document.ondblclick(){tim = setInterval("aboutmove()",100);} 
+function aboutmove(){ 
+	if(document.body.scrollLeft==0||(document.body.scrollWidth - document.body.scrollLeft)==document.body.clientWidth){ 
+		bigit *= -1; 
+	} 
+	window.scrollBy(bigit,0); 
+} 
+function document.onclick(){ clearInterval(tim)} 
+</script> 
+</body>
+</html>

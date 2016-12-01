@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ancestor descendan選取器的範例</title>
+<style type="text/css">
+body{
+	margin:0px;
+}
+#bottom{
+	background-image:url(images/bg_bottom.jpg);	/*設定背景*/
+	width:800px;	/*設定寬度*/
+	height:58px;	/*設定高度*/
+	clear: both;	/*設定左右兩側無浮動內容*/
+	text-align:center;	/*設定置中對齊*/
+	padding-top:10px;	/*設定頂邊距*/
+	font-size:9pt;	/*設定字型大小*/
+}
+.copyright{
+	color:#FFFFFF;	/*設定文字彩色*/
+	list-style:none;	/*不顯示專案符號*/
+	line-height:20px;	/*設定行高*/
+}
+</style>
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("div ul").addClass("copyright");			//為div元素的子元素ul加入型態
+});
+</script>
+</head>
+
+<body>
+<div id="bottom">
+<ul>
+	<li>技術服務熱線：400-675-1066 傳真：0431-84972266 企業信箱：mingrisoft@mingrisoft.com</li>
+	<li>Copyright &copy; www.mrbccd.com All Rights Reserved! </li>
+</ul>
+</div>
+<ul>
+	<li>技術服務熱線：400-675-1066 傳真：0431-84972266 企業信箱：mingrisoft@mingrisoft.com</li>
+	<li>Copyright &copy; www.mrbccd.com All Rights Reserved! </li>
+</ul>
+</body>
+</html>

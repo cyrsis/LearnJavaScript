@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>檢視購物車</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="style.css" rel="stylesheet">
+<script language="JavaScript" src="cart_functions.js"></script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="800" height="631" border="0" align="center" cellpadding="0" cellspacing="0" background="images/cart.jpg">
+  <tr>
+    <td width="52" height="185">&nbsp;</td>
+    <td width="699">&nbsp;</td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="324">&nbsp;</td>
+    <td valign="top">
+<table width="673" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="673" align="center"><form name="cartForm" method="post" action="">
+        <input type="hidden" name="cart" id="cart" size="100">
+        <table width="85%" border="1" cellspacing="0" cellpadding="0" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" bordercolorlight="#FB9914" class="td_cart">
+          <tr bgcolor="#FB9914">
+            <td width="46%" bgcolor="#FB9914" align="center"><font color="#FFFFFF">品名</font></td>
+            <td width="14%" align="center" bgcolor="#FB9914"><font color="#FFFFFF">單價</font></td>
+            <td width="12%" align="center" bgcolor="#FB9914"><font color="#FFFFFF">數量</font></td>
+            <td width="20%" align="center" bgcolor="#FB9914"><font color="#FFFFFF">金額</font></td>
+            <td width="8%" bgcolor="#FB9914">&nbsp;</td>
+          </tr>
+        </table>
+<script language="JavaScript">
+var the_list =unescape(cart_read('petInfo'));
+if (the_list=="false"||the_list.indexOf("|")==-1){
+	window.location.href="cart_empty.htm";
+}else{
+    cartForm.cart.value=the_list;
+    var totals;
+    var broken_list = the_list.split("|");
+    for (i=1;i<broken_list.length;i++){
+        var single_list=broken_list[i];
+        var broken_single_list = single_list.split("&");
+        var subtotals=broken_single_list[2]*(broken_single_list[3]*100)/100;
+        if (totals==null){
+            totals=subtotals;
+        }else{
+            totals=totals*100+subtotals*100;
+            totals=totals/100;
+        }
+        document.write("<table id='Table"+broken_single_list[0]+"' width='85%' border='1' cellspacing='0' cellpadding='0' bordercolor='#FFFFFF' bordercolordark='#FFFFFF' bordercolorlight='#FB9914' class='td_cart'>")
+        document.write("<tr>");
+        document.write("<td width='46%'>"+broken_single_list[1]+"</td>");
+        document.write("<td width='14%'>"+broken_single_list[3]+"</td>");
+        document.write("<td width='12%'>"+" <input id='aid"+broken_single_list[0]+"' type='text' name='textfield' value="+broken_single_list[2]+" size='5' maxlength='5' disabled onKeyUp=modifySubTotal('"+broken_single_list[0]+"',this.value,'"+broken_single_list[3]+"') onchange=modifyTotal('"+broken_single_list[0]+"',this.value)>"+"</td>");
+        document.write("<td width='20%'><input type='text' size='10' id='id"+broken_single_list[0]+"'style='border:medium none; '  readonly value="+subtotals+"></td>");
+        document.write("<td width='8%'><input type='button' name='Submit' class='btn_grey' value='移除' disabled onClick=Delete(Table"+broken_single_list[0]+",'"+broken_single_list[0]+"')></td>");
+        document.write("</tr></table>");
+    }
+}
+</script>
+        <table width="85%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td width="92%"><div align="right">合計金額：</div></td>
+            <td width="8%"><font color="#FFFFFF">
+              <input type="text" id="total" name="total" size="10" readonly style="border: medium none;" >
+            </font></td>
+          </tr>
+        </table>
+        <script language="JavaScript">
+			cartForm.total.value=totals;
+		</script>
+		<br>
+            <input name="Button" type="button" class="btn_grey" id="update" onClick="modifyCart()" value="修改訂單">
+            <input name="continueBuy" type="button" class="btn_grey" id="continueBuy" onClick="history.back(1)" value="繼續購物">
+            <input name="clearCart" type="button" class="btn_grey" id="clearCart" onClick="cart_clear()" value="清理購物車">
+      </form></td>
+  </tr>
+</table>
+	</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

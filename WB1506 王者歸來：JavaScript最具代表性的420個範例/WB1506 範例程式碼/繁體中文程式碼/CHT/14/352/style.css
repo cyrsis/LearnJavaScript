@@ -1,0 +1,35 @@
+book{
+border:1px solid;
+width:100%;
+font-size:12px;
+}
+ISBN{
+display: none; 
+}
+bookname{
+font-size:12px;
+display: inline;
+font-weight: bold; 
+width: 200px;
+border-right:1px solid;
+height:27px;
+padding:5px;
+}
+author{
+font-size:12px;
+display: inline; 
+font-style: italic; 
+width: 200px;
+border-right:1px solid;
+height:27px;
+text-align:center;
+padding:5px;
+}
+publishing{
+font-size:12px;
+display: inline; 
+color: red;
+width: 100px;
+height:27px;
+padding:5px;
+}

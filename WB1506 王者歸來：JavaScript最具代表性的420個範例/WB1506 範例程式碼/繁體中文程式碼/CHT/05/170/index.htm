@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+
+</head>
+<BODY onload="test()">
+<SCRIPT language="javascript">
+    var step=2;
+    var cstep=0;
+    var msg='明日科技';
+    document.write("<center><div id='water' style='position:relative;width:650px;height:150px;font-family:黑體;font-size:100px;color:#00AAFF'>"+msg+"</div></center>");
+    function test(){
+      document.all.water.style.filter='wave(freq=5, strength=5, phase='+cstep+', lightstrength=45, add=0, enabled=1)';
+      cstep+=step;
+      TIMER=setTimeout('test()',10);
+    }
+</SCRIPT>
+<span class="style1"></span>
+</body>
+</html>

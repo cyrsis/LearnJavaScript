@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>文字依次顯示後快速收縮</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<script language="javascript">
+var showtext=" 歡迎您來WL物流訊息網 ";
+var point=1;
+function scrollIn() 
+{
+	window.status = "";
+	window.status = showtext.substring(0, point);
+	if (point >= showtext.length) 
+	{
+		point=1;
+		window.setTimeout("scrollOut()",300); 
+	}
+	else {
+		point++;
+		window.setTimeout("scrollIn()",100); 
+	} 
+}
+function scrollOut() 
+{
+	window.status = "";
+	window.status=showtext.substring(point, showtext.length);	
+	if (point >= showtext.length) 
+	{
+		point=1;
+		window.setTimeout("scrollIn()", 100);
+	}
+	else {
+		point++;
+		window.setTimeout("scrollOut()", 100);
+	}
+}
+</script>
+<body onLoad="scrollOut();">
+<center>
+<table width="792" height="743" border="0">
+  <tr>
+    <td width="786" height="739" background="Images/backgroup.jpg">&nbsp;</td>
+  </tr>
+</table>
+</center>
+</body>
+</html>

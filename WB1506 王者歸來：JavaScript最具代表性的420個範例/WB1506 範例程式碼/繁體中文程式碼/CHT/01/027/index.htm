@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>設定視窗大小和位置</title>
+</head>
+
+<body>
+<script language="javascript">
+var ss="";
+function place(){
+    ss="width="+document.form1.text1.value+",height="+document.form1.text2.value+",top="+document.form1.text3.value+",left="+document.form1.text4.value;
+	var newform=window.open("melody.htm","",ss);
+}
+</script>
+<form name="form1" method="post" action="">
+  <p>頁面大小：</p>
+  <p>寬：
+    <input name="text1" type="text" id="text1" value="500" size="10"> 
+    高：
+    <input name="text2" type="text" id="text2" value="400" size="10">       
+  </p>
+  <p>頁面位置：</p>
+  <p>X：
+    <input name="text3" type="text" id="text3" value="10" size="10">
+Y：
+<input name="text4" type="text" id="text4" value="10" size="10">
+</p>
+  <p>
+    <input type="button" name="Submit" value="開啟頁面" onclick="place()">
+      </p>
+</form>
+</body>
+</html>

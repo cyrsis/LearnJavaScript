@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>顯示超連結站台關聯訊息</title>
+</head>
+<script language="javascript">
+var hint = new Array(3)
+hint[0] = "<font color = red>新聞---IT---游戲---影視---音樂---娛樂---旅游---體育</font>";
+hint[1] = "<font color = red>IT討論區導覽---財經---汽車---房地產---科技---求職應聘</font>";
+hint[2] = "<font color = red>精美壁紙---鈴聲下載---游戲專區---奇聞奇事---時尚---信件</font>";
+</script>
+
+<body vlink="#0099CC">
+<table border="0">
+<tr>
+<td valign=top width="100">
+<a href="#" onMouseOver="Hints.innerHTML = hint[0];">網路時空-1</a>
+<p>
+<a href="#" onMouseOver="Hints.innerHTML = hint[1];">網路時空-2</a>
+<p>
+<a href="#" onMouseOver="Hints.innerHTML = hint[2];">網路時空-3</a>
+</td>
+<td width="600">
+<a id="Hints">請將滑鼠指向連結</a> 
+</td>
+</tr>
+</table>
+</body>
+</html>

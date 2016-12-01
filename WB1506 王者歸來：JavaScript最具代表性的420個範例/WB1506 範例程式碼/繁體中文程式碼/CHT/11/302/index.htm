@@ -1,0 +1,138 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="Css/style.css">
+<script src="JS/onclock.js"></script>
+<title>利用CSS型態列印頁面中的指定內容</title>
+<style>
+@media print{
+div{display:none}
+.bgnoprint{
+	background:display:none;
+}
+.noprint{
+	display:none
+}
+}
+</style>
+</head>
+<body onLoad="clockon(bgclock);clockon(printTime,'列印時間：')" class="bgnoprint">
+<table width="757" height="174" border="0" align="center"cellpadding="0" cellspacing="0">
+  <tr class="noprint">
+    <td height="133" align="center" valign="top"><img src="Images/top.jpg" width="757" height="133"></td>
+  </tr>
+  <tr>
+    <td><table width="100%" height="26" border="0" cellpadding="0" cellspacing="0" background="images/area_bg.jpg" class="noprint">
+        <tr>
+          <td width="26%" align="right"><div id="bgclock" class="word_white"> </div></td>
+          <td width="4%">&nbsp;</td>
+          <td width="70%" valign="bottom"> 目前位置：物資處理
+            &gt; 庫存碟點
+            &gt;&gt;&gt; </td>
+        </tr>
+      </table>
+      <table width="100%" height="227" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td width="5" height="227" valign="top" background="images/left.gif" class="bgnoprint">&nbsp;</td>
+          <td align="center" valign="top">&nbsp;
+		    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="50" class="noprint" >&nbsp;</td>
+                <td valign="top"><table width="90%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="27" align="center" style=" font-size:14px;"><b>庫存碟點表</b></td>
+                  </tr>
+                  <tr>
+                    <td height="13" align="right"><div id="printTime"></div></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                </table>
+                  <table width="90%" border="1" cellpadding="0" cellspacing="0" bgcolor="#000000" id="pay" bordercolor="#00000" bordercolordark="#000000" bordercolorlight="#FFFFFF" >
+                    <tr>
+                      <td width="7%" align="center" bgcolor="#FFFFFF">編號</td>
+                      <td width="21%" align="center" bgcolor="#FFFFFF">物資名稱</td>
+                      <td width="16%" align="center" bgcolor="#FFFFFF">規格</td>
+                      <td width="23%" align="center" bgcolor="#FFFFFF">生產廠商</td>
+                      <td width="9%" align="center" bgcolor="#FFFFFF">單價(元)</td>
+                      <td width="15%" align="center" bgcolor="#FFFFFF">庫存數量(單位)</td>
+                      <td width="9%" align="center" bgcolor="#FFFFFF">碟點數量</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF">&nbsp;1</td>
+                      <td bgcolor="#FFFFFF">&nbsp;日記本</td>
+                      <td bgcolor="#FFFFFF">&nbsp;40K 105*444</td>
+                      <td bgcolor="#FFFFFF">&nbsp;*****company</td>
+                      <td bgcolor="#FFFFFF">&nbsp;5.63</td>
+                      <td bgcolor="#FFFFFF">&nbsp;6(個)</td>
+                      <td bgcolor="#FFFFFF">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF">&nbsp;2</td>
+                      <td bgcolor="#FFFFFF">&nbsp;鋼筆</td>
+                      <td bgcolor="#FFFFFF">&nbsp;527</td>
+                      <td bgcolor="#FFFFFF">&nbsp;美****公司</td>
+                      <td bgcolor="#FFFFFF">&nbsp;12</td>
+                      <td bgcolor="#FFFFFF">&nbsp;13(支)</td>
+                      <td bgcolor="#FFFFFF">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF">&nbsp;3</td>
+                      <td bgcolor="#FFFFFF">&nbsp;顯示器</td>
+                      <td bgcolor="#FFFFFF">&nbsp;vs717</td>
+                      <td bgcolor="#FFFFFF">&nbsp;天****公司</td>
+                      <td bgcolor="#FFFFFF">&nbsp;1432</td>
+                      <td bgcolor="#FFFFFF">&nbsp;4(台)</td>
+                      <td bgcolor="#FFFFFF">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF">&nbsp;4</td>
+                      <td bgcolor="#FFFFFF">&nbsp;印表機</td>
+                      <td bgcolor="#FFFFFF">&nbsp;1520H</td>
+                      <td bgcolor="#FFFFFF">&nbsp;*****company</td>
+                      <td bgcolor="#FFFFFF">&nbsp;1500</td>
+                      <td bgcolor="#FFFFFF">&nbsp;2(台)</td>
+                      <td bgcolor="#FFFFFF">&nbsp;</td>
+                    </tr>
+				  </table>
+                  <table width="90%" height="43" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td height="18">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td height="25" align="right"><div><a href="#" onClick="window.print();">列印碟點報表</a></div></td>
+                    </tr>
+					<%}%>
+                  </table></td>
+                <td width="40">&nbsp;</td>
+              </tr>
+            </table>
+	      </td>
+          <td width="10" valign="top" background="images/right.jpg">&nbsp;</td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr class="noprint">
+    <td height="55" valign="top" background="images/bottom.jpg"><table width="99%" height="55"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+  <tr>
+	<td height="2" colspan="4"></td>
+	</tr>
+  <tr>
+	<td width="124" height="23">&nbsp;</td>
+	<td valign="bottom" align="center"> CopyRight &copy; 2007 www.mingrisoft.com 吉林省明日科技有限公司</td>
+	<td width="141">&nbsp;</td>
+  </tr>
+  <tr>
+	<td height="28">&nbsp;</td>
+	<td align="center">本站請使用IE6.0或以上版本 1024*768為最佳顯示效果</td>
+	<td>&nbsp;</td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

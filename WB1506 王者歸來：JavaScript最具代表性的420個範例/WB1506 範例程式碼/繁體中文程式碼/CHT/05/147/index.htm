@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>文字一個一個拉近</title>
+</head>
+
+<body onload=init()>
+<SCRIPT>
+text=new Array('明','日','科','技','圖','書');
+color=new Array('#3300FF','#3366FF','#AAAAFF','#CDDBFC','#ffffff');
+var maxSize=70;
+var size=10;
+var n=0;
+function zoom(num,fn){
+	if (size<maxSize){
+		eval('document.all.Tdiv.innerText=text[num]');
+		eval('document.all.Tdiv.style.fontSize=size');
+   		size+=5;
+		setTimeout("zoom("+num+",'"+fn+"')",30);
+	}else eval(fn);
+}
+function fadeIt(num){
+	if (num<color.length){
+		eval("document.all.Tdiv.style.color=color[num]");
+   		num+=1;
+		setTimeout("fadeIt("+num+")",200);
+	}else document.all.Tdiv.style.visibility="hidden";
+}
+function init(){
+	document.all.Tdiv.style.color=color[0];
+	change(0);
+}
+function change(num){
+	n+=1;
+	size=10;
+	if(num<text.length) {zoom(num,'change('+n+')');}
+	else fadeIt(0);
+}
+</SCRIPT>
+<div align=center id=Tdiv style="POSITION: absolute; TOP: 10px"></div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>彩色選色器</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+.style1 {color: #FFFFFF}
+-->
+</style>
+</head>
+
+<body style="font:menu">
+<span class="style1"></span>
+<table border="0" cellspacing="1" cellpadding="3" width="350" align="center" bgcolor="#dddddd">
+<tr bgcolor="#FFFFFF"> 
+<td width="10%" align="center"> 
+<select name="select1" onchange="selectmenu(this.value)">
+<option value="1" selected>紅</option>
+<option value="2">綠</option>
+<option value="3">藍</option>
+<option value="4">灰</option>
+</select>
+</td>
+<td width="90%" align="center"> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+<td align="center" style="font-size:12px">用滑鼠點選下面的彩色塊,將出現彩色值</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr bgcolor="#FFFFFF"> 
+<td width="10%" align="center"> 
+  <table id="table1" border="0" cellspacing="1" cellpadding="0">
+<script language="JavaScript">
+for(i=0;i<=15;++i){
+	document.write('<tr><td align="center" style="font:menu">'+ishex(i*17) +'</td><td id="Ltd' + i +'" bgcolor="rgb('+ (i*17) + ',0,0)" width="15" height="15" onclick="changeright(this.num)"></td></tr>')
+	document.all['Ltd' + i].num=i
+}
+function ishex(which){
+    return which.toString(16);
+}
+</script>
+</table></td>
+
+<td width="90%" align="center"> 
+<table id="table2" border="0" cellspacing="1" cellpadding="0">
+<script language="JavaScript">
+document.write('<tr><td></td>')
+for(i=0;i<=15;++i){
+	document.write('<td align="center" style="font:menu; ">'+ishex(i*17)+'</td>');
+}
+document.write('</tr>')
+for(i=0;i<=15;++i){
+	document.write('<tr>')
+	document.write('<td align="center" style="font:menu;">'+ishex(i*17)+'</td>')
+ 	for(j=0;j<=15;++j){
+  		document.write('<td id="Rtd'+i+'and'+j+'" style="font:menu;" bgcolor="rgb(0,'+(i*17)+','+(j*17)+')" width="15" height="15" onclick="clickright(this)"></td>');
+	}
+ 	document.write('</tr>')
+}
+</script>
+</table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">
+function selectmenu(which){
+	switch(which){
+		case '1' :leftR();break;
+   		case '2' :leftG();break;
+   		case '3' :leftB();break;
+   		case '4' :leftA();break;
+  	}
+}
+function leftR(){
+	for(i=0;i<=15;++i){
+   		document.all['Ltd'+i].bgColor='rgb('+(i*17)+',0,0)';
+   	}
+ 	rightR(0)
+}
+function leftG(){
+	for(i=0;i<=15;++i){
+   		document.all['Ltd'+i].bgColor='rgb(0,'+ (i*17) + ',0)';
+	}
+ 	rightG(0)
+}
+function leftB(){
+	for(i=0;i<=15;++i){
+   		document.all['Ltd'+i].bgColor='rgb(0,0,'+(i*17)+')';
+	}
+ 	rightB(0)
+}
+function leftA(){
+	for(i=0;i<=15;++i){
+   		document.all['Ltd'+i].bgColor='rgb('+(i*17)+','+(i*17)+','+(i*17)+')';
+	}
+ 	rightA()
+}
+function rightR(which){
+	for(i=0;i<=15;++i){
+   		for(j=0;j<=15;++j){
+     		document.all['Rtd'+i+'and'+j].bgColor='rgb('+(which*17)+','+(i*17)+','+(j*17)+')';
+		}
+    }
+}
+function rightG(which){
+	for(i=0;i<=15;++i){
+		for(j=0;j<=15;++j){
+			document.all['Rtd'+i+'and'+j].bgColor='rgb('+(i*17)+','+(which*17)+','+(j*17)+')';
+		}
+    }
+}
+function rightB(which){
+	for(i=0;i<=15;++i){
+		for(j=0;j<=15;++j){
+			document.all['Rtd'+ i+'and'+j].bgColor='rgb('+(i*17)+','+(j*17)+','+(which*17)+')';
+	 	}
+    }
+}
+function rightA(){
+	for(i=0;i<=15;++i){
+		for(j=0;j<=15;++j){
+			document.all['Rtd'+i+'and'+j].bgColor='rgb('+(i*16+j)+','+(i*16+j)+','+(i*16+j)+')';
+		}
+    }
+}
+function clickright(which){
+	alert(which.bgColor)
+}
+function changeright(which){
+	switch(select1.value){
+		case '1' :rightR(which);break;
+   		case '2' :rightG(which);break;
+   		case '3' :rightB(which);break;
+ 	}
+}
+</script>
+</body>
+</html>

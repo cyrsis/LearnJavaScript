@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>將Web頁面中的資料匯出到Excel</title>
+<link href="CSS/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<form name="form1" method="post" action="">  
+<table width="540" height="343" border="0" align="center" cellspacing="0" background="main.gif" >
+    <tr align="center">
+      <td width="42" height="56" align="right" valign="bottom"><img src="add.gif" width="20" height="18"></td>
+      <td width="243" height="56" align="left" valign="bottom" id="doctitle">&nbsp;2007年1月份薪水報表</td>
+      <td width="249" align="left" valign="bottom">&nbsp;</td>
+    </tr>
+    <tr align="center">
+      <td height="24"  colspan="3">&nbsp;</td>
+    </tr>
+    <tr align="center">
+      <td colspan="3" valign="top">
+<table width="90%" border="0" cellspacing="1" bgcolor="#000000" id="wage">
+      <tr>
+        <td width="79" height="27" align="center" bgcolor="#efefef">員工名稱</td>
+        <td width="69" align="center" bgcolor="#efefef">獎金</td>
+        <td width="104" align="center" bgcolor="#efefef">基本薪水</td>
+        <td width="63" align="center" bgcolor="#efefef">津貼</td>
+        <td width="57" align="center" bgcolor="#efefef">扣除</td>
+        <td width="93" align="center" bgcolor="#efefef">實發薪水</td>
+      </tr>
+      <tr>
+        <td width="79" height="27" align="center" bgcolor="#FFFFFF">wgh</td>
+        <td width="69" align="center" bgcolor="#FFFFFF">200</td>
+        <td width="104" align="center" bgcolor="#FFFFFF">1800</td>
+        <td width="63" align="center" bgcolor="#FFFFFF">300</td>
+        <td width="57" align="center" bgcolor="#FFFFFF">0</td>
+        <td width="93" align="center" bgcolor="#FFFFFF">2300</td>
+      </tr>	
+      <tr>
+        <td width="79" height="27" align="center" bgcolor="#FFFFFF">sk</td>
+        <td width="69" align="center" bgcolor="#FFFFFF">100</td>
+        <td width="104" align="center" bgcolor="#FFFFFF">2100</td>
+        <td width="63" align="center" bgcolor="#FFFFFF">210</td>
+        <td width="57" align="center" bgcolor="#FFFFFF">5</td>
+        <td width="93" align="center" bgcolor="#FFFFFF">2405</td>
+      </tr>	 
+      <tr>
+        <td width="79" height="27" align="center" bgcolor="#FFFFFF">春</td>
+        <td width="69" align="center" bgcolor="#FFFFFF">70</td>
+        <td width="104" align="center" bgcolor="#FFFFFF">1700</td>
+        <td width="63" align="center" bgcolor="#FFFFFF">100</td>
+        <td width="57" align="center" bgcolor="#FFFFFF">10</td>
+        <td width="93" align="center" bgcolor="#FFFFFF">1860</td>
+      </tr>	 
+      <tr>
+        <td width="79" height="27" align="center" bgcolor="#FFFFFF">夏</td>
+        <td width="69" align="center" bgcolor="#FFFFFF">100</td>
+        <td width="104" align="center" bgcolor="#FFFFFF">1900</td>
+        <td width="63" align="center" bgcolor="#FFFFFF">100</td>
+        <td width="57" align="center" bgcolor="#FFFFFF">20</td>
+        <td width="93" align="center" bgcolor="#FFFFFF">2080</td>
+      </tr>	
+      <tr>
+        <td width="79" height="27" align="center" bgcolor="#FFFFFF">秋</td>
+        <td width="69" align="center" bgcolor="#FFFFFF">150</td>
+        <td width="104" align="center" bgcolor="#FFFFFF">1600</td>
+        <td width="63" align="center" bgcolor="#FFFFFF">100</td>
+        <td width="57" align="center" bgcolor="#FFFFFF">0</td>
+        <td width="93" align="center" bgcolor="#FFFFFF">1850</td>
+      </tr>	 
+      <tr>
+        <td width="79" height="27" align="center" bgcolor="#FFFFFF">冬</td>
+        <td width="69" align="center" bgcolor="#FFFFFF">200</td>
+        <td width="104" align="center" bgcolor="#FFFFFF">1500</td>
+        <td width="63" align="center" bgcolor="#FFFFFF">100</td>
+        <td width="57" align="center" bgcolor="#FFFFFF">0</td>
+        <td width="93" align="center" bgcolor="#FFFFFF">1800</td>
+      </tr>		  	   
+</table>
+<p align="center"><a href="#" onClick="outExcel();">匯出到Excel</a></p>  
+	  </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+<script language="javascript">
+function outExcel(){
+	var table=document.all.wage;
+	row=table.rows.length;
+	column=table.rows(1).cells.length;
+	var excelapp=new ActiveXObject("Excel.Application");
+	excelapp.visible=true;
+	objBook=excelapp.Workbooks.Add(); //加入新的工作簿
+	var objSheet = objBook.ActiveSheet;
+
+	title=objSheet.Range("D1").MergeArea;  //合並單元格
+	title.Cells(1,0).Value =doctitle.innerHTML.replace("&nbsp;","");  //輸出標題
+	title.Cells(1,1).Font.Size =16;
+	for(i=1;i<row+1;i++){
+		for(j=0;j<column;j++){
+		  objSheet.Cells(i+1,j+1).value=table.rows(i-1).cells(j).innerHTML.replace("&nbsp;","");
+		}
+	}
+	excelapp.UserControl = true;
+}
+</script>

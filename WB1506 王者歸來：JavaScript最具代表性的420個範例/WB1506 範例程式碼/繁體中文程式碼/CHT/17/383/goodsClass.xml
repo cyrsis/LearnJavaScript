@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<NewDataSet>
+  <tb_GoodsInfo>
+    <ClassID>1</ClassID>
+    <goodsClass>鮮花綠植1</goodsClass>
+  </tb_GoodsInfo>
+  <tb_GoodsInfo>
+    <ClassID>2</ClassID>
+    <goodsClass>時尚禮品</goodsClass>
+  </tb_GoodsInfo>
+  <tb_GoodsInfo>
+    <ClassID>3</ClassID>
+    <goodsClass>化妝品</goodsClass>
+  </tb_GoodsInfo>
+  <tb_GoodsInfo>
+    <ClassID>4</ClassID>
+    <goodsClass>服裝服飾</goodsClass>
+  </tb_GoodsInfo>
+  <tb_GoodsInfo>
+    <ClassID>5</ClassID>
+    <goodsClass>數碼攝影</goodsClass>
+  </tb_GoodsInfo>
+  <tb_GoodsInfo>
+    <ClassID>6</ClassID>
+    <goodsClass>電腦軟體</goodsClass>
+  </tb_GoodsInfo>
+  <tb_GoodsInfo>
+    <ClassID>7</ClassID>
+    <goodsClass>影視音樂</goodsClass>
+  </tb_GoodsInfo>
+  <tb_GoodsInfo>
+    <ClassID>8</ClassID>
+    <goodsClass>圖書</goodsClass>
+  </tb_GoodsInfo>
+  <tb_GoodsInfo>
+    <ClassID>9</ClassID>
+    <goodsClass>日用家具</goodsClass>
+  </tb_GoodsInfo>
+</NewDataSet>

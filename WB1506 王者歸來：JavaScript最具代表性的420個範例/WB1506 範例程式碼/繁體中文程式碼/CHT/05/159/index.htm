@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+</head>
+
+
+<OBJECT classid=CLSID:369303C2-D7AC-11D0-89D5-00A0C90833E6 height=18 id=SG4 
+style="HEIGHT: 450px; LEFT: 25%; POSITION: absolute; TOP: 64px; WIDTH: 450px;" 
+width=14><PARAM NAME="Line0001" VALUE="SetLineStyle(0)"><PARAM NAME="Line0002" VALUE="SetFillColor(164, 164, 255)"><PARAM NAME="Line0003"><PARAM NAME="Line0004" VALUE="SetFont('Arial', 100, 150, 0, 0, 0)"><PARAM NAME="Line0005" VALUE="Text('明日科技圖書', -95, 87)"></OBJECT>
+<OBJECT classid=CLSID:369303C2-D7AC-11D0-89D5-00A0C90833E6 height=18 id=SG1 
+style="HEIGHT: 450px; LEFT: 25%; POSITION: absolute; TOP: 25%; WIDTH: 450px;" 
+width=14><PARAM NAME="Line0001" VALUE="SetLineStyle(1)"><PARAM NAME="Line0002" VALUE="SetLineColor(0, 0, 0)"><PARAM NAME="Line0003"><PARAM NAME="Line0004" VALUE="SetFont('Arial', 100, 150, 0, 0, 0)"><PARAM NAME="Line0005" VALUE="Text('明日科技圖書', -95, 87)"></OBJECT>
+<OBJECT classid=CLSID:369303C2-D7AC-11D0-89D5-00A0C90833E6 height=18 id=SG3 
+style="HEIGHT: 350px; LEFT: 25%; POSITION: absolute; TOP: 25%; WIDTH: 450px;" 
+
+width=14><PARAM NAME="Line0001" VALUE="SetLineStyle(2)"><PARAM NAME="Line0002" VALUE="SetLineColor(66,158, 144)"><PARAM NAME="Line0003"><PARAM NAME="Line0004" VALUE="SetFont('Arial', 100, 150, 0, 0, 0)"><PARAM NAME="Line0005" VALUE="Text('明日科技圖書', -95, 87)"></OBJECT>
+<OBJECT classid=CLSID:369303C2-D7AC-11D0-89D5-00A0C90833E6 height=18 id=SG2 
+style="HEIGHT: 450px; LEFT: 25%; POSITION: absolute; TOP: 25%; WIDTH: 450px;" 
+width=14><PARAM NAME="Line0001" VALUE="SetLineStyle(3)"><PARAM NAME="Line0002" VALUE="SetLineColor(255, 111,210)"><PARAM NAME="Line0003"><PARAM NAME="Line0004" VALUE="SetFont('Arial', 100, 150, 0, 0, 0)"><PARAM NAME="Line0005" VALUE="Text('明日科技圖書', -95, 0)"></OBJECT>
+<body>
+<SCRIPT language="JavaScript">
+function Window_OnLoad(){
+	document.SG1.Scale(0.50, 0.50, 0.50);
+	document.SG2.Scale(0.50, 0.50, 0.50);
+	document.SG3.Scale(0.50, 0.50, 0.50);
+	document.SG4.Scale(0.50, 0.50, 0.50);
+	document.SG1.Rotate(0, 0, 0);
+	document.SG2.Rotate(90, 0, 0);
+	document.SG3.Rotate(0, 90, 0);
+	RotateAll();
+}
+function RotateAll(){
+	document.SG1.Rotate(4,6,2);
+	document.SG2.Rotate(4,6,2);
+	document.SG3.Rotate(4,6,2);
+	document.SG4.Rotate(4,6,2);
+	window.setTimeout("RotateAll()",20);
+}
+Window_OnLoad();
+</SCRIPT>
+</body>
+</html>

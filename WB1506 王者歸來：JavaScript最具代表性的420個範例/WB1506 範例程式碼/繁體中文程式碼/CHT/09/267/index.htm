@@ -1,0 +1,45 @@
+
+<html>
+<head>
+<title>隨機顯示廣告</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<div id="div1" style="position: absolute;  text-align:center; visibility:hidden; filter: revealTrans(Transition=8, Duration=1)  revealTrans(Transition=9, Duration=3)  revealTrans(Transition=10, Duration=1)  revealTrans(Transition=11, Duration=2)  revealTrans(Transition=12, Duration=3)  revealTrans(Transition=17, Duration=2)  revealTrans(Transition=18, Duration=3) revealTrans(Transition=19, Duration=1) revealTrans(Transition=20, Duration=2) revealTrans(Transition=21, Duration=3)"><img id="img1"></div>
+<script language="javascript">
+var n=0;
+var n1=0;
+var is=true;
+document.all.div1.style.top=document.body.clientHeight-135;
+document.all.div1.style.left=document.body.clientWidth-175;
+function showdiv(){
+	n=Math.floor(Math.random()*10);
+	document.all.div1.filters[n].apply();
+	if (n1==4){n1=1}
+	else{n1=n1+1}
+	document.all.img1.src=n1+".jpg";
+	if (is==true){	
+		document.all.div1.style.visibility="visible";
+		is=false;
+	}else{
+		document.all.div1.style.visibility="hidden";
+		is=true;
+	}
+	document.all.div1.filters[n].play();
+	setTimeout("showdiv()",6000);
+}
+showdiv();
+function place(){
+	window.status=String(n);
+	document.all.div1.style.top=parseInt(document.body.scrollTop)+parseInt(document.body.clientHeight)-135;
+	document.all.div1.style.left=parseInt(document.body.scrollLeft)+parseInt(document.body.clientWidth)-175;
+	setTimeout("place()",50)
+}
+place();
+</script>
+<center>
+<img src="gougo.jpg">
+</center>
+</body>
+</html>

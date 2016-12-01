@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+</head>
+<body onload="initiate()">
+<script language="javascript">
+var textwidth=300;
+var textheight=100;
+var content="";
+var font_face="宋體";
+var font_color="#87BC78";
+var font_size=5;
+var bg_ticker="#A7D2E4";
+var x_finalpos=10;
+var y_finalpos=10;
+var x_slices=12;
+var i_message=1;
+var cli=1;
+var cliptop=0;
+var clipbottom=textheight;
+var width_slice=Math.ceil(textwidth/x_slices);
+var message="明日科技圖書";
+for (i=0;i<=x_slices;i++) document.write("<span id='s"+i+"' style='POSITION: absolute' ></span>");
+function initiate(){
+   content+="<table border=2 cellpadding='3' width="+textwidth+" height="+textheight+">";
+   content+="<tr><td bgcolor="+bg_ticker+" align='center'>";
+   content+="<font face="+font_face+" size="+font_size+" color="+font_color+">"+message;
+   content+="</font></a></td></tr></table>";
+   for (i=0;i<=x_slices;i++){
+     var Tdiv=eval("s"+i);
+     Tdiv.innerHTML=content;
+     var sty=eval("document.all.s"+i+".style");
+     sty.posLeft=x_finalpos;
+     sty.posTop=y_finalpos;
+   }
+   i_message++;
+   openlamellar();
+}
+function openlamellar(){
+   clipleft=-width_slice;
+   clipright=0;
+   if (cli<=width_slice){
+      for (i=0;i<=x_slices;i++){
+         var sty=eval("document.all.s"+i+".style");
+         sty.clip ="rect("+cliptop+" "+clipright+" "+clipbottom+" "+clipleft+")";
+         clipleft+=width_slice;
+         clipright=clipleft+cli;
+	  }
+      cli++;
+      var timer=setTimeout("openlamellar()",20);
+   }
+   else clearTimeout(timer);
+}
+</script>
+</HEAD>
+</body>
+</html>

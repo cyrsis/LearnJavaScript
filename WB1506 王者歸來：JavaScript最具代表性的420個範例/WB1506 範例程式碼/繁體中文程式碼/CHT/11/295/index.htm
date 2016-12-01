@@ -1,0 +1,220 @@
+<html>
+<head>
+<title>將頁面中的表格匯出到Word並列印</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="CSS/style.css" rel="stylesheet">
+<script language="javascript">
+function outDoc(){
+  var table=document.all.order;
+  row=table.rows.length;
+  column=table.rows(1).cells.length;
+  var wdapp=new ActiveXObject("Word.Application");
+  wdapp.visible=true;
+  wddoc=wdapp.Documents.Add();  //加入新的文件
+  thearray=new Array();
+//將頁面中表格的內容存放在陣列中
+for(i=0;i<row;i++){
+	thearray[i]=new Array();
+	for(j=0;j<column;j++){
+          thearray[i][j]=table.rows(i).cells(j).innerHTML;
+	}
+}
+var range = wddoc.Range(0,0);
+range.Text="訂單訊息清單"+"\n";
+wdapp.Application.Activedocument.Paragraphs.Add(range);
+wdapp.Application.Activedocument.Paragraphs.Add();
+rngcurrent=wdapp.Application.Activedocument.Paragraphs(3).Range;
+
+var objTable=wddoc.Tables.Add(rngcurrent,row,column)     //插入表格
+for(i=0;i<row;i++){
+	for(j=0;j<column;j++){
+	objTable.Cell(i+1,j+1).Range.Text = thearray[i][j].replace("&nbsp;","");
+	}
+}
+wdapp.Application.ActiveDocument.SaveAs("orderInfo.doc",0,false,"",true,"",false,false,false,false,false);
+wdapp.Application.Printout();
+wdapp=null;
+}
+</script>
+</head>
+
+<body>
+<table width="777" height="192"  border="0" align="center" cellpadding="0" cellspacing="0" class="tableBorder">
+<tr>
+  <td>
+<table width="777" height="115"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td bgcolor="#CCCCCC" height="6px"></td>
+      </tr>
+    </table>
+      <table width="100%" height="123"  border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="top" background="images/manage_01.gif"><table width="100%" height="118"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td height="98" colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="25%">&nbsp;</td>
+              <td width="75%" class="word_green" id="bgclock"></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<table width="777" height="288"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="182" valign="top"><table width="100%" height="431"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top" background="images/manage_02.gif"><table width="100%" height="301"  border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="18%" height="61">&nbsp;</td>
+            <td width="82%">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="46">&nbsp;</td>
+            <td><a href="#" class="word_white">商品管理<br>
+              Goods Manage</a></td>
+          </tr>
+          <tr>
+            <td height="47">&nbsp;</td>
+            <td><a href="#" class="word_white">會員管理<br>
+              Member Manage</a></td>
+          </tr>
+          <tr>
+            <td height="48">&nbsp;</td>
+            <td><a href="#" class="word_white">訂單管理<br>
+              Order Manage</a></td>
+          </tr>
+          <tr>
+            <td height="50">&nbsp;</td>
+            <td><a href="#" class="word_white">公告管理<br>
+               Manage Placard</a></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><a href="#" class="word_white">離開背景<br>
+              Exit Background </a></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td align="center" valign="top"><table width="100%" height="120"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top" background="Images/manage_center_orderlist.gif"><table width="100%" height="36"  border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="98%" align="right"><img src="images/list.gif" width="11" height="13" border="0">&nbsp;加入商品訊息]</td>
+            <td width="2%">&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+      <table width="92%" height="192"  border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="top">
+<table width="100%" height="14"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td height="13" align="center">&nbsp;</td>
+            </tr>
+          </table>
+            <table  id="order" width="100%" height="48"  border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#CCCCCC" bordercolorlight="#FFFFFF">
+                    <tr align="center">
+                      <td width="21%" height="30">訂單號</td>
+                      <td width="12%">品種數</td>
+                      <td width="11%">真實姓名</td>
+                      <td width="13%">付款模式</td>
+                      <td width="17%">運送模式</td>
+                      <td width="10%">折扣</td>
+                      <td width="16%">訂貨日期</td>
+                    </tr>
+                    <tr align="center">
+                      <td width="21%" height="30">DD200702010001</td>
+                      <td width="12%">2</td>
+                      <td width="11%">無語*</td>
+                      <td width="13%">貨到付款</td>
+                      <td width="17%">網路配送</td>
+                      <td width="10%">9.5</td>
+                      <td width="16%">2007-02-01</td>
+                    </tr>
+                    <tr align="center">
+                      <td width="21%" height="30">DD200702010002</td>
+                      <td width="12%">1</td>
+                      <td width="11%">wgh</td>
+                      <td width="13%">貨到付款</td>
+                      <td width="17%">網路配送</td>
+                      <td width="10%">9.5</td>
+                      <td width="16%">2007-02-01</td>
+                    </tr>
+                    <tr align="center">
+                      <td width="21%" height="30">DD200702010003</td>
+                      <td width="12%">3</td>
+                      <td width="11%">冰兒</td>
+                      <td width="13%">貨到付款</td>
+                      <td width="17%">網路配送</td>
+                      <td width="10%">9.0</td>
+                      <td width="16%">2007-02-01</td>
+                    </tr>
+                    <tr align="center">
+                      <td width="21%" height="30">DD200702010004</td>
+                      <td width="12%">1</td>
+                      <td width="11%">無語*</td>
+                      <td width="13%">銀行付款</td>
+                      <td width="17%">網路配送</td>
+                      <td width="10%">9.2</td>
+                      <td width="16%">2007-02-01</td>
+                    </tr>					
+            </table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25" align="right"><a href="#" onClick="outDoc();">列印&nbsp;</a></td>
+  </tr>
+</table>
+
+		  </td>
+        </tr>
+      </table>
+      <table width="100%" height="46"  border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td background="images/manage_06.gif">&nbsp;</td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<table width="777"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="54" align="center"><table width="100%" height="78"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+      <tr>
+        <td height="13" colspan="5"><div align="center">
+          <hr width="100%" size="1">
+          </div></td>
+        </tr>
+      <tr>
+        <td width="124" height="13">&nbsp;</td>
+        <td height="13" colspan="3" align="center">Go購電子商城客戶服務熱線：0431-84978981，84978982 傳真：0431-84972266</td>
+        <td width="141">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="15" colspan="2">&nbsp;</td>
+        <td width="464" valign="bottom" align="center"> CopyRight &copy; 2007 www.mingrisoft.com 吉林省明日科技有限公司</td>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+        <td align="center">本站請使用IE6.0或以上版本 1024*768為最佳顯示效果</td>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+        <td height="8" colspan="2"></td>
+        <td height="8" align="center"></td>
+        <td height="8" colspan="2"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

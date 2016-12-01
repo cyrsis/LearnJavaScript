@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>不傳送表單自動檢驗密碼域是否相同</title>
+<style>
+.wenbenkuang {
+	font-family: "宋體";
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+}
+</style>
+</head>
+<body style="font-size:12px">
+<form name="form1" method="post" action="">
+  <table width="245" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#FFA861">
+    <tr>
+      <td height="27" colspan="2"><img src="images/bg.jpg" width="245" height="27"></td>
+    </tr>
+    <tr align="left" bgcolor="#FFFFFF">
+      <td width="64" height="26">使用者名稱稱:</td>
+      <td width="181" height="26"><input name="textfield" type="text" class="wenbenkuang" size="18"></td>
+    </tr>
+    <tr align="left" bgcolor="#FFFFFF">
+      <td height="26">密 碼:</td>
+      <td height="26"><input name="pwd1" type="password" class="wenbenkuang" id="pwd1" size="18"></td>
+    </tr>
+    <tr align="left" bgcolor="#FFFFFF">
+      <td height="26">確認密碼:</td>
+      <td height="26"><input name="pwd2" type="password" class="wenbenkuang" id="pwd2" onBlur="if(this.value!=this.form.pwd1.value) alert('您兩次輸入的密碼不一致！');" size="18"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

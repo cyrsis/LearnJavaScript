@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>可以傳送到不同處理頁的表單</title>
+<style>
+.wenbenkuang {
+	font-family: "宋體";
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+}
+.table{border:#000000 solid 1px;}
+</style>
+<script type="text/javascript">
+function Mycheck(){
+  var txt=document.form1.txt_action.value;
+  document.form1.action=txt;
+  document.form1.submit();
+}
+</script>
+</head>
+<body style="font-size:12px">
+<form name="form1">
+  <table width="300" border="0" align="center" cellpadding="1" cellspacing="0" class="table">
+    <tr>
+      <td height="37" colspan="2" background="images/bg.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用者資料填寫</td>
+    </tr>
+    <tr>
+      <td width="151" height="22" align="right">真實姓名:</td>
+      <td width="389" height="22" align="left">&nbsp;        <input name="textfield" type="text" class="wenbenkuang"></td>
+    </tr>
+    <tr>
+      <td height="22" align="right">所在地區:</td>
+      <td height="22" align="left">&nbsp;
+        <select name="select">
+        <option>北京市</option>
+        <option>遼寧省</option>
+        <option>吉林省</option>
+        <option>廣東省</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td height="22" align="right">傳送頁面:</td>
+      <td height="22" align="left">&nbsp;        <input name="txt_action" type="text" class="wenbenkuang" id="txt_action">
+      (請事先建立傳送頁面,否則將顯示錯誤訊息)</td>
+    </tr>
+    <tr>
+      <td height="22" align="right">&nbsp;</td>
+      <td height="22" align="left"><input type="button" name="Submit" value="確定" onClick="Mycheck();">
+&nbsp;&nbsp;&nbsp;
+<input type="reset" name="Submit2" value="重設"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>開啟特殊的Word文件並列印</title>
+<link href="CSS/style.css" rel="stylesheet">
+</head>
+
+<body>
+<script language="javascript">
+function openWord(filename){
+  try  {
+	  var wrd=new ActiveXObject("word.Application");
+	  wrd.visible=true;
+	  wrd.Documents.Open(filename);
+	  wrd.Application.Printout();
+	  wrd=null;
+  }
+  catch(e){}  
+}
+</script>
+<table width="350" height="150" border="0" align="center" cellpadding="0" cellspacing="0" background="bg.gif">
+  <tr>
+    <td height="59">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="77" align="center" valign="top"><input name="file1" type="file" class="textarea" id="file1" size="35">
+      <br>
+      <br>
+    <input name="Submit2" type="button" class="btn_grey" onClick="openWord(file1.value)" value="開啟Word並列印"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

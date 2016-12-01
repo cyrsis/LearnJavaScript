@@ -1,0 +1,134 @@
+<html>
+<head>
+<script type="text/javascript" language="javascript">
+//    var http_request = false;
+//    function makeRequest(url) {
+//
+//        http_request = false;
+//
+//        if (window.XMLHttpRequest) { // Mozilla, Safari,...
+//            http_request = new XMLHttpRequest();
+//            if (http_request.overrideMimeType) {
+//                http_request.overrideMimeType('text/xml');
+//            }
+//        } else if (window.ActiveXObject) { // IE
+//            try {
+//                http_request = new ActiveXObject("Msxml2.XMLHTTP");
+//            } catch (e) {
+//                try {
+//                    http_request = new ActiveXObject("Microsoft.XMLHTTP");
+//
+//               } catch (e) {}
+//            }
+//        }
+//
+//        if (!http_request) {
+//            alert('Giving up :( Cannot create an XMLHTTP instance');
+//            return false;
+//        }
+//        http_request.onreadystatechange = alertContents;
+//        http_request.open('GET', url, true);
+//	//http_request.open('GET', url, true);
+//        http_request.send(null);
+//
+//    }
+//
+//    function alertContents() {
+//
+//        if (http_request.readyState == 4) {
+//            if (http_request.status == 200) {
+//
+//
+//　　var xmldoc = http_request.responseXML;
+//　　var root_node = xmldoc.getElementsByTagName('root').item(0);
+//　　alert(root_node.firstChild.data);
+//
+//                //alert(http_request.responseText);
+//            } else {
+//                alert('There was a problem with the request.');
+//            }
+//        }
+//
+//    }
+</script>
+<script language="javascript">
+var http_request = false;
+function createRequest(url) {
+	//起始化物件平行出XMLHttpRequest請求
+	http_request = false;
+	if (window.XMLHttpRequest) { // Mozilla或其他除IE以外的瀏覽器
+		http_request = new XMLHttpRequest();
+		if (http_request.overrideMimeType) {
+			http_request.overrideMimeType("text/xml");
+		}
+	} else if (window.ActiveXObject) { // IE瀏覽器
+		try {
+			http_request = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				http_request = new ActiveXObject("Microsoft.XMLHTTP");
+		   } catch (e) {}
+		}
+	}
+	if (!http_request) {
+		alert("不能建立XMLHTTP案例!");
+		return false;
+	}
+	http_request.onreadystatechange = alertContents;    //指定響應方法
+	//發出HTTP請求
+	http_request.open("GET", url, true);
+	http_request.send(null);
+}
+function alertContents() {    //處理伺服器傳回的訊息
+	if (http_request.readyState == 4) {
+		if (http_request.status == 200) {
+		
+		
+　　var xmldoc = http_request.responseXML;
+	makeTable(xmldoc, "test.xml");
+　　//var root_node = xmldoc.getElementsByTagName('root').item(0);
+//　　alert(root_node.firstChild.data);
+
+
+
+		} else {
+			alert('您請求的頁面發現錯誤');
+		}
+	}
+}
+
+
+function makeTable(xmldoc, url) {
+	var table = document.createElement("table");
+	table.setAttribute("border","1");
+	table.setAttribute("width","600");
+	table.setAttribute("class","tab-content");
+	document.body.appendChild(table);
+	var caption = "Employee Data from " + url;
+	table.createCaption().appendChild(document.createTextNode(caption));
+	var header = table.createTHead();
+	var headerrow = header.insertRow(0);
+	headerrow.insertCell(0).appendChild(document.createTextNode("姓名"));
+	headerrow.insertCell(1).appendChild(document.createTextNode("職業"));
+	headerrow.insertCell(2).appendChild(document.createTextNode("薪水"));
+	var employees = xmldoc.getElementsByTagName("employee");
+	for(var i=0;i<employees.length;i++) {
+		var e = employees[i];
+		var name = e.getAttribute("name");
+		var job = e.getElementsByTagName("job")[0].firstChild.data;
+		var salary = e.getElementsByTagName("salary")[0].firstChild.data;
+		var row = table.insertRow(i+1);
+		row.insertCell(0).appendChild(document.createTextNode(name));
+		row.insertCell(1).appendChild(document.createTextNode(job));
+		row.insertCell(2).appendChild(document.createTextNode(salary));
+	}
+}
+</script>
+
+</head>
+<body>
+<span style="cursor: pointer; text-decoration: underline" onClick="createRequest('test.xml')">
+        Make a request
+</span>
+</body>
+</html>

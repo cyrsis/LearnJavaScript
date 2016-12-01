@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>程式載入頁面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body style="background:black">
+<div id="div1" style="position:absolute;width:322;height:14;border:1 #707888 solid;overflow:hidden">
+	<div style="position:absolute;top:-1;left:0" id="pimg">
+	</div>
+</div>
+<div id="div2" style="position:absolute;top:30;left:120;font-size:9pt;color:#f4f4f4">
+正在載入中......
+</div>
+<script language="JavaScript">
+s=new Array("#050626","#0a0b44","#0f1165","#1a1d95","#1c1fa7","#1c20c8","#060cff");
+//s=new Array("#333333","#555555","#777777","#999999","#AAAAAA","#CCCCCC","#EEEEEE");
+div1.style.posTop=Math.floor((document.body.clientHeight-14)/2);
+div1.style.posLeft=Math.floor((document.body.clientWidth-322)/2);
+div2.style.posTop=parseInt(div1.style.posTop)+20;
+div2.style.posLeft=parseInt(div1.style.posLeft)+120;
+function Larrange(){
+	pimg.innerHTML="";
+	for(i=0;i<9;i++){
+		pimg.innerHTML+="<input style=\"width:15;height:10;border:0;background:"+s[i]+";margin:1\">";
+	}
+}
+function Rarrange(){
+	pimg.innerHTML="";
+	for(i=9;i>-1;i--){
+		pimg.innerHTML+="<input style=\"width:15;height:10;border:0;background:"+s[i]+";margin:1\">";
+	}
+}
+var is=0;size=0;
+function move(){
+	if(pimg.style.pixelLeft<350&&is==0){
+		if(size==0){Larrange();size=1;}
+		pimg.style.pixelLeft+=3;
+		setTimeout("move()",1);
+		return;
+	}
+	is=1;
+	if(pimg.style.pixelLeft>-200&&is==1){
+		if(size==1){Rarrange();size=0;}
+		pimg.style.pixelLeft-=3;
+		setTimeout("move()",1);
+		return;
+	}
+	is=0;
+	move();
+}
+function flashs(){
+	if(div2.style.color=="#ffffff"){
+		div2.style.color="#707888";
+		setTimeout('flashs()',500);
+	}
+	else{
+		div2.style.color="#ffffff";
+		setTimeout('flashs()',500);
+	}
+}
+Larrange();
+flashs();
+move();
+</script>
+</body>
+</html>

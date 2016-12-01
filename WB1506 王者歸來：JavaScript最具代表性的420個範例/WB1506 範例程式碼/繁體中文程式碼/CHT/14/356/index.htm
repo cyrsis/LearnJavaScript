@@ -1,0 +1,162 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>透過動作XML資料島實現加入、移除留言訊息</title>
+<link rel="stylesheet" href="Css/style.css" />
+<script language="javascript">
+function check(myform){
+	if(myform.person.value==""){
+		alert("請輸入留言人名稱!");myform.person.focus();return;
+	}
+	if(myform.humor.value==""){
+		alert("請輸入表情!");myform.humor.focus();return;
+	}
+	if(myform.tel.value==""){
+		alert("請輸入聯繫電話!");myform.tel.focus();return;
+	}
+	if(myform.message.value==""){
+		alert("請輸入留言內容!");myform.message.focus();return;
+	}		
+	addElement();
+}
+</script>
+</head>
+
+<body>
+<table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="22" background="images/bg_left.gif">&nbsp;</td>
+    <td width="760">
+<table width="760" height="547" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="126" align="center"><img src="images/bg_top.gif" width="761" height="126"></td>
+  </tr>
+  <tr>
+    <td height="326" valign="top">
+    <table width="100%" height="164" border="0" cellpadding="0" cellspacing="0" class="tableBorder_LRB">
+      <tr>
+        <td height="49" colspan="6" background="images/reply_navigate.gif">&nbsp;</td>
+        </tr>
+      <tr>
+        <td width="5%" height="143">&nbsp;</td>
+        <td colspan="4" align="center" valign="top">
+<xml id="board" src="board.xml"></xml>
+<table width="100%" border="1" cellpadding="0" cellspacing="0" datasrc="#board" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" bordercolorlight="#96E2FA">
+<thead>
+  <tr>
+	<th width="12%" height="27" bgcolor="#6AC7EC">留言人</th>
+	<th width="12%" bgcolor="#6AC7EC">表情</th>
+	<th width="21%" bgcolor="#6AC7EC">電話</th>
+	<th width="55%" bgcolor="#6AC7EC">留言內容</th>
+	</tr>
+</thead>
+  <tr>
+	<td height="27"><span datafld="person"></span></td> 
+	<td><span datafld="humor"></span></td> 
+	<td><span datafld="tel"></span></td> 
+	<td><span datafld="message"></span></td> 
+  </tr>
+</table>
+<script language="javascript">
+xmldoc = board;
+//加入留言訊息
+function addElement() {
+var rootElement = xmldoc.documentElement;
+//建立留言元素
+var newBoard = xmldoc.createElement('board');
+//加入留言人子元素
+var person = xmldoc.createElement('person');
+var personF = xmldoc.createTextNode(document.myform.person.value);
+person.appendChild(personF);
+newBoard.appendChild(person);
+//加入表情子元素	
+var humor = xmldoc.createElement('humor');
+var humorF = xmldoc.createTextNode(document.myform.humor.value);
+humor.appendChild(humorF);
+newBoard.appendChild(humor);
+//加入電話子元素
+var tel = xmldoc.createElement('tel');
+var telF = xmldoc.createTextNode(document.myform.tel.value);
+tel.appendChild(telF);
+newBoard.appendChild(tel);
+//加入留言訊息子元素	
+var message = xmldoc.createElement('message');
+var messageF = xmldoc.createTextNode(document.myform.message.value);
+message.appendChild(messageF);
+newBoard.appendChild(message);
+//向文件中追加一條留言訊息 
+rootElement.appendChild(newBoard);
+}
+function deleteFirstElement(){     //移除第1個節點
+var rootElement = xmldoc.documentElement;
+if (rootElement.hasChildNodes())
+	rootElement.removeChild(rootElement.childNodes.item(0));     //移除第1個節點 
+}
+function deleteLastElement(){     //移除最後1個節點
+var rootElement = xmldoc.documentElement;
+if (rootElement.hasChildNodes())
+	rootElement.removeChild(rootElement.lastChild);     //移除最後1個節點
+}
+</script>
+<form action="" method="post" id="myform" name="myform">
+<table width="70%" height="131" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="24%" height="27" align="center">留&nbsp;言&nbsp;人：</td>
+    <td width="76%"><input type="text" name="person" id="person" size="50" /></td>
+  </tr>
+  <tr>
+    <td height="27" align="center">表&nbsp;&nbsp;&nbsp;&nbsp;情：</td>
+    <td><input type="text" name="humor" id="humor" size="30" /></td>
+  </tr>
+  <tr>
+    <td height="27" align="center">電&nbsp;&nbsp;&nbsp;&nbsp;話：</td>
+    <td><input type="text" name="tel" id="tel" size="20" /></td>
+  </tr>
+  <tr>
+    <td align="center">留言內容：</td>
+    <td><textarea name="message" cols="50" rows="5" id="message"></textarea></td>
+  </tr>
+  <tr>
+    <td height="40" colspan="2" align="center"><input name="button" type="button" class="btn_grey" onClick="check(myform);" value="加入留言" />
+      &nbsp;
+      <input name="button22" type="button" class="btn_grey" onClick="deleteFirstElement();" value="移除第一條留言" />
+      &nbsp;
+      <input name="button2" type="button" class="btn_grey" onClick="deleteLastElement();" value="移除最後一條留言" />
+	  &nbsp;</td>
+    </tr>
+</table>
+</form>		
+		</td>
+        <td width="3%">&nbsp;</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" class="tableBorder_LR"><table width="99%" height="72"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+      <tr>
+        <td height="2" colspan="4"></td>
+        </tr>
+      <tr>
+        <td width="124" height="23">&nbsp;</td>
+        <td valign="bottom" align="center"> CopyRight &copy; 2007 www.mingrisoft.com 吉林省明日科技有限公司</td>
+        <td width="141">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="28">&nbsp;</td>
+        <td align="center">本站請使用IE6.0或以上版本 1024*768為最佳顯示效果</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="8"></td>
+        <td height="8"></td>
+        <td height="8"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+    <td width="19" background="images/bg_right.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

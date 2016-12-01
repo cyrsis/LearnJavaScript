@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>追逐點亮的文字</title>
+</head>
+<body>
+<script>
+Strname="歡迎購買明日科技圖書";
+StrLen=Strname.length;
+document.write("<div id='a' style='color:#6666FF;font-size:24px'></div>");
+var act=0;
+function gogo()
+{
+   ++act;
+   act=(act>(StrLen-1))?0:act;
+   act=(act<0)?(StrLen-1):act;
+   a.innerHTML=Strname.substring(0,act)+"<font style='font-size:24px' color='#00FF33'>"+Strname.substring(act,act+1)+"</font>"+Strname.substring(act+1,StrLen);
+}
+setInterval("gogo()",200);
+</script>
+</body>
+</html>

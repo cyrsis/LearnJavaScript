@@ -1,0 +1,38 @@
+
+<html>
+<head>
+<title>廣告欄1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<font style="font-size:10px ">
+明日公司最新出版圖書:<BR>
+Visual C++開發技術大全<BR>
+Delphi開發技術大全<BR>
+Visual Basic開發技術大全<BR>
+ASP開發技術大全<BR>
+ASP.NET程式開發範例寶典<BR>
+JSP程式開發範例寶典<BR>
+Java資料庫系統開發案例精選<BR>
+SQL Server管理與開發技術大全<BR>
+</font>
+<script language="javascript">
+var W=document.body.clientWidth;
+var H=document.body.clientHeight;
+var L=window.screen.width-W;
+var T=window.screen.height;
+self.moveTo(L,T);
+self.focus();
+function drop(n) {
+	if (n>(T-H-60)){
+		self.moveTo(L-12,--n);
+		var tim=setTimeout("drop("+n+")",1);
+	}
+	else{clearTimeout(tim)}
+}
+drop(T);
+</script>
+
+</body>
+</html>

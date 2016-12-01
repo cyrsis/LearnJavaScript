@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>開啟視窗特殊效果</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<script language=JavaScript>
+var winheight,winsize,x;
+function go1(){
+	winheight=100;
+	winsize=100;
+	x=5;
+	win2=window.open("melody.htm","","scrollbars='no'");
+	win2.moveTo(0,0);
+	win2.resizeTo(100,100);
+	go2();
+}
+function go2(){
+	if (winheight>=screen.availHeight-3)
+		x=0
+	win2.resizeBy(5,x)
+	winheight+=5
+	winsize+=5
+	if (winsize>=screen.width-5){
+		winheight=100
+		winsize=100
+		x=5
+		return
+	}
+	setTimeout("go2()",50)
+}
+</script>
+<a href="javascript:go1()">開啟明日美食留言薄</a>
+</body>
+</html>

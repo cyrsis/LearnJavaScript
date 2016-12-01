@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>二級導覽選單</title>
+</head>
+
+<body>
+<table width="100%" height="68"  border="0" cellpadding="-2" cellspacing="-2">
+  <tr>
+    <td width="285" background="images/default_01.gif">&nbsp;</td>
+    <td background="images/default_02.gif">&nbsp;</td>
+    <td width="423" valign="top" background="images/default_03.gif"><table width="100%"  border="0" cellspacing="-2" cellpadding="-2">
+      <tr>
+        <td height="43" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="10%" height="22">&nbsp;</td>
+        <td width="90%" class="shadow"><a href="#" onMouseMove="Fsubmenu('基礎')">基礎訊息</a>|<a href="#" onMouseMove="Fsubmenu('采購')">采購管理</a>|<a href="#" onMouseMove="Fsubmenu('庫存')">庫存管理</a>|<a href="#" onMouseMove="Fsubmenu('銷售')">商品銷售</a>|<a href="#" onMouseMove="Fsubmenu('查詢')">查詢統計</a>|<a href="#" onMouseMove="Fsubmenu('往來')">往來管理</a>|<a href="#" onMouseMove="Fsubmenu('系統')">系統設定</a>
+		</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="100%" height="31"  border="0" cellpadding="-2" cellspacing="-2">
+  <tr>
+    <td width="188" background="images/default_04.gif"><table width="96%" height="22"  border="0" cellpadding="-2" cellspacing="-2">
+      <tr>
+        <td width="5%">&nbsp;</td>
+        <td width="89%" align="center" class="word_grey">
+<script language="JavaScript" >//製作年月日的JavaScript程式碼
+  var today=new Date();                                                                                                                                                                          
+  var month=today.getMonth()+1                                                                                                                                                                          
+  if (today.getDay()==1)                                                                                                                                                                          
+  {document.write("&nbsp;"+today.getYear()+"年"+month+"月"+today.getDate()+"日 星期一");}                                                                                                                                                                            
+  if (today.getDay()==2)                                                                                                                                                                          
+  {document.write("&nbsp;"+today.getYear()+"年"+month+"月"+today.getDate()+"日 星期二");}                                                                                                                                                                          
+  if (today.getDay()==3)                                                                                                                                                                          
+  {document.write("&nbsp;"+today.getYear()+"年"+month+"月"+today.getDate()+"日 星期三");}                                                                                                                                                                          
+  if (today.getDay()==4)                                                                                                                                                                          
+  {document.write("&nbsp;"+today.getYear()+"年"+month+"月"+today.getDate()+"日 星期四");}                                                                                                                                                                          
+  if (today.getDay()==5)                                                                                                                                                                          
+  {document.write("&nbsp;"+today.getYear()+"年"+month+"月"+today.getDate()+"日 星期五");}                                                                                                                                                                          
+  if (today.getDay()==6)                                                                                                                                                                          
+  {document.write("&nbsp;"+today.getYear()+"年"+month+"月"+today.getDate()+"日 星期六");}                                                                                                                                                                          
+  if (today.getDay()==0)                                                                                                                                                                          
+  {document.write("&nbsp;"+today.getYear()+"年"+month+"月"+today.getDate()+"日 星期日");}         
+</script>		</td>
+        <td width="6%">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td background="images/default_05.gif" align="right">
+	<div id="submenu" class="word_yellow">&nbsp;</div>
+	  </td>
+<script language="javascript">
+function Fsubmenu(value)
+{
+	switch (value)
+	{
+		case "基礎":
+			submenu.innerHTML="<a href='#' target='mainF'>客戶訊息管理</a>|<a href='#' target='mainF'>商品訊息管理</a>|<a href='#' target='mainF'>提供者訊息管理</a>|<a href='#' target='mainF'>客戶訊息查詢</a>|<a href='#' target='mainF'>商品訊息查詢</a>|<a href='#' target='mainF'>提供者訊息查詢</a>";
+			break;
+		case "采購":
+			submenu.innerHTML="<a href='#' target='mainF'>商品采購</a>|<a href='#' target='mainF'>采購查詢</a>";
+			break;
+		case "庫存":
+			submenu.innerHTML="<a href='#' target='mainF'>商品入庫</a>|<a href='#' target='mainF'>商品入庫退貨</a>|<a href='#' target='mainF'>庫存查詢</a>|<a href='#' target='mainF'>價格調整</a>";
+			break;	
+		case "銷售":
+			submenu.innerHTML="<a href='#' target='mainF'>商品銷售</a>|<a href='#' target='mainF'>商品銷售退貨</a>|<a href='#' target='mainF'>";
+			break;			
+		case "查詢":
+			submenu.innerHTML="<a href='#' target='mainF'>銷售訊息查詢</a>|<a href='#' target='mainF'>銷售退貨查詢</a>|<a href='#' target='mainF'>商品入庫查詢</a>|<a href='#' target='mainF'>入庫退貨查詢</a>|<a href='#' target='mainF'>商品銷售排行</a>|<a href='#' target='mainF'>年銷售額分析</a>";
+			break;					
+		case "往來":
+			submenu.innerHTML="<a href='#' target='mainF'>商品銷售結帳</a>|<a href='#' target='mainF'>入庫退貨結賬</a>|<a href='#' target='mainF'>銷售結帳查詢</a>|<a href='#' target='mainF'>商品入庫結帳</a>|<a href='#' target='mainF'>銷售退貨結賬</a>|<a href='#' target='mainF'>入庫結帳查詢</a>";
+			break;	
+		case "系統":
+			submenu.innerHTML="<a href='#' target='mainF'>加入動作員</a>|<a href='#' target='mainF'>變更動作員密碼</a>|<a href='#' target='mainF'>移除動作員</a>";
+			break;						
+		}
+}
+</script>
+    <td width="11" align="right" background="images/default_05.gif">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="Css/style.css" rel="stylesheet">
+<title>根據使用者解析度自動調整視窗</title>
+<script language="javascript">
+function size()
+{
+window.resizeTo(screen.width-100,screen.height-100);
+}
+</script>
+</head>
+<body onload="size();">
+<table width="100%" height="95"  border="0" cellpadding="-2" cellspacing="-2" class="tableBorder_Top">
+          <tr valign="top">
+            <td height="72" colspan="4"><table width="100%"  border="0" cellpadding="-2" cellspacing="-2" class="tableBorder_Botton">
+              <tr>
+                <td width="33%" height="67" align="right"><img src="Images/board_title.gif" width="271" height="44"></td>
+                <td width="67%" background="Images/banner_bg.gif">&nbsp;</td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td width="10" height="24" background="Images/bg_Navigate.GIF">&nbsp; </td>
+			<!--版主登入時顯示的導覽條-->
+            <td background="Images/bg_Navigate.GIF">
+			
+				<a href="#">使用者登錄</a> │
+			<a href="#">使用者登入</a>
+			│ <a href="#">檢視留言</a> │ <a href="#" onClick="window.location.reload();">更新頁面</a> │ 
+				<a href="#">版主登入</a>  </td>
+            <td width="20" background="Images/bg_Navigate.GIF"><img src="Images/index.gif" width="14" height="14"></td>
+            <td width="80" background="Images/bg_Navigate.GIF"><a href="#">傳回首頁</a><font color="#FFFFFF"></td>
+          </tr>
+</table></td>
+      </tr>
+    </table>
+      <table width="100%" height="45"  border="0" cellpadding="-2" cellspacing="-2">
+        <tr>
+          <td>  &nbsp;<img src="Images/speaker.gif" width="20" height="20"></td>
+		  <td><div id="bgclock" class="word_grey"></div></td>
+		  <td class="word_grey">
+		    <div align="right">		      
+		   您現在是游客身份！若要留言請先登錄或登入！
+	      </div></td>
+		  <td height="25" colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="34">&nbsp;</td>
+          <td width="723" height="13" colspan="2"></td>
+          <td width="20">&nbsp;</td>
+        </tr>
+      </table>
+</body>
+</html>

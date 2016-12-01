@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>留言版</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<xml id="board" src="board.xml"></xml>
+<h1 align="center">留言版</h1>
+<hr />
+<table width="100%" cellpadding="0" cellspacing="0" datasrc="#board">
+<thead>
+      <tr>
+            <th height="27">留言人</th>
+            <th>表情</th>
+            <th>電話</th>
+            <th>留言內容</th>
+      </tr>
+</thead>
+<tbody>
+      <tr>
+            <td height="27"><span datafld="person"></span></td> 
+            <td><span datafld="humor"></span></td> 
+            <td><span datafld="tel"></span></td> 
+            <td><span datafld="message"></span></td> 
+      </tr>
+</tbody>
+</table>
+
+
+
+
+<script type="text/jscript">
+  var   xmlDoc   =   new   ActiveXObject("Msxml2.DOMDocument");   
+  var   root;   
+  xmlDoc.async   =   false;   
+  xmlDoc.load("board.xml");   
+    
+  root   =   xmlDoc.documentElement;   
+  var   newnode=xmlDoc.createNode(1,"person","")   
+  var   attr=xmlDoc.createNode(2,"humor","");   
+  attr.value="30";   
+  newnode.attributes.setNamedItem(attr);   
+ // root.insertBefore(newnode,root.childNodes.item(0));   
+  xmlDoc.save("aa.xml")  
+
+
+//                  var   xmldoc1   =   new   ActiveXObject("Msxml2.DOMDocument");   
+//                  var   xmldoc2   =   new   ActiveXObject("Msxml2.DOMDocument");   
+//                  xmldoc1.load("board.xml");   
+//                  xmldoc1.save(xmldoc2.XMLDocument);     
+</script>
+<form action="#" method="get" id="myform" name="myform">
+留言人: 
+  <input type="text" name="person" id="person" size="50" />
+  <br />
+表&nbsp;&nbsp;情: 
+<input type="text" name="humor" id="humor" size="30" />
+<br />
+電&nbsp;&nbsp;話: 
+<input type="text" name="tel" id="tel" size="20" />
+<br />
+留言內容: 
+<textarea name="message" cols="50" rows="5" id="message"></textarea>
+<br />
+<!--透過onclick呼叫addElement()函數加入新元素-->
+<input type="button" value="加入留言" onClick="addElement();" />
+<!--透過onclick呼叫deleteLastElement() 函數移除最後元素-->
+<input type="button" value="移除最後一條留言" onClick="deleteLastElement();" />
+</form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>屏蔽鍵碟關聯事件</title>
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+}
+-->
+</style>
+<script language=javascript>
+function keydown(){
+	if(event.keyCode==8){
+		event.keyCode=0;
+		event.returnValue=false;
+		alert("目前設定不容許使用退格鍵");
+	  }if(event.keyCode==13){
+		event.keyCode=0;
+		event.returnValue=false;
+		alert("目前設定不容許使用確認鍵");
+	  }if(event.keyCode==116){
+		event.keyCode=0;
+		event.returnValue=false;
+		alert("目前設定不容許使用F5更新鍵");
+	  }if((event.altKey)&&((window.event.keyCode==37)||(window.event.keyCode==39))){
+		event.returnValue=false;
+		alert("目前設定不容許使用Alt+方向鍵←或方向鍵→");
+	  }if((event.ctrlKey)&&(event.keyCode==78)){
+	   event.returnValue=false;
+	   alert("目前設定不容許使用Ctrl+n新增IE視窗");
+	  }if((event.shiftKey)&&(event.keyCode==121)){
+	   event.returnValue=false;
+	   alert("目前設定不容許使用shift+F10");
+	  }
+}
+</script>
+<script language=javascript>
+  function click() {
+     event.returnValue=false;
+	 alert("目前設定不容許使用右鍵！");
+  }
+  document.oncontextmenu=click;
+</script>
+</head>
+<body onkeydown="keydown()">
+<table width="547" height="490" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td background="images/bg_02.jpg">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

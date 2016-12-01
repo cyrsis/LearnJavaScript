@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>收縮式導覽選單</title>
+<STYLE type=text/css>
+BODY {
+	BACKGROUND: #EEEEFF; MARGIN: 0px; FONT: 9pt 宋體
+}
+TABLE {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+TD {
+	FONT: 12px 宋體
+}
+img {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; VERTICAL-ALIGN: bottom; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+A {
+	FONT: 12px 宋體; COLOR: #215dc6; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #428eff
+}
+.sec_menu {
+	BACKGROUND: #EEEEFF; OVERFLOW: hidden;
+}
+.list_title {
+	
+}
+.list_title SPAN {
+	FONT-WEIGHT: bold;
+	LEFT: 8px;
+	COLOR: #215dc6;
+	POSITION: relative;
+	TOP: 2px;
+	visibility: visible;
+}
+.list_title2 {
+	
+}
+.list_title2 SPAN {
+	FONT-WEIGHT: bold; LEFT: 8px; COLOR: #428eff; POSITION: relative; TOP: 2px
+}
+</STYLE>
+<script language="javascript">
+function show(obj,maxg,obj2){
+  if(obj.style.pixelHeight<maxg){
+    obj.style.pixelHeight+=maxg/10;
+	obj.filters.alpha.opacity+=20;
+	obj2.background="images/title_hide.gif";
+    if(obj.style.pixelHeight==maxg/10)
+	  obj.style.display='block';
+	myObj=obj;
+	mymaxg=maxg;
+	myObj2=obj2;
+	setTimeout('show(myObj,mymaxg,myObj2)','5');
+  }
+}
+function hide(obj,maxg,obj2){
+  if(obj.style.pixelHeight>0){
+    if(obj.style.pixelHeight==maxg/5)
+	  obj.style.display='none';
+    obj.style.pixelHeight-=maxg/5;
+	obj.filters.alpha.opacity-=10;
+	obj2.background="images/title_show.gif";
+	myObj=obj;
+	mymaxg=maxg
+	myObj2=obj2;
+	setTimeout('hide(myObj,mymaxg,myObj2)','5');
+  }
+  else if(whichContinue) whichContinue.click();
+}
+function chang(obj,maxg,obj2){
+  if(obj.style.pixelHeight){
+    hide(obj,maxg,obj2);
+	nopen='';
+	whichcontinue='';
+  }else if(nopen){
+	  whichContinue=obj2;
+      nopen.click();
+	}else{
+	  show(obj,maxg,obj2);
+	  nopen=obj2;
+	  whichContinue='';
+	}
+}
+</script>
+</head>
+<body leftmargin="0" topmargin="0" bgcolor="#FF9800">
+<table cellSpacing="0" cellPadding="0" width="100%" align="left" border="0" bgcolor="#EEEEFF"> 
+  <tr>
+    <td vAlign=top>
+      <table cellSpacing="0" cellPadding="0" width=158 align=center>
+        
+        <tr style="CURSOR: hand">
+          <td vAlign=bottom height=42><img height=30 
+            src="images/title.gif" width=158></td>
+        </tr></table>
+      <table cellSpacing="0" cellPadding="0" width=158 align=center>
+        
+        <tr style="CURSOR: hand">
+            <td class=list_title id=list1 
+          onmouseover="this.typename='list_title2';" 
+          onclick=chang(menu1,50,list1); 
+          onmouseout="this.typename='list_title';" 
+          background="images/title_show.gif" 
+            height=25><span>網站管理</span> </td>
+        </tr>
+        <tr>
+            <td align="center" valign="middle"> 
+              <div class=sec_menu id=menu1 
+            style="DISPLAY: none; FILTER: alpha(Opacity=0); width: 158px; height: 0px">
+                <table  cellSpacing="0" 
+            cellPadding="0" width=152 align="center"  background="images/bg.gif" style="padding-left:5px">
+                  
+                    <tr> 
+                      <td height=25><a href="user/change.jsp" target="BoardList">變更起始訊息</a></td>
+                    </tr>
+           
+                    <tr> 
+                      <td height=25><a href="system/admin_server.jsp" target="BoardList">檢視伺服器訊息</a></td>
+                    </tr>
+                  
+                  
+                </table>
+              </div></td></tr></table>
+
+
+<table cellSpacing="0" cellPadding="0" width=158 align=center>
+        
+        <tr style="CURSOR: hand">
+            <td class=list_title id=list2 
+          onmouseover="this.typename='list_title2';" 
+          onclick=chang(menu2,160,list2); 
+          onmouseout="this.typename='list_title';" 
+          background="images/title_show.gif" 
+            height=25><span>訊息管理</span> </td>
+      </tr>
+        <tr>
+            <td align="center"> 
+              <div class=sec_menu id=menu2 
+            style="DISPLAY: none; FILTER: alpha(Opacity=0); width: 158px; height: 0px">
+                <table  cellSpacing=2 
+            cellPadding="0" width=152 align="center"  background="images/bg.gif" style="padding-left:5px">
+                  <tr> 
+                    <td height=25><a href="#" target="BoardList">賓館簡介管理</a></td>
+                  </tr>
+                  
+                    <tr> 
+                      <td height=25><a href="#" target="BoardList">地理位置管理</a></td>
+                    </tr>
+                   
+					<tr> 
+                      <td height=25><a href="#" target="BoardList">會展中心管理</a></td>
+                    </tr>
+					<tr> 
+                      <td height=25><a href="#" target="BoardList">餐飲美食管理</a></td>
+                    </tr>
+					<tr> 
+                      <td height=25><a href="#" target="BoardList">商務中心管理</a></td>
+                    </tr>
+					<tr> 
+                      <td height=25><a href="#" target="BoardList">其他管理</a></td>
+                    </tr>
+                  
+                </table>
+              </div></td></tr></table>
+       <table cellSpacing="0" cellPadding="0" width=158 align=center>
+         
+           <tr style="CURSOR: hand">
+             <td class=list_title id=list10 
+          onmouseover="this.typename='list_title2';" 
+          onclick=chang(menu10,40,list10); 
+          onmouseout="this.typename='list_title';" 
+          background="images/title_show.gif" 
+            height=25><span>景點管理</span> </td>
+           </tr>
+           <tr>
+             <td valign="middle">
+               <div class=sec_menu id=menu10 
+            style="DISPLAY: none; FILTER: alpha(Opacity=0); width: 158px; height: 0px">
+                 <table width=152 align=center 
+            cellPadding="0"  cellSpacing=2  background="images/bg.gif" style="padding-left:5px">
+                   
+                     <tr>
+                       <td height=40><a href="#" target="BoardList">旅游景點管理</a></td>
+                     </tr>
+                   
+                 </table>
+             </div></td>
+           </tr>
+         
+       </table>
+<table cellSpacing="0" cellPadding="0" width=158 align=center>
+         
+           <tr style="CURSOR: hand">
+             <td class=list_title id=list4 
+          onmouseover="this.typename='list_title2';" 
+          onclick=chang(menu4,50,list4); 
+          onmouseout="this.typename='list_title';" 
+          background="images/title_show.gif" 
+            height=25><span>房間管理</span> </td>
+           </tr>
+           <tr>
+             <td valign="middle">
+               <div class=sec_menu id=menu4 
+            style="DISPLAY: none; FILTER: alpha(Opacity=0); width: 158px; height: 0px">
+                 <table  cellSpacing=2 
+            cellPadding="0" width=152 align="center" background="images/bg.gif" style="padding-left:5px">
+                   
+                     <tr>
+                       <td height=25><a href="#" target="BoardList">房間型態</a></td>
+                     </tr>
+                     <tr> 
+                      <td height=25><a href="#" target="BoardList">客房服務管理</a></td>
+                    </tr>
+                   
+                 </table>
+             </div></td>
+           </tr>
+     </table>
+       <script language="javascript">
+  var nopen="";
+  var whichContinue="";
+      </script>
+      <table width=158 align=center cellPadding="0" cellSpacing="0">
+        
+          <tr style="CURSOR: hand"> 
+            <td class=list_title id=list7 
+          onmouseover="this.typename='list_title2';" 
+          onclick=chang(menu7,80,list7); 
+          onmouseout="this.typename='list_title';" 
+          background="images/title_show.gif" 
+            height=25><span>訂單管理</span> </td>
+          </tr>
+          <tr> 
+            <td valign="middle"> <div class=sec_menu id=menu7 
+            style="DISPLAY: none;  FILTER: alpha(Opacity=0); width: 158px; height: 0px"> 
+                <table width=152 align=center 
+            cellPadding="0"  cellSpacing=2  background="images/bg.gif" style="padding-left:5px">
+                  
+                    <tr> 
+                      <td height=25><a href="dg/subpass.jsp" target="BoardList">訂單管理</a></td>
+                    </tr>
+                    <tr>
+                      <td height=25><a href="dg/submitsub.jsp" target="BoardList">已確認訂單</a></td>
+                    </tr>
+					<tr>
+                      <td height=25><a href="dg/email.jsp" target="BoardList">回覆管理</a></td>
+                    </tr>
+                  
+                </table>
+              </div></td>
+          </tr>
+        
+      </table>
+
+   
+       
+
+      <table cellSpacing="0" cellPadding="0" width=158 align="center">
+        
+          <tr style="CURSOR: hand"> 
+            <td class=list_title id=list57 
+          onmouseover="this.typename='list_title2';" 
+          onclick=chang(menu57,30,list57); 
+          onmouseout="this.typename='list_title';" 
+          background="images/title_show.gif" 
+            height=25><span>反饋管理</span> </td>
+          </tr>
+          <tr> 
+            <td valign="middle"> <div class=sec_menu id=menu57 
+            style="DISPLAY: none; FILTER: alpha(Opacity=0); width: 158px; height: 0px"> 
+                <table width=152 align=center 
+            cellPadding="0"  cellSpacing="0" background="images/bg.gif">
+                  
+                    <tr> 
+                      <td height="30" style="padding-left:5px"><a href="guest/default.jsp" target="BoardList">反饋訊息管理</a></td>
+                    </tr>
+                  
+                </table>
+              </div></td>
+          </tr>
+	     <tr>
+           <td height="40" valign="middle">              <div class=sec_menu id=menu8
+            style="FILTER: alpha(Opacity=100); width: 158px; height:40px"><img src="images/bottom.gif" width="158" height="30"></div></td></tr></table>
+
+</body>   
+</html>

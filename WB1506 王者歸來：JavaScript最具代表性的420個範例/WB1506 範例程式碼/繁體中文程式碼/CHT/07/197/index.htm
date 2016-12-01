@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<table id="table1" width="273" border="0" cellpadding="1" cellspacing="1" bordercolor="#000000" bgcolor="#000000">
+  <tr bgcolor="#FFFFFF">
+    <td width="120">書名</td>
+    <td width="72">2006年銷量</td>
+    <td width="71">2007年銷量</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td>Delphi XX參考大全</td>
+    <td>40000冊</td>
+    <td>50000冊</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td>Delphi XX完全手冊</td>
+    <td>45000冊</td>
+    <td>55000冊</td>
+  </tr>
+</table>
+
+<script language="javascript">
+var lastSelection = null;
+//取得選取行或單元格的參數值
+function select(element) {
+	var e, r, c;
+	if (element == null){e = window.event.srcElement;}
+	else {  e = element;  }
+	if (e.tagName == "TD") {
+		c = findCell(e);
+		if (c != null) {
+			if (lastSelection != null) {deselectRowOrCell(lastSelection);}
+			selectRowOrCell(c); 
+			lastSelection = c;
+		} 
+	}
+	window.event.cancelBubble = true;
+} 
+table1.onclick=select;
+//查詢是否有單元格
+function findCell(e) {
+	if (e.tagName == "TD") {return e;}
+	else if (e.tagName == "BODY") {return null;} 
+		else{return findCell(e.parentElement);}  
+}
+//選取行或單元格
+function selectRowOrCell(r) {
+	r.runtimeStyle.backgroundColor="darkblue";
+	r.runtimeStyle.color="white";
+}
+//取消對行或單元格的選定
+function deselectRowOrCell(r) { 
+	r.runtimeStyle.backgroundColor = "";
+	r.runtimeStyle.color = "";
+}
+//查詢是否有行
+function findRow(e) {
+	if (e.tagName == "TR") {  return e;  } 
+	else if (e.tagName == "BODY") {  return null;  }
+		else {  return findRow(e.parentElement);  }
+}
+//單元格向左移
+function moveLeft() {
+	var c, p, ls; 
+	if (lastSelection == null)  return false;
+	c = lastSelection; 
+	if (c.tagName != "TD") {  return null;  }
+	ls = c.previousSibling;
+	if (ls == null)  return null; 
+	p = ls.parentElement; 
+	p.insertBefore(c, ls);
+	return c;  
+}
+//單元格向右移
+function moveRight() { 
+	var c, p, ls;
+	if (lastSelection == null)  return false;
+	c = lastSelection;
+	if (c.tagName != "TD") {return null;} 
+	ls = c.nextSibling; 
+	if (ls == null)  return null; 
+	p = ls.parentElement;
+	ls = ls.nextSibling;
+	p.insertBefore(c, ls); 
+	return c;  
+}
+</script>
+<form name="form1" method="post" action="">
+  <input name="Button1" type="button" id="Button1" value="單元格左移" onclick="moveLeft()">
+  <input name="Button2" type="button" id="Button2" value="單元格右移" onclick="moveRight()
+  ">
+</form>
+</body>
+</html>

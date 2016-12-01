@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>簡單文字變色</title>
+</head>
+
+<body>
+<script language="javascript">
+var colors=new Array("red","orange","green","blue","browm","putple","gray","white");
+var ind=0;
+function changecolor()
+{
+	document.fgColor=colors[ind++];
+	if (ind==(colors.length)){ind=0}
+}
+setInterval("changecolor()",500);
+window.onload=changecolor;
+</script>
+<h1 align="center">明日科技圖書</h1>
+</body>
+</html>

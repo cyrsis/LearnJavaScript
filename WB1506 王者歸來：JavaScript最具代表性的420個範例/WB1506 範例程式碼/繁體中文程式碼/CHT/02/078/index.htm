@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>透過JavaScript控制表單的傳送與重設</title>
+</head>
+<body>
+<table width="552" height="193" border="0" align="center" cellpadding="0" cellspacing="0" background="bg.jpg">
+  <tr>
+    <td align="left" valign="top"><br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相簿上傳<br>
+    <br>
+    <table width="500" border="0" align="center" cellpadding="0" cellspacing="1">
+      <form name="form1">
+        <tr>
+          <td width="82" height="28" align="right">相簿類別別:</td>
+          <td width="418" height="28"><select name="相簿類別別" id="select">
+              <option selected>選取類別別</option>
+              <option>歡樂時光</option>
+              <option>家之悅</option>
+                    </select></td>
+        </tr>
+        <tr>
+          <td height="28" align="right">圖片名稱:</td>
+          <td height="28"><input name="圖片名稱" type="text" id="圖片名稱" class="textbox"></td>
+        </tr>
+        <tr>
+          <td height="22" align="right">圖片訊息:</td>
+          <td height="22"><input type="text" name="textfield"></td>
+        </tr>
+        <tr>
+          <td height="28" colspan="2" align="center"><input name="add" type="button" class="button" id="add" value="添 加" onClick="document.form1.submit();">
+&nbsp;
+        <input type="button" name="Submit2" value="重 置" class="button" onClick="document.form1.reset();"></td>
+        </tr>
+      </form>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

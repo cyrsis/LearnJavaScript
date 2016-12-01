@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<font style="font-size:20px ">將滑鼠指向這裡:</font><a style="color:#3300FF; font-size:20px; font-style:italic " onMouseMove="move()" onMouseOut="return out();">將飛出一個星形標示</a>
+<div id="div1" style="width:60px; height:30px; font-size:40px; color:#FF00FF; font-weight:bold;">☆</div>
+<script language="javascript">
+div1.style.position="absolute";
+div1.style.visibility="hidden";
+var PT;
+var bool=false;
+var size=40;
+function out(){
+	div1.style.visibility="hidden";
+	div1.style.fontSize="40px";
+	size=40;
+	bool=false;
+	divsize();
+}
+function move(){
+	var x=window.event.x+document.body.clientLeft;
+	var y=window.event.y+document.body.clientTop;
+	div1.style.left=x;
+	div1.style.top=y;
+	div1.style.visibility="visible";
+	bool=true;
+	divsize();
+}
+function divsize(){
+	if (bool==true){
+		if (size>=200){out();}else{
+			size=size+2;
+			div1.style.fontSize=String(size)+"px";
+			PT=setTimeout("divsize()",200);
+		}
+	}else window.clearTimeout(PT);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>震動的視窗</title>
+</head>
+
+<body>
+<p>
+    <SCRIPT language=javascript>
+function flap_xy(n){
+	if (self.moveBy){
+		for (i = 10; i > 0; i--){
+			for (j = n; j > 0; j--){
+				self.moveBy(0,i);
+				self.moveBy(i,0);
+				self.moveBy(0,-i);
+				self.moveBy(-i,0);
+			}
+		}
+	}
+}
+
+function flap_x(n){
+	if (self.moveBy){
+		for (i = 10; i > 0; i--){
+			for (j = n; j > 0; j--){
+				self.moveBy(i,0);
+				self.moveBy(-i,0);
+			}
+		}
+	}
+}
+function flap_y(n){
+	if (self.moveBy){
+		for (i = 10; i > 0; i--){
+			for (j = n; j > 0; j--){
+				self.moveBy(0,i);
+				self.moveBy(0,-i);
+			}
+		}
+	}
+}
+  </SCRIPT>
+    <input name="button1" type="button" id="button1" value="左右震動" onclick="flap_x(5)">
+    <input name="button2" type="button" id="button2" value="上下震動" onclick="flap_y(5)">
+    <input name="button3" type="button" id="button3" value="整屏震動" onclick="flap_xy(5)">
+</p>
+<p><img src="backgroup.jpg" width="779" height="502"></p>
+</body>
+</html>

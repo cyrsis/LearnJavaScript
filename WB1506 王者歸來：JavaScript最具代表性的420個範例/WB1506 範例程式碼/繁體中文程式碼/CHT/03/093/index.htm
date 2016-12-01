@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>驗證網站位址</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="Css/style.css" rel="stylesheet">
+<script language="javascript">
+function check(myform){
+	var homepage=myform.homepage.value;
+	if(homepage==""){
+		alert("請輸入個人主頁位址！");
+		myform.homepage.focus();	return;				
+	}else{
+		if(!checkeurl(homepage)){
+			alert("您輸入的個人主頁位址非法！");
+			myform.homepage.focus();
+			return;
+		}
+	}
+	myform.submit();
+}	
+function checkeurl(url){
+	var str=url;
+	 //判斷url位址的正規表示法為:http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?
+	 //下面的程式碼中套用了逸出字元"\"輸出一個字元"/"
+	var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/; 
+	var objExp=new RegExp(Expression);
+	if(objExp.test(str)==true){
+		return true;
+	}else{
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<table width="694" height="341"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+  <tr>
+    <td valign="top">
+      <table width="100%" height="492"  border="0" cellpadding="-2" cellspacing="-2" class="tableBorder">
+        <tr>
+          <td height="32" background="Images/board_left.gif"><img src="Images/01.gif" width="694" height="168"></td>
+        </tr>
+        <tr valign="top">
+          <td height="322"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="35" height="322" valign="top"><img src="Images/02.gif" width="35" height="89"></td>
+              <td valign="top">
+<table width="100%" height="292"  border="0" cellpadding="-2" cellspacing="-2" class="tableBorder_Top">
+			  <tr>
+			  <td height="5"></td>
+			  </tr>
+                <tr>
+                  <td width="170" height="281" valign="top" class="tableBorder_r"><table width="96%"  border="0" cellspacing="-2" cellpadding="-2">
+                    <tr>
+                    <td width="55%" height="82" align="center" class="word_grey">&nbsp;<img src="Images/reg.gif" width="84" height="54"></td>
+                    <td width="45%" align="left" class="word_grey"><b>登錄幫助</b></td>
+                    </tr>
+                    <tr>
+                      <td height="112" colspan="2" valign="top" class="word_grey"><ul>
+                        <li>
+                        使用者名稱：<span class="tablebody1">使用者名稱由3-10位的字母、數字或下劃線群組成</span>。<br>
+                        <br>
+                        </li>
+                          <li>個人主頁：請輸入有效的個人主頁位址。<br>
+                          </li>
+                          </ul>
+                            </td>
+                    </tr>
+                    <tr align="center">
+                      <td colspan="2" valign="middle" class="word_grey"></td>
+                    </tr>
+                  </table></td>
+                  <td width="1"></td>
+                  <td width="400" valign="top">
+                    <table width="90%"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+                    <tr>
+                      <td><form action="" method="post" name="form1">
+                        <table width="100%"  border="0" cellspacing="-2" cellpadding="-2">
+                          <tr>
+                            <td height="10" colspan="2" align="center"></td>
+                            </tr>
+                          <tr>
+                            <td width="18%" height="29" align="center">用 戶 名：</td>
+                            <td width="82%"><input name="username" type="text" id="UserName4" maxlength="20"></td>
+                          </tr>
+                          <tr>
+                            <td height="28" align="center">密&nbsp;&nbsp;&nbsp;&nbsp;碼：</td>
+                            <td height="28"><input name="PWD" type="password" id="PWD14" size="20" maxlength="20"></td>
+                            </tr>
+                          <tr>
+                            <td height="28" align="center">確認密碼：</td>
+                            <td height="28"><input name="PWD1" type="password" id="PWD25" size="20" maxlength="20"></td>
+                          </tr>
+                          <tr>
+                            <td height="28" align="center">性&nbsp;&nbsp;&nbsp;&nbsp;別：</td>
+                            <td><input name="sex" type="radio" class="noborder" value="男" checked>
+                              男&nbsp;
+  <input name="sex" type="radio" class="noborder" value="女">
+  女</td></tr>
+                            <tr>
+                            <td height="28" align="center">個人主頁：</td>
+                            <td class="word_grey"><input name="homepage" type="text" id="homepage" size="47" maxlength="20">
+                              *</td>
+                          </tr>
+                          <tr>
+                            <td height="28" align="center">生&nbsp;&nbsp;&nbsp;&nbsp;日：</td>
+                            <td class="word_grey"><input name="birthday" type="text" id="Tel">
+                              （日期格式為：yyyy-mm-dd ）</td>
+                          </tr>
+                          <tr>
+                            <td height="28" align="center">OICQ號碼：</td>
+                            <td><input name="qq" type="text" id="qq"></td>
+                            </tr>
+
+                          <tr>
+                            <td height="28" align="center" style="padding-left:10px">Email：</td>
+                            <td class="word_grey"><input name="Email" type="text" id="PWD224" size="50">                            </td>
+                          </tr>
+                          <tr>
+                            <td height="34">&nbsp;</td>
+                            <td class="word_grey"><input name="Button" type="button" class="btn_grey" value="確定儲存" onClick="check(form1)">
+                                <input name="Submit2" type="reset" class="btn_grey" value="重新填寫"></td>
+                          </tr>
+                        </table>
+					  
+					  </form></td>
+                    </tr>
+                  </table></td>
+                </tr>
+				<tr>
+				<td height="5"></td>
+				</tr>
+              </table>			  
+			  </td>
+              <td width="44" valign="top"><img src="Images/04.gif" width="44" height="89"></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

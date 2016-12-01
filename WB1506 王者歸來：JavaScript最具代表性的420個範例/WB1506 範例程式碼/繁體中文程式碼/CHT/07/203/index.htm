@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<table width="270" cellspacing="1" bordercolor="#000000" bgcolor="#000000" id="table1">
+  <tr bgcolor="#FFFFFF">
+    <td id="cell-1">班級</td>
+    <td id="cell-2">數學平均成績</td>
+    <td id="cell-3">語文平均成績</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td id="cell-4">一年一班</td>
+    <td id="cell-5">70</td>
+    <td id="cell-6">74</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td id="cell-7">一年二班</td>
+    <td id="cell-8">75</td>
+    <td id="cell-9">71</td>
+  </tr>
+</table>
+<script language="javascript">
+var lastSelection = null;
+//取得選取行或單元格的參數值
+function select(element) {
+	var e, r, c;
+	if (element == null){e = window.event.srcElement;}
+	else {e = element;}
+	if (e.tagName == "TD"){
+		c = findCell(e);
+		if (c != null){
+			if (lastSelection != null) {deselectRowOrCell(lastSelection);}
+			selectRowOrCell(c); 
+			lastSelection = c;
+		} 
+	}
+	window.event.cancelBubble = true;
+} 
+table1.onclick=select;
+//查詢是否有單元格
+function findCell(e) {
+	if (e.tagName == "TD") {return e;}
+	else if (e.tagName == "BODY") {return null;} 
+		else{return findCell(e.parentElement);}  
+}
+//選取行或單元格
+function selectRowOrCell(r) {
+	r.runtimeStyle.backgroundColor="darkblue";
+	r.runtimeStyle.color="white";
+}
+//取消對行或單元格的選定
+function deselectRowOrCell(r) { 
+	r.runtimeStyle.backgroundColor = "";
+	r.runtimeStyle.color = "";
+}
+//查詢是否有行
+function findRow(e) {
+	if (e.tagName == "TR") {  return e;  } 
+	else if (e.tagName == "BODY") {  return null;  }
+		else {  return findRow(e.parentElement);  }
+}
+//編輯單元格中的文字訊息
+function editContents() {
+	var c, p, nr;
+	if (lastSelection == null)  return false;
+	c = lastSelection;
+	if (c.tagName != "TD") {  return null;  }
+	document.form1.celltext.style.display = "";
+	document.form1.celltext.value = c.innerHTML;
+	c.setExpression("innerHTML", "document.form1.celltext.value");
+	document.form1.celltext.focus(); 
+	document.form1.celltext.onblur = unhookContentsExpression; 
+}
+//對文字框進行清理	
+function unhookContentsExpression(){
+	lastSelection.removeExpression("innerHTML");
+	document.form1.celltext.value = ''; 
+	document.form1.celltext.style.display = "none"; 
+}
+</script>
+<form name="form1" method="post" action="">
+<p><input name="Button1" type="button" id="Button1" value="修改單元格訊息" onclick="editContents()"></p>
+<p><input id="celltext" name="celltext" type="text" style="display: none "></p>
+</form>
+</body>
+</html>

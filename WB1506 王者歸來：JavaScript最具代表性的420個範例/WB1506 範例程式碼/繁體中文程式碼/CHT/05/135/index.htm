@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>文字變色</title>
+
+</head>
+
+<body onload="Dong()">
+<script language="javascript">
+var colors=new Array("F9F9F9","F5F5F5","F1F1F1","99FF33","99FF66","99FF99","CC3399","CC3355","CC3300","CC00FF","CC00AA","CC0055","66FFCC","66FF88","66FF11");
+var a=0,b=1;
+function Dong()
+{
+  color=colors[a];
+  aa="<font size='8'><font face='黑體'><font color="+color+"><p align='center'>在javascript中實現文字的彩色變換</p></font></font></font>"
+  object1.innerHTML=aa;
+  a+=b;
+  if (a==15) b=-1;
+  if (a==0) b=1;
+  xx=setTimeout("Dong()",300);
+}
+</script> 
+<form id="object1" name="form1" method="post" action="">
+</form>
+</body>
+</html>

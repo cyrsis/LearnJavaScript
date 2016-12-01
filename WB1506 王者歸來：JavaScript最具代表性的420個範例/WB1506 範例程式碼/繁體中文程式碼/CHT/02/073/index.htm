@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>不傳送表單取得復選框的值</title>
+<script type="text/javascript">
+function Mycheck(){
+  var str="";
+  for (var i=0; i < document.form1.chk_type.length; i++){  
+    if (document.form1.chk_type[i].checked){
+	  str+=document.form1.chk_type[i].value;
+	}
+	document.form1.txt_info.value=str;
+  }
+}
+</script>
+</head>
+<body>
+<form name="form1">
+  <table width="322" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#7D84F9">
+    <tr>
+      <td height="27" colspan="2" background="images/img01.JPG">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;訂單處理</td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="98" height="28" align="center">訂單處理項:</td>
+      <td width="221" height="28"><input name="chk_type" type="checkbox" id="chk_type" value="已收款">
+      已收款
+        <input name="chk_type" type="checkbox" id="chk_type" value="已發貨">
+        已發貨
+        <input name="chk_type" type="checkbox" id="chk_type" value="已確認">
+      已確認</td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td height="28" align="center">處理訊息顯示:</td>
+      <td height="28"><input name="txt_info" type="text" id="txt_info" size="28" onFocus="Mycheck()"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>取得文字框/編輯框/隱藏域的值</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #FFF8EB;
+	margin-top: 50px;
+}
+-->
+</style>
+<script type="text/javascript">
+function Mycheck(){
+  var checkstr="取得內容如下:\n";
+  if (document.form1.文章作者.value != ""){
+     checkstr+="作者名稱:"+document.form1.文章作者.value+"\n";
+  }
+  if (document.form1.文章主旨.value != ""){
+     checkstr+="文章主旨:"+document.form1.文章主旨.value+"\n";
+  }
+  if (document.form1.文章內容.value != ""){
+     checkstr+="文章內容:"+document.form1.文章內容.value+"\n";
+  }
+  if (document.form1.隱藏域.value != ""){
+     checkstr+=document.form1.隱藏域.value;
+  }  
+  if (checkstr != ""){
+    alert(checkstr);
+	return false;
+  }
+  else return 
+    return true;
+}
+</script>
+</head>
+<body style="font-size:12px">
+<table width="50%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top"><table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="22" align="left"><img src="images/dian.gif" width="7" height="7"> 文章加入</td>
+      </tr>
+      <tr>
+        <td height="1"><img src="images/xian.gif" width="366" height="1"></td>
+      </tr>
+    </table>
+      <br>
+      <table width="500" border="0" align="center" cellpadding="0" cellspacing="0">
+        <form name="form1" onSubmit="Mycheck()">
+          <tr>
+            <td height="28" align="right">作者名稱:</td>
+            <td height="28"><input name="文章作者" type="text" class="textbox" id="文章作者"></td>
+          </tr>
+          <tr>
+            <td height="28" align="right">文章主旨:</td>
+            <td height="28"><input name="文章主旨" type="text" id="文章主旨" class="textbox"></td>
+          </tr>
+          <tr>
+            <td height="22" align="right">文章內容:</td>
+            <td height="22"><textarea name="文章內容" cols="45" rows="6" id="文章內容"></textarea></td>
+          </tr>
+          <tr>
+            <td height="28" colspan="2" align="center"><input name="隱藏域" type="hidden" id="隱藏域" value="文章加入成功!">
+            <input name="add" type="submit" class="button" id="add" value="添 加">
+&nbsp;
+        <input type="reset" name="Submit2" value="重 置" class="button"></td>
+          </tr>
+        </form>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+</head>
+
+<body>
+<SCRIPT language="JavaScript">
+var textstr="歡迎購買明日科技圖書";
+var Carray=new Array("lime","fuchsia","blue","orange","red","yellow","pink","C0A5AC","aqua","9999FF");
+document.write("<STYLE>");
+for (p=0;p<textstr.length;++p){
+	document.write("#sDiv"+p+" {COLOR: "+Carray[p]+"; FONT-FAMILY: arial black; FONT-SIZE: 15px; HEIGHT: 1px; POSITION: absolute; WIDTH: 1px}");
+}
+document.write("</STYLE>");
+for (p=0;p<textstr.length;++p){
+	document.write("<DIV id=sDiv"+p+">"+textstr.substring(p,p+1)+"</DIV>");
+}
+var time=1000;
+var speed = 100;
+var power = 3;
+var ifshift = false;
+var sArray = new Array(10);
+var early = 0;
+function initAll(){
+	setInterval("firework()",time)
+	for(j=0; j<textstr.length; ++j) sArray[j]=eval('document.all.sDiv'+j+'.style');
+}
+function firework(){
+	var dWidth=document.body.clientWidth;
+	var dHeight=document.body.clientHeight;
+	var cleft=document.body.scrollLeft;
+	var ctop=document.body.scrollTop;
+	var randomx=cleft+Math.floor(Math.random()*dWidth);
+	var randomy=ctop+Math.floor(Math.random()*dHeight);
+	if(!ifshift){
+		ifshift=true;
+		early=0;
+		for(var spark=0;spark<textstr.length;spark++){
+			dx=Math.round(Math.random()*50);
+			dy=Math.round(Math.random()*50);
+			moveTo(spark,randomx,randomy,dx,dy);
+		}
+	}
+}
+function moveTo(i,rx,ry,dx,dy){
+	if(ry+80>(document.body.offsetHeight+document.body.scrollTop))
+		ry=document.body.offsetHeight+document.body.scrollTop-80;
+	if(rx+80>(document.body.offsetWidth+document.body.scrollLeft))
+		rx=document.body.offsetWidth+document.body.scrollLeft-80;
+	if(rx>-50&&ry>-50){
+		rx+=dx;
+		ry+=dy;
+		sArray[i].left=rx;
+		sArray[i].top=ry;
+		dx-=power;dy-=power;
+		setTimeout("moveTo("+i+","+rx+","+ry+","+dx+","+dy+")",speed)
+	}
+	else
+		++early;
+	if(early==10){
+		ifshift=false;
+		early=0;
+	}
+}
+window.onload=initAll;
+</SCRIPT>
+
+</body>
+</html>

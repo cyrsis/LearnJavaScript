@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>隨機變化的網頁背景</title>
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+.style2 {
+	color: #99FF00;
+	font-weight: bold;
+	font-size: 16px;
+}
+-->
+</style>
+</head>
+<body onLoad="randompic();">
+<center class="style2">修改密碼</center>
+<table width="265" height="110" border="1" align="center" bordercolor="#0000FF">
+  <tr>
+    <td width="90"><span class="style1">使用者名稱：</span></td>
+    <td width="169"><input name="textfield" type="text"></td>
+  </tr>
+  <tr>
+    <td><span class="style1">密&nbsp;&nbsp;碼：</span></td>
+    <td><input name="textfield2" type="text"></td>
+  </tr>
+  <tr>
+    <td><span class="style1">確認密碼：</span></td>
+    <td><input name="textfield3" type="text"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input name="Submit2" type="button" value="儲存">
+&nbsp;&nbsp;      
+<input name="Button" type="button" value="取消">
+    </div></td>
+  </tr>
+</table>
+<p>
+
+<script language="javascript">
+function randompic()
+{
+	var i = Math.floor(Math.random()*5);//取整並*5
+	var src = "";
+	switch(i)
+	{
+	 case 0 :
+	 	src = "0.jpg";
+		break;
+	 case 1: 
+	 	src = "1.jpg";
+	 	break;
+	 case 2:
+	 	src = "2.jpg";
+		break;
+	case 3:
+		src = "3.jpg";
+		break;
+	case 4:
+		src = "4.jpg";
+		break;		
+	}
+	document.body.background=src;	
+	setTimeout("randompic()",5000);
+}
+</script>
+</p>
+</body>
+</html>

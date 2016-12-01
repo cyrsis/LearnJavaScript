@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>KendoNg</title>
+
+    <link href="content/bootstrap.css" rel="stylesheet" />
+    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.silver.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.silver.mobile.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.dataviz.default.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            margin: 4em 0 0 1em;
+        }
+    </style>
+</head>
+<body>
+    <h2>Kendo UI & AngularJS</h2>
+
+
+    <div ng-include="'app/layout/topnav.html'"></div>
+
+    <div>
+        <div ng-view></div>
+    </div>
+
+    <!--vendor files-->
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/angular.js"></script>
+<script src="scripts/angular-route.js"></script>
+<script src="scripts/kendo.all.min.js"></script>
+<script src="scripts/angular-kendo.js"></script>
+    
+<!-- my scripts -->
+<script src="app/app.js"></script>
+<script src="app/welcome/welcome.js"></script>
+    <script src="app/welcome/welcome2.js"></script>
+    <script src="app/welcome/welcome3.js"></script>
+    <script src="app/dataSource/dataSource.js"></script>
+    <script src="app/globalEvents/globalEvents2.js"></script>
+    <script src="app/order/order.js"></script>
+    <script src="app/dataVizualization/dataViz.js"></script>
+</body>
+</html>

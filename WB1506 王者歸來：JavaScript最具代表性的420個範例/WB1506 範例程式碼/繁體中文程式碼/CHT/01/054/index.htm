@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>樹狀導覽選單</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="style.css" rel="stylesheet">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" background="images/bg.gif">
+<script language="JavaScript">
+function show_div(menu)
+	{
+	var Imgname;
+	if (document.all.item(menu).style.display == "none")
+		{document.all.item(menu).style.display = "block";
+		Imgname="images/Img"+menu+"_2.gif"
+		document.all.item("Img"+menu).src=Imgname;
+		}
+	else
+		{document.all.item(menu).style.display = "none";
+		Imgname="images/Img"+menu+"_1.gif"
+		document.all.item("Img"+menu).src=Imgname;
+		}
+	}
+</script>
+<img src="images/navigate.jpg" width="149" height="100"> 
+<P>　<A Href="#" onClick="show_div('menu1')"><img name="Imgmenu1" src="images/Imgmenu1_1.gif" BORDER="0"
+ ALIGN="ABSMIDDLE" width="39" height="16"><span class="l"><b>基礎訊息管理</b></span><br> 
+  </a>
+<DIV ID="menu1" style="display:none">
+ 　<img src="images/open_1.gif" width="39" height="16">
+<a href="#" class="l">客戶訊息管理</a><br>
+  　<img src="images/open_1.gif" width="39" height="16">
+  <a href="#" class="l">商品訊息管理</a><br>
+  　<img src="images/open_1.gif" width="39" height="16">
+  <a href="#" class="l">提供者訊息管理</a><br>
+  　<img src="images/open_1.gif" width="39" height="16">
+  <a href="#" class="l">商品訊息查詢</a><br>
+  　<img src="images/open_1.gif" width="39" height="16">
+  <a href="#" class="l">客戶訊息查詢</a><br>
+  　<img src="images/open_2.gif" width="39" height="16">
+  <a href="#" class="l">提供者訊息查詢</a><br>
+<br>
+</DIV>
+<p>　<a href="#" onClick="show_div('menu2')"><img name="Imgmenu2" src="images/Imgmenu2_1.gif" BORDER="0"
+ ALIGN="ABSMIDDLE" width="39" height="16"><span class="l"><b>采購管理</b></span></a> 
+  <br>
+<DIV ID=menu2 STYLE="display:None">　<img src="images/open_1.gif" width="39"
+ height="16"> <a href="#" class="l">商品采購</a><br>
+  　<img src="images/open_2.gif" width="39" height="16">
+<a href="#" class="l">采購查詢</a><br>
+<br>
+</DIV>
+<p>　<A HREF="#" onClick="show_div('menu3')"><IMG name="Imgmenu3" SRC="images/Imgmenu3_1.gif" BORDER="0"
+ ALIGN="ABSMIDDLE" width="39" height="16"><span class="l"><b>庫存管理</b></span></A> 
+  <br>
+<DIV ID=menu3 STYLE="display:None">
+ 　<Img src="images/open_1.gif" width="39" height="16">
+<a href="#" class="l">商品入庫</a><br>
+  　<img src="images/open_1.gif" width="39" height="16">
+  <a href="#" class="l">商品入庫退貨</a><br>
+  　<img src="images/open_1.gif" width="39" height="16">
+  <a href="#" class="l">庫存查詢</a><br>
+  　<img src="images/open_2.gif" width="39" height="16">
+  <a href="#" class="l">價格調整</a><br>
+ <br>
+</div>
+<p>　<A HREF="#" onClick="show_div('menu4')"><IMG name="Imgmenu4" SRC="images/Imgmenu4_1.gif" BORDER="0"
+ ALIGN="ABSMIDDLE" width="39" height="16"><span class="l"><b>商品銷售</b></span></A> 
+  <br>
+<DIV ID=menu4 STYLE="display:None">
+ 　<img src="images/open_1.gif" width="39" height="16">
+<a href="#" class="l">商品銷售</a><br>
+  　<img src="images/open_2.gif" width="39" height="16">
+  <a href="#" class="l">銷售退貨</a><br>
+ <br>
+</div>
+<p>　<A HREF="#" onClick="show_div('menu5')"><IMG name="Imgmenu5" SRC="images/Imgmenu5_1.gif" BORDER="0"
+ ALIGN="ABSMIDDLE" width="39" height="16"><b class="l">查詢統計</b></A> 
+  <br>
+<DIV ID=menu5 STYLE="display:None">
+ 　<img src="images/open_1.gif" width="39" height="16">
+<a href="#" class="l">銷售訊息查詢</a><br>
+  　<img src="images/open_1.gif" width="39" height="16">
+  <a href="#" class="l">商品入庫查詢</a><br>
+  　<img src="images/open_2.gif" width="39" height="16">
+  <a href="#" class="l">商品銷售排行</a><br>
+ <br>
+</div>
+
+<p>　<A HREF="#" onClick="show_div('menu6')"><IMG name="Imgmenu6" SRC="images/Imgmenu6_1.gif" BORDER="0"
+ ALIGN="ABSMIDDLE" width="39" height="16"><span class="l"><b>往來管理</b></span></A> 
+  <br>
+<DIV ID=menu6 STYLE="display:None"> 　<img name="Imgmenu6_11" src="images/open_1A.gif" width="39"
+ height="16"><img name="Imgmenu6_1" src="images/open_1A.gif" width="0" height="0"> <A HREF="#" onClick="show_div('menu6_1')" class="l">應收管理</a> 
+  <br>
+	
+  <DIV ID=menu6_1 STYLE="display:None"> 　<img src="images/open_1_A.gif"
+   width="58" height="16"><a href="#" class="l">
+   商品銷售結賬</a><br>
+    　<img src="images/open_1_A.gif" width="58" height="16">
+	<a href="#"  class="l">入庫退貨結賬</a><br>
+    　<img src="images/open_2_A.gif" width="58" height="16">
+	<a href="#" class="l">銷售結賬查詢</a><br>
+  </div>
+ 　<img name="Imgmenu6_22" src="images/open_2A.gif" width="39" height="16"><img
+  name="Imgmenu6_2" src="images/open_2A.gif" width="0" height="0">
+ <A HREF="#" onClick="show_div('menu6_2')" class="l">應付管理</a> 
+  <br>
+  <DIV ID=menu6_2 STYLE="display:None"> 　<img src="images/open_1_B.gif" width="58"
+   height="16"><a href="#" class="l">
+   商品入庫結賬</a><br>
+    　<img src="images/open_1_B.gif" width="58" height="16">
+	<a href="#" class="l">銷售退貨結賬</a><br>
+    　<img src="images/open_2_B.gif" width="58" height="16">
+	<a href="#" class="l">入庫結賬查詢</a><br>
+  </div>
+</div>
+<p>　<A HREF="#" onClick="show_div('menu7')"><IMG name="Imgmenu7" SRC="images/Imgmenu7_1.gif" BORDER="0"
+ ALIGN="ABSMIDDLE" width="39" height="16"><span class="l"><b>系統設定</b></span></A> 
+  <br>
+<DIV ID=menu7 STYLE="display:None"> 　<img src="images/open_2.gif" width="39"
+ height="16"><a href="#" class="l">動作員管理</a>
+ <br>
+</div>
+</body>
+</html>

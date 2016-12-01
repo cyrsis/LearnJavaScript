@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>文字從中間向兩邊展開</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body OnLoad="explode()">
+<SCRIPT LANGUAGE="JavaScript">
+var showtext = "      歡迎來到明日科技主頁，  請您提出寶貴意見！    ";
+var textlength = showtext.length;
+var outtext = "";
+var i=0;
+var j=0;
+function explode() {
+    i++;
+    outtext = "";
+    for (j=1; j<=(textlength/2)-i; j++) {
+      outtext += "  ";
+    } 
+    for (j=1; j<=i; j++) {
+      outtext += showtext.charAt(j-1);
+    }
+    for (j=i; j>=1; j--) {
+      outtext += showtext.charAt(textlength-j);
+    }
+    for (j=1; j<=(textlength/2)-i; j++) {
+      outtext += "  ";
+    }
+    window.status = outtext;
+    if (i<textlength/2) {
+        var tim=setTimeout("explode()",200);
+    }
+	else{
+		i=j=0;
+		window.status=outtext = "";
+		clearTimeout(tim);
+		explode();
+	}
+}
+</SCRIPT>
+<center>
+  <table width="786" height="612" border="0">
+    <tr>
+      <td width="780" height="608" background="Images/backgroup.jpg">&nbsp;</td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<link href="style.css" rel=stylesheet>
+<body>
+<script language="javascript">
+function Myopen(divID)
+{ 
+    //根據傳遞的參數確定顯示的層
+	divID.style.display='block';
+	divID.style.left=(document.body.clientWidth-240)/2;
+	divID.style.top=(document.body.clientHeight-139)/2;
+}
+</script>
+<table width="777" height="95"  border="0" align="center" cellpadding="-2" cellspacing="-2" class="tableBorder_Top">
+          <tr valign="top">
+            <td height="72" colspan="6"><table width="100%"  border="0" cellpadding="-2" cellspacing="-2" class="tableBorder_Botton">
+              <tr>
+                <td width="30%" height="67" align="right"><img src="Images/board_title.gif" width="227" height="44"></td>
+                <td width="70%" background="Images/banner_bg.gif">&nbsp;</td>
+              </tr>
+            </table></td>
+		  </tr>
+          <tr>
+            <td width="10" height="24" background="Images/bg_Navigate.GIF">&nbsp; </td>
+			<!--版主登入時顯示的導覽條-->
+            <td background="Images/bg_Navigate.GIF">
+				<a href="#" onClick="Myopen(User)">使用者登入</a>│簽寫留言
+			 │檢視留言│ 更新頁面│ </td>
+            <td width="20" background="Images/bg_Navigate.GIF">&nbsp;</td>
+            <td background="Images/bg_Navigate.GIF">&nbsp;</td>
+</td>
+
+            <td width="80" background="Images/bg_Navigate.GIF">傳回首頁<font color="#FFFFFF"></td>
+          </tr>
+</table>
+</td>
+      </tr>
+    </table>
+      <table width="777" height="42"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+        <tr>
+          <td>  &nbsp;<img src="Images/speaker.gif" width="20" height="20"></td>
+		  <td><div id="bgclock" class="word_grey"></div></td>
+		  <td class="word_grey">
+		    <div align="right">
+		     歡迎來到明日美食留言版 請留下您的金玉良言！！您現在是游客身份！若要留言請先登錄或登入！	      </div></td>
+		  <td height="22" colspan="2">&nbsp;</td>
+        </tr>
+ </table>
+<script language="javascript">
+function mycheck(myform,tool)
+{
+if (myform.UID.value=="")
+{alert("請輸入"+tool+"！");myform.UID.focus();return;}
+if(myform.PWD.value=="")
+{alert("請輸入密碼！");myform.PWD.focus();return;}
+}
+</script>
+<!--套用層設計使用者登入表一頁面開始-->
+<div id="User" style="position:absolute;width:240px; height:139px;display:none;">
+<table width="240" height="139"  border="0" align="center" cellpadding="-2" cellspacing="-2">
+  <tr>
+    <td height="139" align="center"><form name="form_U" method="post" action="#">
+        <table width="220" height="115" bgcolor="#FFFFFF" border="0" align="center" cellpadding="-2" cellspacing="-2" class="tableBorder">
+          <tr align="center" valign="middle">
+            <td height="24" colspan="2" background="Images/bg_login.gif"><font color="#505875">=== 使用者登入 === </font> </td>
+          </tr>
+          <tr>
+            <td width="61" height="27" align="right" valign="middle">使用者名稱：</td>
+            <td width="157" valign="middle"><input name="UID" type="text" maxlength="20"></td>
+          </tr>
+          <tr>
+            <td height="27" align="right" valign="middle">密 &nbsp;碼：</td>
+            <td valign="middle"><input name="PWD" type="password"  maxlength="20" onKeyDown="if(event.keyCode==13) mycheck(form_U,'使用者名稱')"></td>
+          </tr>
+          <tr align="center" valign="middle">
+            <td height="27" colspan="2"><input name="Submit" type="button" class="btn_grey" value="登入" onClick="mycheck(form_U,'使用者名稱')">
+&nbsp;
+            <input name="Submit2" type="button" class="btn_grey" value="關閉" onClick="javascript:User.style.display='none';"></td>
+          </tr>
+        </table>
+    </form></td>
+  </tr>
+</table>
+</div>
+<!--套用層設計使用者登入表一頁面結束-->
+<TABLE height=341 cellSpacing=-2 cellPadding=-2 width=777 align=center 
+  border=0><TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE class=tableBorder height=293 cellSpacing=-2 cellPadding=-2 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD></TD></TR>
+        <TR>
+          <TD height=2></TD></TR>
+        <TR>
+          <TD vAlign=top>
+            <TABLE class=tableBorder height=205 cellSpacing=-2 cellPadding=-2 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width=13 background=Images/board_left.gif 
+                height=32>&nbsp;</TD>
+                <TD style="COLOR: #ffffff" width=689 
+                background=Images/board_left.gif>≡ 最新留言 ≡ </TD>
+                <TD width=73 
+              background=Images/board_right.gif>&nbsp;</TD></TR>
+              <TR vAlign=top>
+                <TD colSpan=3 height=171>
+                  <TABLE height=126 cellSpacing=-2 cellPadding=-2 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD height="126" align=middle vAlign=top>
+                        <TABLE class=tableBorder_Top height=109 cellSpacing=-2 
+                        cellPadding=-2 width="100%" border=0>
+                          <TBODY>
+                          <TR>
+                            <TD height=5></TD></TR>
+                          <TR>
+                            <TD vAlign=top width=136>
+                              <DIV align=center><BR>
+                                無語<br>
+                                <IMG height=60 
+                              src="Images/9.gif" width=60 
+                              border=0><BR>我是：男生<BR>心情：<IMG height=20 
+                              src="Images/face5.gif" width=20> 
+                              <BR><BR></DIV></TD>
+                            <TD width=1 background=Images/line.gif></TD>
+                            <TD vAlign=top width=666>
+                              <TABLE cellSpacing=-2 cellPadding=-2 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD width="80%" height=30>&nbsp;<IMG height=16 
+                                alt=無語的Email是：dream@sohu.com 
+                                src="Images/email.gif" width=16>Email&nbsp; 
+                                <IMG height=16 alt=無語的個人主頁是： 
+                                src="Images/home.gif" width=16>個人主頁&nbsp; 
+                                <IMG height=16 alt=無語的QQ號碼是：623912076 
+                                src="Images/oicq.gif" width=16>QQ&nbsp; 
+                                <IMG height=15 alt=IP為：127.0.0.1 
+                                src="Images/ip.gif" width=16>IP位址&nbsp; 
+                                <IMG height=16 src="Images/time.gif" 
+                                width=16>發表時間：2006-7-5 19:00:03</TD>
+                                <TD width="20%">&nbsp; </TD></TR>
+                                <TR>
+                                <TD colSpan=2>
+                                <HR align=left width="92%" noShade SIZE=1>                                </TD></TR>
+                                <TR>
+                                <TD style="PADDING-LEFT: 10px" 
+                                colSpan=2><div align="left">我不喜歡無雲的天空<BR>
+                                  我不喜歡無淚的人生<BR>
+                                  若果我哭了<BR>
+                                  那是因為我曾擁有一份<FONT 
+                                color=#ff00ff>美好</FONT>的感情！</div></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+                        <TABLE class=tableBorder_Top height=1 cellSpacing=-2 
+                        cellPadding=-2 width="100%" border=0></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+            <TABLE height=25 cellSpacing=-2 cellPadding=-2 width="100%" 
+border=0>
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom width="42%">
+                  <FORM name=form1 action=index.asp method=post>
+                  <TABLE cellSpacing=-2 cellPadding=-2 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD height=27>搜尋： <INPUT class=noborder type=radio 
+                        CHECKED value=Content name=field> 按內容 <INPUT 
+                        class=noborder type=radio value=UserName name=field> 
+                        按使用者名稱 <INPUT class=txt_grey id=key 
+                  name=key></TD></TR></TBODY></TABLE></FORM></TD>
+                <TD align=right width="31%">下一頁
+                  最後一頁                </TD>
+                <TD class=word_grey align=right 
+                  width="27%">[1/9]&nbsp;&nbsp;每頁1條&nbsp;&nbsp;共9條留言</TD>
+        </TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE height=77 cellSpacing=-2 cellPadding=-2 width=777 align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD style="COLOR: #666666" align=center>
+            <HR SIZE=1>
+            本站請用IE6.0或以上版本瀏覽，1024*768為最佳效果<BR>
+            CopyRight &copy; 2006 
+        吉林省明日科技有限公司</TD>
+        </TR></TBODY></TABLE></TR></TBODY></TABLE>
+</body>
+</html>

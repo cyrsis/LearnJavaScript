@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>變換的文字</title>
+
+</head>
+<body>
+<div id="cc" align="center" style="position: absolute; left: -1; top: 5; width: 1003px; height: 19"></div>
+<script language="javascript">
+var Aletter=new Array();
+var Acolor=new Array("#3300CC","#00FFCC","#FF66CC","#CC0000","#00FF00","#9900FF","#FFCC33","#6633FF","#FFCCFF");
+Aletter[0]="明日科技圖書";
+Aletter[1]="明日科技Delphi圖書";
+Aletter[2]="明日科技VB圖書";
+Aletter[3]="明日科技Java圖書";
+Aletter[4]="明日科技c圖書";
+Aletter[5]="明日科技.net圖書";
+Aletter[6]="明日科技Javascript圖書";
+Aletter[7]="明日科技Asp圖書";
+Aletter[8]="明日科技Jsp圖書";
+var i=0;
+document.all.cc.style.width=document.body.clientWidth;
+function letter()
+{
+  if (i==Aletter.length) i=0;
+  cc.innerHTML='<font color="'+Acolor[i]+'" size="+5">'+Aletter[i]+'</font>';
+  ++i;
+  setTimeout("letter()",1000);
+}
+letter();
+</script>
+
+</body>
+</html>

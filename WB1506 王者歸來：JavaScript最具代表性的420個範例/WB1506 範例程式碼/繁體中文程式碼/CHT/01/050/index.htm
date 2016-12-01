@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<style type="text/css">
+.menubar{position:absolute;top:10px;width:100px;height:20px;cursor:default;border-width:1px;border-style:outset;color:#99FFFF;background:#669900}
+.menu{position:absolute;top:32px;width:140px;display:none;border-width:2px;border-style:outset;border-color:white sliver sliver white;background:#333399;padding:15px}
+.menu A{text-decoration:none;color:#99FFFF;}
+.menu A:hover{color: #FFFFFF;}
+</style>
+<script language="javascript">
+function divControl(show){	//判斷是否顯示相對應的下拉清單
+	window.event.cancelBubble=true;
+	var objID=event.srcElement.id;
+	var index=objID.indexOf("_");
+	var mainID=objID.substring(0,index);
+	var numID=objID.substring(index+1);
+
+	if(mainID=="Tdiv"){
+		if(show==1){eval("showdiv("+"Div"+numID+")");}
+		else{eval("hidediv("+"Div"+numID+")");}
+	}
+}
+var nbottom=0,speed=2;
+function displayMenu(obj){	//在顯示下拉選單時,以下拉模式顯示下拉選單
+	obj.style.clip="rect(0 100% "+nbottom+"% 0)";
+	nbottom+=speed;
+	if(nbottom<=100){
+		timerID=setTimeout("displayMenu("+obj.id+"),1");
+	}
+	else clearTimeout(timerID);
+}
+function showdiv(obj){	//顯示下拉清單
+	obj.style.display="block";
+	obj.style.clip="rect(0 0 0 0)";
+	nbottom=5;
+	displayMenu(obj);
+}
+function hidediv(obj){	//隱藏下拉清單
+	nbottom=0;
+	obj.style.display="none";
+}
+function keepstyle(obj){	//在下拉選單中搬移時,保持下拉清單的型態
+	obj.style.display="block";
+}
+</script>
+<table border="0" width="400" cellspacing="0" cellpadding="0" style="font-size:15px">
+<tr>
+<td width="20%">
+<div align="center"id="Tdiv_1" class="menubar" onmouseover="divControl(1)" onmouseout="divControl(0)">
+教育網站
+</div>
+</td>
+<td width="20%">
+<div align="center"id="Tdiv_2" class="menubar" onmouseover="divControl(1)" onmouseout="divControl(0)">
+電腦叢書網站
+</div>
+</td>
+<td width="20%">
+<div align="center"id="Tdiv_3" class="menubar" onmouseover="divControl(1)" onmouseout="divControl(0)">
+新出圖書
+</div>
+</td>
+<td width="20%">
+<div align="center"id="Tdiv_4" class="menubar" onmouseover="divControl(1)" onmouseout="divControl(0)">
+其它網站
+</div>
+</td>
+</tr>
+</tr>
+<tr>
+<td width="20%">
+<div align="left"id="Div1" class="menu" onmouseover="keepstyle(this)" onmouseout="hidediv(this)">
+<a href="#">重慶XX大學</a><br>
+<a href="#">長春XX大學</a><br>
+<a href="#">吉林XX大學</a>
+</div>
+</td>
+<td width="20%">
+<div align="left"id="Div2" class="menu" onmouseover="keepstyle(this)" onmouseout="hidediv(this)">
+<a href="http://www.mingrisoft.com">明日科技VB圖書</a><br>
+<a href="http://www.mingrisoft.com">明日科技Delphi圖書</a><br>
+<a href="http://www.mingrisoft.com">明日科技Java圖書</a>
+</div>
+</td>
+<td width="20%">
+<div align="left"id="Div3" class="menu" onmouseover="keepstyle(this)" onmouseout="hidediv(this)">
+<a href="http://www.mingrisoft.com">Delphi XX圖書</a><br>
+<a href="http://www.mingrisoft.com">VB XX圖書</a><br>
+<a href="http://www.mingrisoft.com">Java XX圖書</a>
+</div>
+</td>
+<td width="20%">
+<div align="left"id="Div4" class="menu" onmouseover="keepstyle(this)" onmouseout="hidediv(this)">
+<a href="http://www.mingrisoft.com">明日科技主頁</a><br>
+<a href="http://www.mingrisoft.com">明日科技圖書網</a><br>
+<a href="http://www.mingrisoft.com">明日技術支援網</a></div>
+</td>
+</table>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>簡單過濾器的範例</title>
+<style type="text/css">
+	td{
+		font-size:12px;		/*設定單元格的型態*/
+		padding:3px;		/*設定內邊距*/
+	}
+	.th{
+		background-color:#B6DF48;	/*設定背景彩色*/
+		font-weight:bold;			/*設定文字粗體顯示*/
+		text-align:center;		/*文字置中對齊*/
+	}
+	.even{
+		background-color:#E8F3D1;	/*設定偶數行的背景彩色*/
+	}
+	.odd{
+		background-color:#F9FCEF;	/*設定奇數行的背景彩色*/
+	}
+</style>
+
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("tr:even").addClass("even");	//設定奇數行所用的CSS類別
+		$("tr:odd").addClass("odd");	//設定偶數行所用的CSS類別
+		$("tr:first").removeClass("even");	//移除even類別
+		$("tr:first").addClass("th");	//加入th類別
+	});
+</script>
+</head>
+<body>
+	<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#3F873B">
+      <tr>
+        <td width="11%" height="27">編號</td>
+        <td width="14%">祝福物件</td>
+        <td width="12%">祝福者</td>
+        <td width="33%">字條內容</td>
+        <td width="30%">傳送時間</td>
+      </tr>
+      <tr>
+        <td height="27">1</td>
+        <td>琦琦</td>
+        <td>媽媽</td>
+        <td>願你健康快樂的成長！</td>
+        <td>2011-07-05 13:06:06</td>
+      </tr>
+      <tr>
+        <td height="27">2</td>
+        <td>wgh</td>
+        <td>無語</td>
+        <td>每天有份好心情！</td>
+        <td>2011-07-05 13:26:17</td>
+      </tr>
+      <tr>
+        <td height="27">3</td>
+        <td>天淨沙小曉</td>
+        <td>wgh</td>
+        <td>煮豆燃豆萁，豆在釜中泣。本是同根生，相煎何太急。</td>
+        <td>2011-07-05 13:36:06</td>
+      </tr>
+      <tr>
+        <td height="27">4</td>
+        <td>明日科技</td>
+        <td>wgh</td>
+        <td>明天會更好！</td>
+        <td>2011-07-05 13:46:06</td>
+      </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>從指定URL中分析檔名</title>
+<link href="style.css" rel="stylesheet">
+</head>
+<script language="javaScript">
+function deal(myform){
+	var url=form1.url.value;
+	objExp=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?(\/\w+)*.\w{3}$/;	
+	if(url==""){
+		alert("請輸入URL位址!");form1.url.focus();return;
+	}
+	if(objExp.test(url)){
+		myform.lastUrl.value=convert(url);
+	}else{
+		alert("您輸入的URL位址非法!");form1.url.focus();return;
+	}
+}
+</script>
+<script language="javaScript">
+function convert(url){
+	url=url.replace(/(.*\/)*([^.]+).*/ig,"$2");	
+	return url;
+}
+</script>
+
+<body>
+<form action="" name="form1" method="post">
+<table width="461" height="216" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="513" background="images/bg.gif"><table width="340" height="202" border="0" align="right" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="100">&nbsp;</td>
+        <td valign="middle">請輸入URL位址：<br>
+          <br>
+          例如：http://www.mingrisoft.com/board/index.asp<br>
+          <input name="url" type="text" id="url" size="45" />
+          <br></td>
+      </tr>
+      <tr>
+        <td height="40">&nbsp;</td>
+        <td valign="middle">分析的檔名：<br>        
+          <br>
+          <input name="lastUrl" type="text" id="lastUrl" size="30" maxlength="15" readonly="yes" /></td>
+      </tr>
+      
+      <tr>
+        <td width="50">&nbsp;</td>
+        <td width="319"><input name="Button" type="button" class="btn_grey" onClick="deal(form1)" value="分析" />          </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

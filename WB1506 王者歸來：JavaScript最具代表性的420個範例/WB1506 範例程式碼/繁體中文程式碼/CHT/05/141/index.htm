@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+</head>
+
+<div id="Tdiv" style="position:absolute;visibility:visible;width:600px;text-align:center; top:20px;left:10px;font-family:隸書;font-size:30pt"></div>
+<body onLoad="fluorescence()">
+<SCRIPT language="JavaScript">
+var tcolor= new Array();
+for (i=2;i<=15;++i)
+{
+  if (i>9)
+  {
+    var p=i-9;
+	var Tp=String.fromCharCode((96+p));
+	tcolor[i]=Tp+Tp+Tp+Tp+Tp+Tp;
+  }
+  else
+  {
+    tcolor[i]=(String(i)+String(i)+String(i)+String(i)+String(i)+String(i));
+  }
+}
+var message="歡迎購買明日科技圖書"
+var color_x=0
+var timer
+function fluorescence(){ 
+	if (color_x <=15){
+		Tdiv.innerText=message;
+		document.all.Tdiv.style.filter="glow(color="+tcolor[color_x]+", strength=4)"
+		color_x++
+		timer=setTimeout("fluorescence()",100)
+	}
+	else{
+		clearTimeout(timer)
+		setTimeout("reversefluor()",1500)
+	}
+}
+function reversefluor(){ 
+	if (color_x >=0){
+		Tdiv.innerText=message;
+		document.all.Tdiv.style.filter="glow(color="+tcolor[color_x]+", strength=4)";
+		color_x--;
+		timer=setTimeout("reversefluor()",100);
+	}
+	else{
+		clearTimeout(timer);
+		color_x=0;
+		fluorescence();
+	}
+}
+</SCRIPT>
+</body>
+</html>

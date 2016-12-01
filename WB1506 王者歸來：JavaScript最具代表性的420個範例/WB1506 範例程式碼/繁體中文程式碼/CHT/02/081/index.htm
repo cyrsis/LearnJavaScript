@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>自動傳送表單</title>
+</head>
+<body style=" font-size:12px">
+<table width="540" border="0" align="center" cellpadding="0" cellspacing="0" background="images/bg.jpg">
+  <tr>
+    <td height="18" align="center" valign="middle"><font size="-1"><a href="#" onClick="Time_limit()">開始考試</a></font></td>
+  </tr>
+  <tr>
+    <td height="28" align="center" valign="middle"><font color="#FF0000" size="+1" style="font-weight:bolder">電腦**考試</font></td>
+  </tr>
+  <tr>
+    <td height="18" align="center" valign="top"><form name="form1">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="28" align="left" valign="top">滿分100分
+            單選題40分 多選題60分 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剩余時間:<font color="#FF0000" id="showtime"></font>  秒</td>
+        </tr>
+        <tr>
+          <td height="20" align="left">一
+
+
+ 、單選題(每題5分,答錯不得分)</td>
+        </tr>
+        <tr>
+          <td height="20" align="left">[1]一般而言,Internet防火牆建立在一個網路的哪個部分?</td>
+        </tr>
+        <tr>
+          <td height="20" align="left"><input type="radio" name="radiobutton" value="1">
+            每個子網的內定            </td>
+        </tr>
+        <tr>
+          <td height="20" align="left"><input type="radio" name="radiobutton" value="2">
+            內定子網之間傳輸訊息的中樞</td>
+        </tr>
+        <tr>
+          <td height="20" align="left"><input type="radio" name="radiobutton" value="3">
+            內定網路與外部網路的交叉點</td>
+        </tr>
+        <tr>
+          <td height="20" align="left"><input type="radio" name="radiobutton" value="4">
+            部分子網與外部網路的結合點</td>
+        </tr>
+        <tr>
+          <td height="28" align="center"><input name="sec_nums" type="hidden" id="sec_nums">            <div id="show" style="display:none "><input name="sure" type="submit" id="sure" value="考試結束"></div>
+&nbsp;&nbsp;
+<div id="hidden"><input name="sure2" type="submit" id="sure2" value="考試結束" disabled></div>&nbsp;&nbsp;&nbsp;&nbsp;            </td>
+        </tr>
+      </table>
+    </form></td>
+  </tr>
+</table>
+</body>
+<script type="text/javascript">
+var sec=5;
+function Time_limit(){
+  document.all.show.style.display="block";
+  document.all.hidden.style.display="none";
+  thistime=document.form1.sec_nums.value;
+  document.all.showtime.innerHTML=thistime;
+  if (thistime <= 0){
+    document.form1.submit();
+  }
+  document.form1.sec_nums.value=thistime-1;
+  var timer=window.setTimeout("Time_limit()",1000);
+}
+document.all.form1.sec_nums.value=sec;
+</script>
+</html>

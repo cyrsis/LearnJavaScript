@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<table id="table1" width="200" border="1">
+  <tr>
+    <td id="cell-1">monadism1</td>
+    <td id="cell-2">monadism2</td>
+    <td id="cell-3">monadism3</td>
+  </tr>
+  <tr>
+    <td id="cell-4">monadism4</td>
+    <td id="cell-5">monadism5</td>
+    <td id="cell-6">monadism6</td>
+  </tr>
+  <tr>
+    <td id="cell-7">monadism7</td>
+    <td id="cell-8">monadism8</td>
+    <td id="cell-9">monadism9</td>
+  </tr>
+</table>
+<form name="form1" method="post" action="">
+  <input name="Button1" type="button" id="Button1" value="移除行" onclick="removeRow()">
+</form>
+<script language="javascript">
+var lastSelection = null;
+//取得選取行或單元格的參數值
+function select(element) {
+	var e, r, c;
+	if (element == null){e = event.srcElement;}
+	else {  e = element;  }
+	if (e.tagName == "TD"){
+		c = findCell(e);
+		if (c != null) {
+			if (lastSelection != null) {deselectRowOrCell(lastSelection);}
+			selectRowOrCell(c); 
+			lastSelection = c;
+		} 
+	}
+	window.event.cancelBubble = true;
+} 
+table1.onclick=select;
+//查詢是否有單元格
+function findCell(e) {
+	if (e.tagName == "TD") {return e;}
+	else if (e.tagName == "BODY") {return null;} 
+		else{return findCell(e.parentElement);}  
+}
+//選取行或單元格
+function selectRowOrCell(r) {
+	r.runtimeStyle.backgroundColor="darkblue";
+	r.runtimeStyle.color="white";
+}
+//取消對行或單元格的選定
+function deselectRowOrCell(r) { 
+	r.runtimeStyle.backgroundColor = "";
+	r.runtimeStyle.color = "";
+}
+//查詢是否有行
+function findRow(e) {
+	if (e.tagName == "TR") {  return e;  } 
+	else if (e.tagName == "BODY") {  return null;  }
+		else {  return findRow(e.parentElement);  }
+}
+//移除表中的行
+function removeRow(){
+	var r, p, nr;
+	if (lastSelection==null) return false;
+	r = lastSelection; 
+	if (r.tagName=="TD") {r = r.parentElement;} 
+	p = r.parentElement;
+	alert(p.tagName); 
+	p.removeChild(r); 
+	lastSelection=null; 
+	return r;
+}
+</script>
+</body>
+</html>

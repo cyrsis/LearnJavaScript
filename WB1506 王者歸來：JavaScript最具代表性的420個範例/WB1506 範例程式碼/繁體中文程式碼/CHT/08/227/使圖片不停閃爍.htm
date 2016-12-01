@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>使圖片不停閃爍</title>
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+var counter = 0; 
+function soccerOnload() 
+{
+	setTimeout("glint()", 200);
+}
+function glint() 
+{
+	div1.style.visibility = (div1.style.visibility == "hidden") ? "visible" : "hidden";
+	counter += 1;
+	setTimeout("glint()", 200);
+}
+</SCRIPT>
+
+<body onload="soccerOnload();">
+<DIV ID="div1" STYLE="position:absolute; left:150; top:0">
+	<a href="http://www.mingrisoft.com" target="_blank">
+	<p></p>
+		<img name="image1" src="Temp.jpg">
+	<p></p>
+	<font size="3pt" color="#FF0000"> 明日科技最新圖書 </font>
+	</a>
+</DIV>
+</body>
+</html>

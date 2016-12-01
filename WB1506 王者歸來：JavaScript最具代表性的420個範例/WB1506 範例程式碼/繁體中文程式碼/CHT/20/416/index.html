@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>隔行換色並且滑鼠指向行變色的表格</title>
+<style type="text/css">
+table{ border:0;border-collapse:collapse;}					/*設定表格整體型態*/
+td{font:normal 12px/17px Arial;padding:2px;width:100px;}	/*設定單元格的型態*/
+
+th{	/*設定標頭的型態*/
+	font:bold 12px/17px Arial;
+	text-align:left;
+	padding:4px;
+	border-bottom:1px solid #333;
+}
+.odd{background:#cef;}		/*設定奇數行型態*/
+.even{background:#ffc;}		/*設定偶數行型態*/
+.light{background:#00A1DA;}	/*設定滑鼠移到行的型態*/
+</style>
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("tbody tr:even").addClass("odd");	//為偶數行加入型態
+  $("tbody tr:odd").addClass("even");	//為奇數行加入型態
+  $("tbody tr").hover(				  	//為表格主體每行綁定hover方法
+	  function() {$(this).addClass("light");},
+	  function() {$(this).removeClass("light");}
+  );
+});
+</script>
+</head>
+
+<body>
+<table>
+  <thead>
+    <tr>
+      <th>產品名稱</th>
+      <th>產地</th>
+      <th>廠商</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>愛美電視機</td>
+      <td>福州</td>
+      <td>愛美電子</td>
+    </tr>
+    <tr>
+      <td>美好微波爐</td>
+      <td>北京</td>
+      <td>美好集團</td>
+    </tr>
+    <tr>
+      <td>理想電腦</td>
+      <td>沈陽</td>
+      <td>理想科技</td>
+    </tr>
+    <tr>
+      <td>寫程式詞典</td>
+      <td>長春</td>
+      <td>明日科技</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>元素選取器的範例</title>
+<style type="text/css">
+img{
+	border:1px solid #777;
+}
+div{
+	padding:5px;
+	font-size:12px;
+}	
+</style>
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("input[type='button']").click(function(){			//為按鈕綁定點選事件
+			$("div").eq(0).html("<img src='images/strawberry1.jpg'/>這裡長出了一片草莓");	//取得第一個div元素
+			$("div").get(1).innerHTML="<img src='images/fish1.jpg'/>這裡的魚沒有了";	//取得第二個div元素
+		});
+	});
+</script>
+</head>
+<body>
+<div><img src="images/strawberry.jpg"/>這裡種植了一棵草莓</div>
+<div><img src="images/fish.jpg"/>這裡養殖了一條魚</div>
+<input type="button" value="許多年後" />
+</body>
+</html>

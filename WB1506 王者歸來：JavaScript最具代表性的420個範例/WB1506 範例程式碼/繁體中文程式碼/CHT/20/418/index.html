@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>伸縮式導覽選單</title>
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<style type="text/css">
+	dl {
+		width: 158px;
+		margin:0px;
+	}
+	dt {
+		font-size: 14px; 
+		padding: 0px; 
+		margin: 0px; 
+		width:146px; 			/*設定寬度*/
+		height:19px; 			/*設定高度*/
+		background-image:url(images/title_show.gif);		/*設定背景圖片*/	
+		padding:6px 0px 0px 12px;
+		color:#215dc6;
+		font-size:12px;	
+		cursor:hand;
+	}
+	dd{
+		color: #000;
+		font-size: 12px;
+		margin:0px;
+	 }
+	a {
+		text-decoration: none;		/*不顯示下劃線*/
+	}
+	a:hover {
+		color: #FF6600;
+	}
+	#top{
+		width:158px; 			/*設定寬度*/
+		height:30px; 			/*設定高度*/
+		background-image:url(images/top.gif);		/*設定背景圖片*/		
+	}
+	#bottom{
+		width:158px; 			/*設定寬度*/
+		height:31px; 			/*設定高度*/
+		background-image:url(images/bottom.gif);		/*設定背景圖片*/				
+	}
+	.title{
+		background-image:url(images/title_quit.gif);		/*設定背景圖片*/	
+	}
+	.item{
+		width:146px; 			/*設定寬度*/
+		height:15px; 			/*設定高度*/
+		background-image:url(images/item_bg.gif);		/*設定背景圖片*/	
+		padding:6px 0px 0px 12px;
+		color:#215dc6;
+		font-size:12px;	
+		cursor:hand;
+		background-position:center;
+		background-repeat:no-repeat;
+	}	
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("dd").hide(); //隱藏全部子選單
+	$("dt[class!='title']").toggle(
+		function(){
+		//  slideDown:透過高度變化（向下增長）來動態地顯示所有比對的元素
+			$(this).css("backgroundImage","url(images/title_hide.gif)");	//改變主選單的背景
+			$(this).next().slideDown("slow");
+		},	
+		function(){
+		//  slideUp:透過高度變化（向上拉遠）來動態地隱藏所有比對的元素
+			$(this).css("backgroundImage","url(images/title_show.gif)");	//改變主選單的背景
+			$(this).next().slideUp("slow");
+		}
+	);
+});
+</script>
+</head>
+
+<body>
+<div id="top"></div>
+<dl>
+	<dt>員工管理</dt>
+	<dd>
+        <div class="item">加入員工訊息</div>
+        <div class="item">管理員工訊息</div>	
+	</dd>
+	<dt>招聘管理</dt>
+	<dd>
+        <div class="item">瀏覽應聘訊息</div>
+        <div class="item">加入應聘訊息</div>
+        <div class="item">瀏覽人才庫</div>
+	</dd>
+	<dt>薪酬管理</dt>
+	<dd>
+        <div class="item">薪酬登記</div>
+        <div class="item">薪酬調整</div>
+        <div class="item">薪酬查詢</div>
+	</dd>
+    <dt class="title"><a href="#">離開系統</a></dt>
+</dl>
+<div id="bottom"></div>
+</body>
+</html>

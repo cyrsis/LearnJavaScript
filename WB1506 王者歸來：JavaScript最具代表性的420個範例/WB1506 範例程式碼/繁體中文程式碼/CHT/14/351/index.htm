@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>使用XMLHttpRequest物件讀取XML文件</title>
+<link href="CSS/style.css" rel="stylesheet"/>
+<script language="javascript">
+var http_request = false;
+function createRequest(url) {
+	//起始化物件平行出XMLHttpRequest請求
+	http_request = false;
+	if (window.XMLHttpRequest) { // Mozilla......
+		http_request = new XMLHttpRequest();
+		if (http_request.overrideMimeType) {
+			http_request.overrideMimeType("text/xml");
+		}
+	} else if (window.ActiveXObject) { // IE瀏覽器
+		try {
+			http_request = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				http_request = new ActiveXObject("Microsoft.XMLHTTP");
+		   } catch (e) {}
+		}
+	}
+	if (!http_request) {
+		alert("不能建立XMLHTTP案例!");
+		return false;
+	}
+	http_request.onreadystatechange = dealresult;    //指定響應方法
+	//發出HTTP請求
+	http_request.open("GET", url, true);
+	http_request.send(null);
+}
+function dealresult() {    //處理伺服器傳回的訊息
+	if (http_request.readyState == 4) {
+		if (http_request.status == 200) {
+		　　var xmldoc = http_request.responseXML;
+			createTable(xmldoc);
+		} else {
+			alert('您請求的頁面發現錯誤');
+		}
+	}
+}
+
+
+function createTable(xmldoc) {
+	var table = document.createElement("table");
+	table.setAttribute("width","620");
+	table.setAttribute("border","1");
+	table.borderColor="#FF0000";
+	table.cellSpacing="0";	
+	table.cellpadding="0";		
+	table.borderColorDark="#FFFFFF";
+	table.borderColorLight="#000000";	
+	parentTd.appendChild(table);     //在指定位置建立表格
+	var header = table.createTHead();
+	header.bgColor="#EEEEEE";  //設定標頭背景
+	var headerrow = header.insertRow(0);
+	headerrow.height="27";  //設定標頭高度
+	headerrow.insertCell(0).appendChild(document.createTextNode("客戶名稱"));
+	headerrow.insertCell(1).appendChild(document.createTextNode("聯繫位址"));
+	headerrow.insertCell(2).appendChild(document.createTextNode("電話"));
+	headerrow.insertCell(3).appendChild(document.createTextNode("郵政解碼"));
+	headerrow.insertCell(4).appendChild(document.createTextNode("開戶銀行"));
+	headerrow.insertCell(5).appendChild(document.createTextNode("銀行賬號"));	
+	var customers = xmldoc.getElementsByTagName("customer");
+	for(var i=0;i<customers.length;i++) {
+		var cus = customers[i];
+		var name = cus.getAttribute("name");
+		var address = cus.getElementsByTagName("address")[0].firstChild.data;
+		var tel = cus.getElementsByTagName("tel")[0].firstChild.data;
+		var postcode = cus.getElementsByTagName("postcode")[0].firstChild.data;
+		var bank = cus.getElementsByTagName("bank")[0].firstChild.data;
+		var bankcode = cus.getElementsByTagName("bankcode")[0].firstChild.data;		
+		var row = table.insertRow(i+1);
+		row.height="27";     //設定行高
+		row.insertCell(0).appendChild(document.createTextNode(name));
+		row.insertCell(1).appendChild(document.createTextNode(address));
+		row.insertCell(2).appendChild(document.createTextNode(tel));
+		row.insertCell(3).appendChild(document.createTextNode(postcode));
+		row.insertCell(4).appendChild(document.createTextNode(bank));
+		row.insertCell(5).appendChild(document.createTextNode(bankcode));		
+	}
+}
+</script>	
+</head>
+<body  onLoad="createRequest('customers.xml')">
+<table width="777" height="172"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="777"  border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="Images/tiring-room_01.gif" width="777" height="125"></td>
+      </tr>
+      <tr>
+        <td height="47" valign="top" background="Images/tiring-room_02.gif"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="777"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="44" height="380" valign="top"><img src="Images/tiring-room_03.gif" width="44" height="248"></td>
+    <td valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="68" colspan="2" background="Images/H_customer.gif">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="4%">&nbsp;</td>
+        <td width="96%" id="parentTd">
+		</td>
+      </tr>
+    </table></td>
+    <td width="35" valign="top"><img src="Images/tiring-room_05.gif" width="35" height="248"></td>
+  </tr>
+</table>
+</body>
+</html>

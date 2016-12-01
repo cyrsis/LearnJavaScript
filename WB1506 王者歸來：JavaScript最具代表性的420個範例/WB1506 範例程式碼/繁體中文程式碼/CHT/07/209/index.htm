@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body onLoad="caption('要進行銳化的圖片')">
+<div id="Tdiv" align="center" width="200px"></div>
+<script language="javascript"> 
+function caption(name){
+	var s="<table width='240px' height='160' align='center'>";
+	s=s+"<tr><td>";
+	s=s+"<fieldset><legend><font>"+name+"</font></legend>";
+	s=s+"<img src='7.jpg' width='200' height='140'></fieldset>"
+	s=s+"</td></tr></table>";
+	Tdiv.innerHTML=s;
+}
+</script>
+</body>
+</html>

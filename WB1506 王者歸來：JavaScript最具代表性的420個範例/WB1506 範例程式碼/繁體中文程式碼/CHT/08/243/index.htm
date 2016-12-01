@@ -1,0 +1,52 @@
+<HTML><HEAD><TITLE>無間斷的圖片循環卷動效果</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR>
+</HEAD>
+<BODY leftMargin=0 topMargin=2 marginheight="0" marginwidth="0">
+<CENTER>
+<TABLE style="BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #666666 1px solid" cellSpacing=0 cellPadding=0 width=750 align=center border=0>
+  <TR>
+    <TD>
+<DIV id=div1 style="OVERFLOW: hidden; WIDTH: 100%; COLOR: #ffffff">
+      <TABLE cellSpacing=0 cellPadding=0 align=left border=0 cellspace="0">
+        <TR>
+          <TD id=td1 vAlign=top>
+		  <table width="1710" height="116"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="171" background="1.jpg"></td>
+              <td width="171" background="2.jpg"></td>
+              <td width="171" background="3.jpg"></td>
+              <td width="171" background="4.jpg"></td>
+              <td width="171" background="5.jpg"></td>
+              <td width="171" background="6.jpg"></td>
+              <td width="171" background="7.jpg"></td>
+              <td width="171" background="8.jpg"></td>
+              <td width="171" background="9.jpg"></td>
+              <td width="171" background="10.jpg"></td>
+            </tr>
+          </table>
+		  </TD>
+<TD id=td2 vAlign=top>&nbsp;</TD></TR></TABLE>
+</DIV>
+<SCRIPT language="javascript">
+var n=5
+//數值越大圖片卷動的越快
+td2.innerHTML=td1.innerHTML
+var Mycheck;
+function move()
+{
+	if(td2.offsetWidth-div1.scrollLeft<=0)
+		div1.scrollLeft-=td1.offsetWidth
+	else
+	{div1.scrollLeft++}
+    Mycheck=setTimeout(move,n)
+}
+div1.onmouseover=function() {clearTimeout(Mycheck)}
+div1.onmouseout=function() {Mycheck=setTimeout(move,n)}
+move();
+</SCRIPT>
+</TD>
+</TR></TABLE>
+</CENTER>
+</BODY>
+</HTML>

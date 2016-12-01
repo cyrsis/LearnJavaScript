@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>留言版</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<xml id="board" src="board.xml"></xml>
+<h1 align="center">留言版</h1>
+<hr />
+<table width="100%" cellpadding="0" cellspacing="0" datasrc="#board">
+<thead>
+      <tr>
+            <th height="27">留言人</th>
+            <th>表情</th>
+            <th>電話</th>
+            <th>留言內容</th>
+      </tr>
+</thead>
+      <tr>
+            <td height="27"><span datafld="person"></span></td> 
+            <td><span datafld="humor"></span></td> 
+            <td><span datafld="tel"></span></td> 
+            <td><span datafld="message"></span></td> 
+      </tr>
+</table>
+
+
+
+
+<script type="text/jscript">
+//在資料島中關聯XML文件
+xmldoc = board;
+function deleteLastElement(){
+  //查詢根元素，並移除其最後一個子節點
+  var rootElement = xmldoc.documentElement;
+  if (rootElement.hasChildNodes())
+      rootElement.removeChild(rootElement.lastChild);
+	  // rootElement.removeChild(root.childNodes.item(0))  //移除第1個節點  
+}
+
+ //修改屬性
+//  var   xmlDoc   =   new   ActiveXObject("Msxml2.DOMDocument");   
+//  var   root;   
+//  var   newNode;   
+//  xmlDoc.async   =   false;   
+//  xmlDoc.resolveExternals   =   false;     
+//  xmlDoc.load("bao.xml");   
+//  root   =   xmlDoc.documentElement;   
+//  alert(root.xml);   
+//  //選取節點為student,其No屬性為'00000'的節點,傳回的是陣列.   
+//  firstNodeName   =   root.selectNodes("//student[@No='00000']");   
+//  firstNodeName[0].setAttribute("No","10000")   
+//  alert(root.xml);   
+
+function addElement() {
+   var rootElement = xmldoc.documentElement;
+   //建立留言元素
+   var newBoard = xmldoc.createElement('board');
+   //加入留言人子元素
+    var person = xmldoc.createElement('person');
+    var personF = xmldoc.createTextNode(document.myform.person.value);
+	person.appendChild(personF);
+    newBoard.appendChild(person);
+    //加入表情子元素	
+    var humor = xmldoc.createElement('humor');
+    var humorF = xmldoc.createTextNode(document.myform.humor.value);
+    humor.appendChild(humorF);
+    newBoard.appendChild(humor);
+	//加入電話子元素
+    var tel = xmldoc.createElement('tel');
+    var telF = xmldoc.createTextNode(document.myform.tel.value);
+    tel.appendChild(telF);
+    newBoard.appendChild(tel);
+	//加入留言訊息子元素	
+    var message = xmldoc.createElement('message');
+    var messageF = xmldoc.createTextNode(document.myform.message.value);
+    message.appendChild(messageF);
+    newBoard.appendChild(message);
+    //向文件中追加一條留言訊息 
+    rootElement.appendChild(newBoard);
+  }
+  
+</script>
+<form action="#" method="get" id="myform" name="myform">
+留言人: 
+  <input type="text" name="person" id="person" size="50" />
+  <br />
+表&nbsp;&nbsp;情: 
+<input type="text" name="humor" id="humor" size="30" />
+<br />
+電&nbsp;&nbsp;話: 
+<input type="text" name="tel" id="tel" size="20" />
+<br />
+留言內容: 
+<textarea name="message" cols="50" rows="5" id="message"></textarea>
+<br />
+<!--透過onclick呼叫addElement()函數加入新元素-->
+<input type="button" value="加入留言" onClick="addElement();" />
+<!--透過onclick呼叫deleteLastElement() 函數移除最後元素-->
+<input type="button" value="移除最後一條留言" onClick="deleteLastElement();" />
+</form>
+</body>
+</html>

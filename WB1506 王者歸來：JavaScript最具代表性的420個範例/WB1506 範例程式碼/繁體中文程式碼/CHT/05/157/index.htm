@@ -1,0 +1,32 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>文字上下卷動</title>
+</head>
+
+<body>
+<div id="TDiv" style="position: absolute;top: 50; color: #000000;font-size:20px;">
+<p>歡迎購買明日科技圖書</p></div>
+<script language="JavaScript">
+down=true;
+function act(yp,yk,yx){
+	ob=document.all("TDiv");
+	ob.style.posTop=yp;
+	if (yp<=yx) down=true;
+	if (yp>=yk) down=false;
+	if (down){step=4;}
+	else{step=-4;}
+	setTimeout('act('+(yp+step)+','+yk+','+yx+')', 35);
+}
+function activity(){
+	ob=document.all("TDiv");
+	if (ob.style.posTop<=50){
+		var hei=document.body.clientHeight;
+		act(50,hei-100,50)
+	}
+}
+activity();
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>未命名文件</title>
+</head>
+
+<body>
+<table id="table1" align=center width="300" border="0" cellspacing="0">
+  <tr>
+    <td id="btb" align=center>&nbsp;</th>
+    <td id="btb" align=center>姓名</th>
+    <td id="btb" align=center>性別</th>
+    <td id="btb" align=center>籍貫</th>
+  </tr>
+  <tr>
+    <td id="btb" align=center>校長</th>
+    <td id="btb" align=center>方先生</td>
+    <td id="btb" align=center>男</td>
+    <td id="btb" align=center>長春</td>
+  </tr>
+  <tr>
+    <td id="btb" align=center>老師</th>
+    <td id="btb" align=center>張先生</td>
+    <td id="btb" align=center>男</td>
+    <td id="btb" align=center>天津</td>
+  </tr>
+  <tr>
+    <td id="btb" align=center>老師</th>
+    <td id="btb" align=center>李先生</td>
+    <td id="btb" align=center>男</td>
+    <td id="btb" align=center>四川</td>
+  </tr>
+</table>
+<script language="javascript">
+var i=0;
+var row=table1.rows.length;
+var column=table1.rows(1).cells.length;
+for (i=0;i<row*column;i++){
+	btb[i].style.borderTop="#000000  1px  dotted";
+	btb[i].style.borderLeft="#000000  1px  dotted";
+	for (var j=1;j<=column;j++)
+		btb[j*row-1].style.borderRight="#000000  1px  dotted";
+	if (i>=(row-1)*column)
+		btb[i].style.borderBottom="#000000  1px  dotted";
+}
+</script>
+</body>
+</html>

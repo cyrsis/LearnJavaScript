@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>套用下拉選單選取所要聯機的網站</title>
+<script language="javascript">
+<!--
+function goURL(){
+var thebox=document.form1
+if(thebox.fig.checked){
+  if(!window.newwindow){
+    newwindow=window.open("")
+    newwindow.location=
+    thebox.example.options[thebox.example.selectedIndex].value 
+  }
+}
+else
+window.location=
+thebox.example.options[thebox.example.selectedIndex].value
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+.style1 {color: #FFFFFF}
+-->
+</style>
+</head>
+<body style="font-size:12px">
+<table width="301" height="193" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="middle" background="images/bg.JPG"><br>      <table width="196" height="50" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td  valign="top">            
+            <form name="form1">
+			<input type="checkbox" name="fig" value="on">
+              <span class="style1">新視窗存取</span><br>
+              <select name="example" onchange="">
+                <option value="http://www.mingrisoft.com">明日</option>
+                <option value="http://www.mingrisoft.com">明日新聞</option>
+                <option value="http://www.mingrisoft.com">明日科技</option>
+                <option value="http://www.mingrisoft.com/board/index.asp">明日討論區</option>
+              </select>
+              <input name="button" type="button" onclick="goURL()" value="Go!">           
+          </form></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

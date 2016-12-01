@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>選取字型的大小</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+<select id='select1' onchange='Gfont()'><option selected>
+選取字型大小
+</select>
+<p></p>
+<textarea name="textarea" style="width:400px; height:100px " id='text1'>這裡的字型應該隨選取變化
+</textarea>
+<script language="JavaScript">
+for (i=1;i<192;i++){
+	eval("select1.options[i]=new Option "+"('"+(i+8)+"pt字型','"+(i+8)+"')");
+}
+function Gfont(){
+	if((select1.selectedIndex!=-1)&&(select1.selectedIndex!=0)){
+		text1.style.fontSize=select1.options[select1.selectedIndex].value;
+	}
+}
+</script>
+</body>
+</html>

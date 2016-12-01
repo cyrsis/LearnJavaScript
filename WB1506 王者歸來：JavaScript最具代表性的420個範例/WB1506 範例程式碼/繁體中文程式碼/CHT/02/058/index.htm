@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>限制多行文字域輸入的字元個數</title>
+<SCRIPT language=JavaScript>
+<!--
+var LastCount =0;
+function CountStrByte(Message,Total,Used,Remain){ //位元組統計
+ var ByteCount = 0;
+ var StrValue  = Message.value;
+ var StrLength = Message.value.length;
+ var MaxValue  = Total.value;
+
+ if(LastCount != StrLength) { // 在此判斷，減少循環次數
+	for (i=0;i<StrLength;i++){
+		ByteCount  = (StrValue.charCodeAt(i)<=256) ? ByteCount + 1 : ByteCount + 2;
+      if (ByteCount>MaxValue) {
+      	Message.value = StrValue.substring(0,i);
+			alert("評論內容最多不能超過 " +MaxValue+ " 個位元組！\n注意：一個中文字為兩位元組。");
+         ByteCount = MaxValue;
+         break;
+      }
+	}
+   Used.value = ByteCount;
+   Remain.value = MaxValue - ByteCount;
+   LastCount = StrLength;
+ }
+}
+//-->
+</SCRIPT>
+</head>
+<body style="font-size:12px">
+<table width="787" height="724" border="0" align="center" cellpadding="0" cellspacing="0" background="bg.jpg">
+  <tr>
+    <td width="218" height="400">&nbsp;</td>
+    <td width="569" height="400">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="224">&nbsp;</td>
+    <td align="center" valign="middle" height="224"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <form name="form1">
+        <tr>
+          <td width="23%" height="22" align="right" class="font2">評論人暱稱：</td>
+          <td width="77%" height="22" align="left"><input name="評論人暱稱" type="text" class="textbox" id="評論人暱稱" /></td>
+        </tr>
+        <tr>
+          <td height="22" align="right" class="font2">評論內容：</td>
+          <td height="22" align="left"><textarea name="評論內容" cols="45" rows="5" id="評論內容" onKeyDown="CountStrByte(this.form.評論內容,this.form.total,this.form.used,this.form.remain);" onKeyUp="CountStrByte(this.form.評論內容,this.form.total,this.form.used,this.form.remain);"></textarea>
+              <br />
+        最多容許
+        <input name="total" type="text" disabled class="textbox" id="total"  value="100" size="3">
+        個位元組 已用位元組：
+        <input name="used" type="text" disabled class="textbox" id="used"  value="0" size="3">
+        剩余位元組：
+        <input name="remain" type="text" disabled class="textbox" id="remain" value="100" size="3">
+          </td>
+        </tr>
+        <tr>
+          <td height="22">&nbsp;</td>
+          <td height="22" align="left"><input name="add" type="submit" class="button" id="add" value="提 交" />
+              <input name="Submit2" type="reset" class="button" value="重 置" />
+              </td>
+        </tr>
+      </form>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="100">&nbsp;</td>
+    <td height="100">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

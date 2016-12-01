@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>半透明背景的超連結提示</title>
+<link href="style.css" rel="stylesheet">
+<script language="JavaScript">
+var offsetX = -30;
+var offsetY = 20;
+var toolTipSTYLE="";
+function moveToMouse(){
+    x = event.x + document.body.scrollLeft;
+    y = event.y + document.body.scrollTop;
+    toolTipSTYLE.left = x + offsetX;
+    toolTipSTYLE.top = y + offsetY;
+    return true;
+}
+function initToolTips(){
+	toolTipSTYLE = document.all.toolTipLayer.style;
+	document.onmousemove = moveToMouse;
+}
+
+function toolTip(title){
+  if(toolTip.arguments.length < 1) { // 隱藏
+     toolTipSTYLE.display = "none";
+  } else { // 顯示
+    var content = "<table align='left'><tr><td nowrap class='ToolTip' style='padding:5px'>" +title + "</td></tr></table>";
+      document.all("toolTipLayer").innerHTML=content;
+      toolTipSTYLE.display='block'
+  }
+}
+</script> 
+</head>
+
+<body>
+<DIV id="toolTipLayer" style="POSITION: absolute"></DIV>
+<SCRIPT language=JavaScript>initToolTips(); </SCRIPT>
+<table width="780" height="466" border="0" align="center" cellpadding="0" cellspacing="0" background="images/bg.jpg">
+  <tr>
+    <td height="68" colspan="6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="384" height="21">&nbsp;</td>
+    <td width="78"><a href="#" onMouseOver="toolTip('點選進入明日科技軟體網站!');" onmouseout="toolTip();" target="_blank">軟體網站</a></td>
+    <td width="80"><a href="#" onMouseOver="toolTip('點選進入明日科技圖書網站!');" onmouseout="toolTip();" target="_blank">圖書網站</a></td>
+    <td width="91"><a href="#" onMouseOver="toolTip('點選設為IE預設主頁!');" onmouseout="toolTip();" target="_blank">設為首頁</a></td>
+    <td width="78"><a href="#" onMouseOver="toolTip('點選將該網站加入至收藏夾');" onmouseout="toolTip();" target="_blank">加入收藏</a></td>
+    <td width="69"><a href="#"  onMouseOver="toolTip('點選傳送Email!');" onmouseout="toolTip();" target="_blank">聯繫我們</a></td>
+  </tr>
+  <tr>
+    <td colspan="6">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

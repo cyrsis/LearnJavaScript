@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>動蕩的文字</title>
+</head>
+<div align=center id=Tdiv></div>
+<body onload=wavy(0)>
+<SCRIPT language="JavaScript">
+var theText = "明日科技圖書";
+function Cycle(text,dis){
+	str = "";
+	for (i = 0; i < text.length; i++){
+	   size = 72*Math.abs( Math.sin((i+dis)/(text.length/3.14)));
+	   str += "<font style='font-size: "+ size +"pt;color:RGB(100,0,"+(size+70)+")'>" +text.substring(i,i+1)+ "</font>";
+	}
+	Tdiv.innerHTML = str;
+}
+function wavy(n){
+	Cycle(theText,n);
+	if (n > theText.length) {n=0}
+	setTimeout("wavy(" + (n+1) + ")", 100);
+}
+</SCRIPT>
+
+</body>
+</html>

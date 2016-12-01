@@ -1,0 +1,52 @@
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: red;
+}
+BODY {
+	COLOR: #000000;
+}
+TD,TH {
+	FONT-SIZE:12px; COLOR: #000000;
+}
+.buttoncss {
+    font-family: "Tahoma", "宋體";
+    font-size: 9pt; color: #003399;
+    border: 1px #003399 solid;
+    color:006699;
+    BORDER-BOTTOM: #93bee2 1px solid; 
+    BORDER-LEFT: #93bee2 1px solid; 
+    BORDER-RIGHT: #93bee2 1px solid; 
+    BORDER-TOP: #93bee2 1px solid;
+    background-color: #ffffff;
+    CURSOR: hand;
+    font-style: normal ;
+}
+
+.inputcss {  
+    font-size: 9pt; 
+    color: #003399; 
+    font-family: "宋體"; 
+    font-style: normal; 	
+    border-color: #93BEE2 #93BEE2 #93BEE2 #93BEE2 ; 
+    border: 1px #93BEE2 solid; 
+}
+
+.scrollbar{
+   SCROLLBAR-FACE-COLOR: #3366CC; 
+   FONT-SIZE: 9pt; 
+   SCROLLBAR-HIGHLIGHT-COLOR: #3366CC; 
+   SCROLLBAR-SHADOW-COLOR: #CFD9EC; 
+   SCROLLBAR-3DLIGHT-COLOR: #CFD9EC; 
+   SCROLLBAR-ARROW-COLOR: #CFD9EC; 
+   SCROLLBAR-TRACK-COLOR: #CFD9EC;
+   SCROLLBAR-DARKSHADOW-COLOR: #CFD9EC;
+
+ }

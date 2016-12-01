@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>文字的拋出效果</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body bgColor="#0033CC" leftMargin="0" onload=start(0) topMargin="0">
+<table border="0" cellPadding="0" style="FONT-SIZE: 9pt" width="100%">
+  <TR>
+    <TD align=middle style="COLOR: rgb(255,255,0)" width="100%">
+      <DIV align=center id="div1"></DIV>
+	</TD>
+  </TR>
+</table>
+<script language="JavaScript">
+function nextSize(i,textLength){
+	return (32*Math.abs( Math.sin(i/(textLength/3.14))));
+}
+function Ssize(text,few){
+	s = "";
+	for (i = 0; i < text.length; i++){
+		size = parseInt(nextSize(i +few,text.length));
+		s += "<font style='font-size: "+ size +"pt'>" +text.substring(i,i+1)+ "</font>";
+	}
+	div1.innerHTML = s;
+}
+function start(n){   
+	str = "※※※※※明日科技※※※※※";
+	Ssize(str,n);
+	if (n > str.length) {n=0}
+	setTimeout("start(" + (n+1) + ")", 50);
+}
+</script>
+</body>
+</html>

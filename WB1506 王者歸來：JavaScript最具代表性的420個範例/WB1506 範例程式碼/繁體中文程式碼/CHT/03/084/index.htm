@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>透過正規表示法驗證日期</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="CSS/style.css" rel="stylesheet">
+</head>
+<script language="javascript">
+function CheckDate(str){
+	 //在JavaScript中，正規表示法只能使用"/"開頭和結束，不能使用雙引號
+	var Expression=/^((((1[6-9]|[2-9]\d)\d{2})(\/|\-)(0?[13578]|1[02])(\/|\-)(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})(\/|\-)(0?[13456789]|1[012])(\/|\-)(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})(\/|\-)0?2(\/|\-)(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))$/; 
+	var objExp=new RegExp(Expression);
+	if(objExp.test(str)==true){
+		return true;
+	}else{
+		return false;
+	}
+}
+function check(myform){
+	if(myform.sDate.value==""){
+		alert("請輸入開始日期");myform.sDate.focus();return;
+	}		
+	if(!CheckDate(myform.sDate.value)){
+		alert("您輸入的開始日期不正確！\n請注意日期格式（如：2007/07/17或2007-07-17）或閏年！");myform.sDate.focus();return;
+	}
+	if(myform.eDate.value==""){
+		alert("請輸入結止日期");myform.eDate.focus();return;
+	}		
+	if(!CheckDate(myform.eDate.value)){
+		alert("您輸入的結止日期不正確！\n請注意日期格式（如：2007/07/17或2007-07-17）或閏年！");myform.eDate.focus();return;
+	}
+	myform.submit();
+}
+</script>
+<body><form name="form1" method="post" action="">
+<table width="608" height="82"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top" background="images/bg.JPG"><table width="100%" height="62"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="39" colspan="2" align="center" class="word_white">透過正規表示法驗證日期</td>
+      </tr>
+      <tr>
+        <td width="17%">&nbsp;</td>
+        <td width="83%">從
+            <input name="sDate" type="text" id="sDate">
+&nbsp;到&nbsp; <input name="eDate" type="text" id="eDate">
+&nbsp;
+<input name="Button" type="button" class="btn_grey" value="查詢" onClick="check(form1)"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table></form>
+</body>
+</html>

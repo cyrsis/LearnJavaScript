@@ -1,0 +1,106 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>小寫金額轉為大寫金額</title>
+<link href="style.css" rel="stylesheet">
+</head>
+<script language="javaScript">
+	function convert(str){
+		if(str==""){
+			alert("請輸入金額！");form1.money.focus();return;
+		}
+		if(isNaN(str)){
+			alert("您輸入的金額非法!");return;
+		}
+		if(str>999999999999){
+			alert("您輸入的金額不能大於999999999999!");return;
+		}
+		//將小數點後保留兩位小數
+		if(str.indexOf(".")>0){
+			var decimal=str.length-str.indexOf(".")-1;
+			if(decimal>2){
+				str=str.substr(0,str.length+2-decimal);
+			}
+		}
+		value=change(str); //呼叫自訂函數轉換
+		form1.moneyok.value=value;  //將轉換後的值賦給"轉換後的大寫金額"文字框
+	}
+	function change(str){
+		je="零壹貳三肆伍陸柒捌玖";
+		cdw="萬仟佰拾億仟佰拾萬仟佰拾元角分";
+		var newstring=(str*100).toString();
+		newstringlog=newstring.length;
+		newdw=cdw.substr(cdw.length-newstringlog);
+		num0=0;     //記錄零的個數
+		wan=0;     //記錄萬位出現的次數
+		dxje="";     //記錄大寫金額
+		for(m=1;m<newstringlog+1;m++){
+			xzf=newstring.substr(m-1,1);   
+			dzf=je.substr(xzf,1);
+			dw=newdw.substr(m-1,1);
+			if(dzf=="零"){
+				dzf="";
+			if(dw=="億"){
+			}else if(dw=="萬"){
+				dzf="";
+				wan=1; 
+			}else if(dw=="元"){
+
+			}else{
+				dw="";	//記錄單位		
+			}
+			num0=num0+1;
+			}else{
+				if(num0-wan>0){
+					if(dw!="角"){
+					dzf="零"+dzf;
+					}
+				}
+				num0=0;
+
+			}
+			dxje=dxje+dzf+dw;
+		}
+		if(newstring.length!=1){
+			if(newstring.substr(newstring.length-2)=="00"){
+				dxje=dxje+"整";
+			}else{
+				dxje=dxje;
+			}
+		}
+		return dxje;
+	} 
+	
+</script>
+
+<body>
+<form action="" name="form1" method="post">
+<table width="461" height="216" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="513" background="images/bg.gif"><table width="340" height="202" border="0" align="right" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="58">&nbsp;</td>
+        <td>請輸入小寫金額：<br>
+          <input name="money" type="text" id="money" size="42" maxlength="15" /></td>
+      </tr>
+      <tr>
+        <td height="96">&nbsp;</td>
+        <td valign="middle">轉換後的大寫金額：<br>
+          <textarea name="moneyok" cols="40" rows="4" class="wenbenkuang" id="moneyok"></textarea>          <br></td>
+      </tr>
+      
+      <tr>
+        <td width="50">&nbsp;</td>
+        <td width="319"><input name="Button" type="button" class="btn_grey" onClick="convert(this.form.money.value)" value="轉換" />
+          </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<table width="200"border="1" cellpadding="0" cellspacing="0" bordercolor="#000000" bordercolordark="#FFFFFF" bordercolorlight="#666666" id="table1">
+  <tr>
+    <td id="cell-1">產品</td>
+    <td id="cell-2">個數</td>
+    <td id="cell-3">單價</td>
+  </tr>
+  <tr>
+    <td id="cell-4">顯示器</td>
+    <td id="cell-5">20</td>
+    <td id="cell-6">1950</td>
+  </tr>
+  <tr>
+    <td id="cell-7">CPU</td>
+    <td id="cell-8">30</td>
+    <td id="cell-9">1430</td>
+  </tr>
+</table>
+<form name="form1" method="post" action="">
+  <input name="Button1" type="button" id="Button1" value="加入行" onclick="addRow()">
+  <input name="Button2" type="button" id="Button2" value="加入單元格" onclick="addCell()">
+</form>
+<script language="javascript">
+var lastSelection = null;
+function select(element) {
+	var e, r, c;
+	if (element == null){e = window.event.srcElement;}
+	else {  e = element;  }
+	if ((window.event.altKey) || (e.tagName == "TR")) {
+		r = findRow(e);
+		if (r != null) {
+			if (lastSelection != null){deselectRowOrCell(lastSelection);} 
+			selectRowOrCell(r);
+			lastSelection = r;
+		} 
+	}
+	else {
+		c = findCell(e);
+		if (c != null) {
+			if (lastSelection != null) {deselectRowOrCell(lastSelection);}
+			selectRowOrCell(c); 
+			lastSelection = c;
+		} 
+	}
+	window.event.cancelBubble = true;
+} 
+table1.onclick=select;
+function findCell(e) {
+	if (e.tagName == "TD") {return e;}
+	else if (e.tagName == "BODY") {return null;} 
+		else{return findCell(e.parentElement);}  
+}
+function selectRowOrCell(r) {
+
+	r.runtimeStyle.backgroundColor="darkblue";
+	r.runtimeStyle.color="white";
+}
+function deselectRowOrCell(r) { 
+	r.runtimeStyle.backgroundColor = "";
+	r.runtimeStyle.color = "";
+}
+//查詢是否有行
+function findRow(e) {
+	if (e.tagName == "TR") {  return e;  } 
+	else if (e.tagName == "BODY") {  return null;  }
+		else {  return findRow(e.parentElement);  }
+}
+//為表格加入行
+function addRow() {
+	var r, p, nr; 
+	if (lastSelection==null) {r=null;p=table1.children[0];}
+	else { 
+		r = lastSelection;
+		if (r.tagName=="TD") {r=r.parentElement;}
+		p = r.parentElement; 
+	} 
+	nr = document.createElement("TR"); 
+	p.insertBefore(nr, r);
+	select(nr);
+	addCell();
+	return nr;   
+}
+//在加入的行中插入一個單元格
+function addCell(){
+	var r, p, c, nc, text; 
+	if (lastSelection == null)  return false;
+	r = lastSelection;
+	if (r.tagName == "TD") {r = r.parentElement;c = lastSelection;} 
+	else {c = null;}
+	nc = document.createElement("TD");
+	text = document.createTextNode("單元格");
+	nc.insertBefore(text, null); 
+	r.insertBefore(nc, c);
+	select(nc);
+	return nc; 
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自動隱藏式選單</title>
+<script type="text/javascript" src="JS/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#flag").mouseover(function(){
+			$("#menu").show(300);		//顯示選單
+		});
+		$("#menu").hover(null,function(){
+			$("#menu").hide(300);		//隱藏選單
+		});		
+	});
+</script>
+<style type="text/css">
+ul{
+	font-size:12px;
+	list-style:none;	/*不顯示專案符號*/
+	margin:0px;		/*設定外邊距*/
+	padding:0px;		/*設定內邊距*/
+}
+li{
+	padding:7px;		/*設定內邊距*/
+}
+a{
+	color:#000;				/*設定文字的彩色*/
+	text-decoration: none;	/*不顯示下劃線*/
+}
+a:hover{
+	color:#F90;			/*設定文字的彩色*/
+}
+#menu{
+	float:left; 			/*浮動在左側*/
+	text-align:center; 		/*文字水平置中顯示*/
+	width:70px; 			/*設定寬度*/
+	height:295px; 			/*設定高度*/
+	padding-top:5px; 		/*設定頂內邊距*/
+	display:none; 			/*顯示狀態為不顯示*/
+	background-image:url(images/menu_bg.gif);		/*設定背景圖片*/
+}
+</style>
+</head>
+
+<body>
+
+<div id="menu">
+<ul>
+	<li><a href="../../24/21/www.mingribook.com">圖書介紹</a></li>
+    <li><a href="../../24/21/www.mingribook.com">新書預告</a></li>
+    <li><a href="../../24/21/www.mingribook.com">圖書銷售</a></li>
+    <li><a href="../../24/21/www.mingribook.com">勘誤發布</a></li>
+    <li><a href="../../24/21/www.mingribook.com">資料下載</a></li>
+    <li><a href="../../24/21/www.mingribook.com">好書推薦</a></li>
+    <li><a href="../../24/21/www.mingribook.com">技術支援</a></li>
+    <li><a href="../../24/21/www.mingribook.com">聯繫我們</a></li>
+</ul>
+</div>
+<img  src="images/title.gif" width="30" height="80" id="flag" />
+</body>
+</html>

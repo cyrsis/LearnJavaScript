@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<span class="style2"></span>
+<script language="JavaScript">
+var Timer,timIn,timOut;
+var leftLine = 50;
+function runTim(){
+window.Timer = setTimeout('moveOut()',300);
+}
+function stopTim(){
+clearTimeout(window.Timer);
+}
+function moveIn(){
+    if( leftLine != 150)     {
+		div1.style.pixelLeft += 20; div1.filters.alpha.opacity += 20; 
+		div2.style.pixelLeft -= 20; div2.filters.alpha.opacity += 20; 
+		div3.style.pixelLeft += 20; div3.filters.alpha.opacity += 20; 
+		div4.style.pixelLeft -= 20; div4.filters.alpha.opacity += 20;
+		div5.style.pixelLeft += 20; div5.filters.alpha.opacity += 20;
+		div6.style.pixelLeft -= 20; div6.filters.alpha.opacity += 20;
+		div7.style.pixelLeft += 20; div7.filters.alpha.opacity += 20;
+		div8.style.pixelLeft -= 20; div8.filters.alpha.opacity += 20;
+		div9.style.pixelLeft += 20; div9.filters.alpha.opacity += 20;
+		div10.style.pixelLeft -= 20; div10.filters.alpha.opacity += 20;
+		leftLine += 20;
+	}
+	else{
+		clearTimeout(window.timIn);
+    	return false;
+	}
+	timerIn=window.setTimeout('moveIn()',1);
+}
+function moveOut(){ 
+   clearTimeout(window.timIn);
+   if (leftLine != 50){
+      div1.style.pixelLeft -= 20; div1.filters.alpha.opacity -= 20;
+      div2.style.pixelLeft += 20; div2.filters.alpha.opacity -= 20;
+      div3.style.pixelLeft -= 20; div3.filters.alpha.opacity -= 20;
+      div4.style.pixelLeft += 20; div4.filters.alpha.opacity -= 20;
+      div5.style.pixelLeft -= 20; div5.filters.alpha.opacity -= 20;
+      div6.style.pixelLeft += 20; div6.filters.alpha.opacity -= 20;
+      div7.style.pixelLeft -= 20; div7.filters.alpha.opacity -= 20;
+      div8.style.pixelLeft += 20; div8.filters.alpha.opacity -= 20;
+      div9.style.pixelLeft -= 20; div9.filters.alpha.opacity -= 20;
+      div10.style.pixelLeft += 20; div10.filters.alpha.opacity -= 20;
+      leftLine -= 20;
+	}
+	else{
+	 clearTimeout(window.timOut);
+     return false;
+    }
+	timerOut=window.setTimeout("moveOut()",1);
+}
+</script>
+
+<div style="position:absolute; left:0px; top:-30px"><div align=center id="menu01" style="position:absolute; left:150px; top:33px; width:100px; height:19px; z-index:1; background-color: #006633; layer-background-color: #006600; border: 1px none #000000;padding-top:3;cursor:hand;font-size:9pt" onmouseover='stopTim();moveIn()' onmouseout='runTim()'><font color=white>主選單</div> 
+<div align=center id="div1" style="position:absolute; left:50px; top:55px; width:99px; height:19px; z-index:2; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0); padding-top:4; cursor:hand; font-size:9pt; color: #FFFFFF;" 
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(1)</div>
+<div align=center id="div2" style="position:absolute; left:250px; top:77px; width:99px; height:19px; z-index:3; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(2)</div>
+<div align=center id="div3" style="position:absolute; left:50px; top:99px; width:99px; height:19px; z-index:4; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(3)</div>
+<div align=center id="div4" style="position:absolute; left:250px; top:121px; width:99px; height:19px; z-index:5; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(4)</div>
+<div align=center id="div5" style="position:absolute; left:50px; top:143px; width:99px; height:19px; z-index:6; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(5)</div>
+<div align=center id="div6" style="position:absolute; left:250px; top:165px; width:99px; height:19px; z-index:6; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(6)</div>
+<div align=center id="div7" style="position:absolute; left:50px; top:187px; width:99px; height:19px; z-index:6; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(7)</div>
+<div align=center id="div8" style="position:absolute; left:250px; top:209px; width:99px; height:19px; z-index:6; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(8)</div>
+<div align=center id="div9" style="position:absolute; left:50px; top:231px; width:99px; height:19px; z-index:6; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(9)</div>
+<div align=center id="div10" style="position:absolute; left:250px; top:253px; width:99px; height:19px; z-index:6; background-color: #00CC66; layer-background-color: #0099CC; border: 1px none #000000; filter:alpha(opacity=0);padding-top:3;cursor:hand;font-size:9pt"
+onmouseover="this.style.backgroundColor= '#006699';stopTim()" 
+onmouseout="this.style.backgroundColor= '#00CC66';runTim()">選單項(10)<span class="style2"></span></div>
+</div>
+</body>
+</html>
